@@ -32,6 +32,18 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
+// GET PATIENTS ROUTE
+$routes->get('/patients/offset/(:any)', 'Patients::index/$1');
+
+// GET PATIENTS AND ORDER ROTUE
+$routes->get('/patients/offset/(:any)/(:any)', 'Patients::index/$1/$2');
+
+// SEARCH ROUTES
+// patients/search/name/surname/cnp'
+$routes->get('/patients/search/(:any)/(:any)/(:any)', 'Patients::advancedSearch/$1/$2/$3'); 
+$routes->get('/patients/search/(:any)/(:any)', 'Patients::search/$1/$2'); 
+
+
 /**
  * --------------------------------------------------------------------
  * Additional Routing
