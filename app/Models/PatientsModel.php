@@ -6,16 +6,16 @@ use CodeIgniter\Model;
 
 class PatientsModel extends Model
 {
+    // Third Option: use the query builder
     public function getPatients($offset, $order)
     {
-        // Third Option: use the query builder
         $db = \Config\Database::connect();
         $builder = $db->table('patients');
 
         return $builder->orderBy('id', $order)->get(5, $offset)->getResult('array');
     }
 
-     public function regularPatientsSearch($criteria, $value)
+    public function regularPatientsSearch($criteria, $value)
     {
         $db = \Config\Database::connect();
         $builder = $db->table('patients');
@@ -25,12 +25,11 @@ class PatientsModel extends Model
 
     public function advancedPatientsSearch($name, $surname, $cnp)
     {
-        $array = array('name' => $name, 'surname' => $surname, 'cnp' => $cnp);
+        $searchList = array('name' => $name, 'surname' => $surname, 'cnp' => $cnp);
 
         $db = \Config\Database::connect();
         $builder = $db->table('patients');
 
-        return $builder->where($array)->get()->getResult('array');
+        return $builder->where($searchList)->get()->getResult('array');
     }
-
 }
