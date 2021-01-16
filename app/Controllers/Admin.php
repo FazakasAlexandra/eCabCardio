@@ -26,7 +26,7 @@ class Admin extends BaseController
 			'title' => 'This is a Awesome blog',
 		];
 
-		return view('pages/exam.php', $experiment);
+		return view('pages/examinations.php', $experiment);
 
 		echo view('templates/footer.php');
 
