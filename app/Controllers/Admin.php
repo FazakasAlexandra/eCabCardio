@@ -19,15 +19,12 @@ class Admin extends BaseController
 		$examinationmodel = new ExaminationsModel();
 		$data = $examinationmodel->getExaminations();
 		
-		var_dump($data);
-		
-		$experiment = [
-			'meta' => 'Codeigniter 4 Post Page',
-			'title' => 'This is a Awesome blog',
+		$info = [
+			'title' => 'Modify and examination',
 			'data' => $data
 		];
 
-		return view('pages/examinations.php', $experiment);
+		return view('pages/examinations.php', $info);
 
 		echo view('templates/footer.php');
 
