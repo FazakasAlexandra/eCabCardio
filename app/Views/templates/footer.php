@@ -1,3 +1,5 @@
+
+<script src="/public/patients.js"></script>
 </body>
 
 <footer class="footer">

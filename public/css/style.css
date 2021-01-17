@@ -16,7 +16,7 @@ ul {
     padding: 0px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -43,24 +43,205 @@ a{
     color: white;
 }
 
-.welcome-message{
+.welcome-message {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.welcome-message .text{
+.welcome-message .text {
     color: #57B0F1;
 }
 
-.welcome-message .image{
+.welcome-message .image {
     width: 75%
 }
 
-.footer{
+.footer {
     text-align: center;
 }
 
-.footer .info{
+.footer .info {
     font-size: 10px;
+}
+
+.patients-page-container {
+    display: flex;
+    justify-content: center;
+}
+
+.pacients-table-wraper {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.25);
+
+}
+
+.patients-page-container table {
+    width: 100%;
+}
+
+.pacients-table-searchbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background: #DADADA;
+    width: 100%;
+    padding: 1rem 0rem 1rem 0rem;
+}
+
+.searchbar-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchbar-form input,
+.searchbar-form select{
+    border: solid;
+    border-width: 3px;
+    border-color: #828080;
+}
+
+.searchbar-form button {
+    cursor: pointer;
+    border: solid;
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 20%;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-color: #828080;
+    border-width: 4px;
+    color: #828080;
+    font-size: 1.1rem;
+    background-color: white;
+    margin-left: -0.4rem;
+}
+
+.searchbar-form input,
+.searchbar-form select {
+    height: 1.9rem;
+    width: 12rem;
+    font-size: 16px;
+}
+
+.searchbar-form select{
+    height: 2.4rem;
+    border-right: none;
+}
+
+.pacients-table-searchbar select:focus,
+.searchbar-form input:focus,
+.searchbar-form button:focus {
+    outline: none !important;
+}
+
+.searchbar-form .wraper{
+    display: flex;
+    flex-direction: column;
+}
+
+.searchbar-form.advanced button{
+    align-self: flex-end;
+    background-color: #828080;
+    color: white;
+    border-radius: 0%;
+}
+
+
+.searchbar-form.advanced{
+    width: 100%!important;
+    justify-content: space-evenly;
+}
+#advanced-search-button,
+#consult-patient-button,
+#edit-patient-button {
+    color: white;
+    background-color: #828080;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    font-weight: normal;
+}
+
+#edit-patient-button {
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+}
+
+#edit-patient-button i {
+    margin-right: 0.5rem;
+}
+
+.hiden{
+    display: none;
+}
+
+#add-patient-button {
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+    border: solid;
+    border-radius: 20%;
+    background-color: white;
+    color: #828080;
+}
+
+#consult-patient-button {
+    background-color: #57B0F1;
+    color: white;
+}
+
+th {
+    background-color: #C4C4C4;
+}
+
+table,
+th,
+td {
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
+}
+
+
+th:nth-child(4) {
+    text-align: right;
+}
+
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6) {
+    text-align: center;
+}
+
+td:nth-child(6) {
+    font-size: 2rem;
+    color: #828080;
+}
+
+td:nth-child(6) a {
+    color: #828080;
+
+}
+
+
+#order-by-th a {
+    background: #DADADA;
+    color: white;
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    margin-left: 0.2rem;
+}
+
+#order-by-th a:hover {
+    background-color: #57B0F1;
+}
+
+.pagination {
+    width: 97%;
+    display: flex;
+    margin: 3rem 0rem 1rem 0rem;
+    justify-content: space-between;
 }

@@ -18,24 +18,22 @@ class Patients extends BaseController
 		die();
 	}
 
-	public function search($criteria, $value)
+	public function search()
 	{
 		echo view('templates/header.php');
 
 		$model = new PatientsModel();
-		$data['patients'] = $model->regularPatientsSearch($criteria, $value);
 
-		echo view('pages/patients.php', $data);
+		if ($this->request->getGet('search-criteria')) {
 
-		die();
-	}
+			$data['patients'] = $model->search([
+				$this->request->getGet('search-criteria') => $this->request->getGet('search-value')
+			]);
+			
+		} else {
 
-	public function advancedSearch($name, $surname, $cnp)
-	{
-		echo view('templates/header.php');
-
-		$model = new PatientsModel();
-		$data['patients'] = $model->advancedPatientsSearch($name, $surname, $cnp);
+			$data['patients'] = $model->search($this->request->getGet());
+		}
 
 		echo view('pages/patients.php', $data);
 

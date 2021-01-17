@@ -15,18 +15,8 @@ class PatientsModel extends Model
         return $builder->orderBy('id', $order)->get(5, $offset)->getResult('array');
     }
 
-    public function regularPatientsSearch($criteria, $value)
+    public function search($searchList)
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('patients');
-
-        return $builder->where($criteria, $value)->get()->getResult('array');
-    }
-
-    public function advancedPatientsSearch($name, $surname, $cnp)
-    {
-        $searchList = array('name' => $name, 'surname' => $surname, 'cnp' => $cnp);
-
         $db = \Config\Database::connect();
         $builder = $db->table('patients');
 
