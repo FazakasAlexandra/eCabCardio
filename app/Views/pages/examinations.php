@@ -5,7 +5,8 @@
 <?php  
    
    for($i=0 ; $i < count($data); $i++){
-      echo $data[$i];
+      print_r($data[$i]);
+      echo '<br>';
    }
  
 ?>
