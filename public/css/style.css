@@ -1,19 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans");
 
 body {
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    text-decoration: none;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
 
-    font-family: 'Nunito Sans', sans-serif;
-    font-size: 20px;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 20px;
 }
 
 ul {
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
 }
 
 a {
@@ -21,26 +21,26 @@ a {
 }
 
 .navbar {
-    display: flex;
-    background-color: #57B0F1;
-    padding: 5px 5px;
-    align-items: center;
+  display: flex;
+  background-color: #57b0f1;
+  padding: 5px 5px;
+  align-items: center;
 }
 
 .navbar .logo {
-    width: 69px;
-    height: 64px;
+  width: 69px;
+  height: 64px;
 }
 
 .navbar .menu {
-    display: flex;
-    width: 270px;
-    justify-content: space-around;
-    margin-left: auto;
+  display: flex;
+  width: 270px;
+  justify-content: space-around;
+  margin-left: auto;
 }
 
 .navbar .menu a {
-    color: white;
+  color: white;
 }
 
 .welcome-message {
