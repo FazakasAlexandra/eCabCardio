@@ -38,10 +38,11 @@ $routes->get('/patients/offset/(:any)', 'Patients::index/$1');
 // GET PATIENTS AND ORDER ROTUE
 $routes->get('/patients/offset/(:any)/(:any)', 'Patients::index/$1/$2');
 
-// SEARCH ROUTES
-// patients/search/name/surname/cnp'
-$routes->get('/patients/search/(:any)/(:any)/(:any)', 'Patients::advancedSearch/$1/$2/$3'); 
-$routes->get('/patients/search/(:any)/(:any)', 'Patients::search/$1/$2'); 
+// SEARCH ROUTE
+$routes->get('/patients/search/', 'Patients::search/$1/$2'); 
+
+// CONSULT ROUTE
+$routes->get('/consult/(:any)', 'Consult::index/$1'); 
 
 
 /**

@@ -17,13 +17,12 @@ class Admin extends BaseController
 		
 		
 		$examinationmodel = new ExaminationsModel();
-		$array = $examinationmodel->getExaminations();
-		
-		var_dump($data);
-		
+		$data = $examinationmodel->getExaminations();
+				
 		$experiment = [
 			'meta' => 'Codeigniter 4 Post Page',
 			'title' => 'This is a Awesome blog',
+			'data' => $data
 		];
 
 		return view('pages/examinations.php', $experiment);

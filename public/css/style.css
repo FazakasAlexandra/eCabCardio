@@ -1,19 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans");
 
 body {
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-  text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
 
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 20px;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 20px;
 }
 
 ul {
-  list-style: none;
-  margin: 0px;
-  padding: 0px;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 
 a {
@@ -21,26 +21,26 @@ a {
 }
 
 .navbar {
-  display: flex;
-  background-color: #57b0f1;
-  padding: 5px 5px;
-  align-items: center;
+    display: flex;
+    background-color: #57b0f1;
+    padding: 5px 5px;
+    align-items: center;
 }
 
 .navbar .logo {
-  width: 69px;
-  height: 64px;
+    width: 69px;
+    height: 64px;
 }
 
 .navbar .menu {
-  display: flex;
-  width: 270px;
-  justify-content: space-around;
-  margin-left: auto;
+    display: flex;
+    width: 270px;
+    justify-content: space-around;
+    margin-left: auto;
 }
 
 .navbar .menu a {
-  color: white;
+    color: white;
 }
 
 .welcome-message {
@@ -85,12 +85,12 @@ a {
 
 .pacients-table-searchbar {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     background: #DADADA;
     width: 100%;
-    padding: 1rem 0rem 1rem 0rem;
+    padding: 1rem;
 }
 
 .searchbar-form {
@@ -100,7 +100,7 @@ a {
 }
 
 .searchbar-form input,
-.searchbar-form select{
+.searchbar-form select {
     border: solid;
     border-width: 3px;
     border-color: #828080;
@@ -123,14 +123,10 @@ a {
 
 .searchbar-form input,
 .searchbar-form select {
-    height: 1.9rem;
+    border-right: none;
+    height: 2.7rem;
     width: 12rem;
     font-size: 16px;
-}
-
-.searchbar-form select{
-    height: 2.4rem;
-    border-right: none;
 }
 
 .pacients-table-searchbar select:focus,
@@ -139,30 +135,22 @@ a {
     outline: none !important;
 }
 
-.searchbar-form .wraper{
-    display: flex;
-    flex-direction: column;
-}
 
-.searchbar-form.advanced button{
-    align-self: flex-end;
-    background-color: #828080;
-    color: white;
-    border-radius: 0%;
-}
-
-
-.searchbar-form.advanced{
-    width: 100%!important;
-    justify-content: space-evenly;
-}
 #advanced-search-button,
 #consult-patient-button,
 #edit-patient-button {
+    cursor: pointer;
     color: white;
     background-color: #828080;
     padding: 0.3rem 1rem 0.3rem 1rem;
     font-weight: normal;
+}
+
+
+#advanced-search-button {
+    border-style: solid;
+    border-color: #828080;
+    border-width: 2px;
 }
 
 #edit-patient-button {
@@ -173,16 +161,36 @@ a {
     margin-right: 0.5rem;
 }
 
-.hiden{
+.hidden {
     display: none;
 }
 
-#add-patient-button {
-    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
-    border: solid;
+
+.add-patient-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.add-patient-button-icon {
+    margin: 0px;
     border-radius: 20%;
-    background-color: white;
-    color: #828080;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border-width: 4px;
+    padding: 0.2rem 0rem 0.2rem 0.3rem;
+    border: solid;
+    background-color: #57B0F1;
+    color: white;
+    border-color: #57B0F1;
+}
+
+.add-patient-button-text {
+    padding: 0.2rem 0.5rem 0.2rem 0.3rem;
+    border-style: solid;
+    border-color: #57B0F1;
+    color: white;
+    background-color: #57B0F1;
 }
 
 #consult-patient-button {
@@ -228,14 +236,15 @@ td:nth-child(6) a {
 }
 
 
-#order-by-th a {
+.order-by-th .order {
     background: #DADADA;
     color: white;
     padding: 0.2rem 0.4rem 0.2rem 0.4rem;
     margin-left: 0.2rem;
 }
 
-#order-by-th a:hover {
+.order-by-th .order.active-order,
+.order-by-th .order:hover {
     background-color: #57B0F1;
 }
 
@@ -244,4 +253,30 @@ td:nth-child(6) a {
     display: flex;
     margin: 3rem 0rem 1rem 0rem;
     justify-content: space-between;
+    align-items: center;
+}
+
+.pagination-direction{
+    color:#828080;
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+
+.pagination-direction:hover{
+    color: #57B0F1;
+}
+
+.pagination-direction .fa-angle-left{
+    font-size: 2rem;
+    margin-right: 0.5rem;
+}
+
+.pagination-direction .fa-angle-right{
+    font-size: 2rem;
+    margin-left: 0.5rem;
+}
+
+.pagination-info{
+    color: #828080;
 }

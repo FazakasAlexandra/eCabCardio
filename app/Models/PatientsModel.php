@@ -6,13 +6,15 @@ use CodeIgniter\Model;
 
 class PatientsModel extends Model
 {
-    // Third Option: use the query builder
     public function getPatients($offset, $order)
     {
         $db = \Config\Database::connect();
         $builder = $db->table('patients');
 
-        return $builder->orderBy('id', $order)->get(5, $offset)->getResult('array');
+        return [
+            'records' => $builder->countAll(),
+            'patients' => $builder->orderBy('name', $order)->get(5, $offset)->getResult('array')
+        ];
     }
 
     public function search($searchList)

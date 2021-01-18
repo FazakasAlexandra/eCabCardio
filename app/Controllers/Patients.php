@@ -11,9 +11,12 @@ class Patients extends BaseController
 		echo view('templates/header.php');
 
 		$model = new PatientsModel();
-		$data['patients'] = $model->getPatients((int)$offset, $order);
+		$data = $model->getPatients((int)$offset, $order);
+		$data['offset'] = $offset;
+		$data['order'] = $order;
 
 		echo view('pages/patients.php', $data);
+		echo view('templates/footer.php');
 
 		die();
 	}
@@ -36,7 +39,18 @@ class Patients extends BaseController
 		}
 
 		echo view('pages/patients.php', $data);
+		echo view('templates/footer.php');
 
 		die();
+	}
+
+	public function history($id){
+		echo view('templates/header.php');
+		echo '<h3> history of patient with id ' . (string)$id . '</h3>';
+	}
+
+	public function edit($id){
+		echo view('templates/header.php');
+		echo '<h3> edit patient with id ' . (string)$id . '</h3>';
 	}
 }
