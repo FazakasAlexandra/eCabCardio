@@ -18,22 +18,58 @@ class Admin extends BaseController
 		
 		$examinationmodel = new ExaminationsModel();
 		$data = $examinationmodel->getExaminations();
-<<<<<<< HEAD
-				
-		$experiment = [
-			'meta' => 'Codeigniter 4 Post Page',
-			'title' => 'This is a Awesome blog',
-=======
 		
 		$info = [
-			'title' => 'Modify and examination',
->>>>>>> b5a4962bfedc50c725256ce8265d32ec2bf4dd43
-			'data' => $data
+			'title' => 'Modify an examination',
+			'data' => $data,
+			'message' => ''
 		];
 
 		return view('pages/examinations.php', $info);
 
-		echo view('templates/footer.php');
+	}
+	
+	public function updexam(){
 
+			echo view('templates/header.php');
+			if($this->request->getMethod()=='post'){
+			$model = new ExaminationsModel();
+			$newdata = [
+				'id' => $_POST['idReceived'],
+				'examination' => $_POST['newExam'],
+				'price' => $_POST['newPrice']
+			];				
+			$model->save($newdata);}
+
+			$data = $model->getExaminations();
+		
+			$info = [
+				'title' => 'Modify an examination',
+				'data' => $data,
+				'message' => 'Your modifications have been submitted successfully!'
+			];
+
+			return view('pages/examinations.php', $info);
+	}
+
+
+	public function dltexam($id){
+
+		echo view('templates/header.php');
+		$model = new ExaminationsModel();
+		$exam = $model->find($id);
+		if($exam){
+			$model -> delete($id);
+		};
+		
+		$data = $model->getExaminations();
+		$info = [
+			'title' => 'Modify an examination',
+			'data' => $data,
+			'message' => 'The entry has been successfully deleted!'
+		];
+		
+		return view('pages/examinations.php', $info);
 	}
 }
+	

@@ -1,8 +1,8 @@
 // SHOW/HIDE ADVANCED SEARCHBAR
-document.querySelector('#advanced-search-button').addEventListener('click',(e)=>{
+document.querySelector('#advanced-search-button').addEventListener('click', (e) => {
 
     e.stopPropagation()
-    
+
     const advancedSearchbarButton = document.querySelector('#advanced-search-button')
     const advancedSearchbar = document.querySelector('.advanced-searchbar')
 
@@ -12,14 +12,14 @@ document.querySelector('#advanced-search-button').addEventListener('click',(e)=>
 })
 
 // SET ACTIVE ORDER BUTTON
-function setActiveButtonColor(){
+function setActiveButtonColor() {
     if (window.location.href.indexOf("DESC") > -1) {
         document.querySelector('.desc').classList.add('active-order')
         document.querySelector('.asc').classList.remove('active-order')
-     } else {
+    } else {
         document.querySelector('.asc').classList.add('active-order')
         document.querySelector('.desc').classList.remove('active-order')
-     }
+    }
 };
 
 setActiveButtonColor()
