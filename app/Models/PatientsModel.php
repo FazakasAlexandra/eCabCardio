@@ -24,4 +24,11 @@ class PatientsModel extends Model
 
         return $builder->where($searchList)->get()->getResult('array');
     }
+
+    public function getSingle($patientId){
+        $db = \Config\Database::connect();
+        $builder = $db->table('patients');
+
+        return $builder->where(['id', $patientId])->get()->getResultArray();
+    }
 }

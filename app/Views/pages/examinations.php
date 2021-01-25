@@ -7,14 +7,6 @@
       </div>
    </div>
 
-<<<<<<< HEAD
-<?php  
-    for($i=0 ; $i < count($data); $i++){
-      print_r($data[$i]);
-   } 
- 
-?>
-=======
    <div class="row">
          <table class="table table-sm">
             <thead>
@@ -36,5 +28,4 @@
             </tbody>
          </table>
    </div>   
->>>>>>> b5a4962bfedc50c725256ce8265d32ec2bf4dd43
 </div>

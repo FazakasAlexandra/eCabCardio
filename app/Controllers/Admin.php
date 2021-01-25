@@ -18,16 +18,9 @@ class Admin extends BaseController
 		
 		$examinationmodel = new ExaminationsModel();
 		$data = $examinationmodel->getExaminations();
-<<<<<<< HEAD
-				
-		$experiment = [
-			'meta' => 'Codeigniter 4 Post Page',
-			'title' => 'This is a Awesome blog',
-=======
 		
 		$info = [
 			'title' => 'Modify and examination',
->>>>>>> b5a4962bfedc50c725256ce8265d32ec2bf4dd43
 			'data' => $data
 		];
 

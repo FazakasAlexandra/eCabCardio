@@ -11,7 +11,7 @@ class Patients extends BaseController
 		echo view('templates/header.php');
 
 		$model = new PatientsModel();
-		$data = $model->getPatients((int)$offset, $order);
+		$data = $model->getPatients((int) $offset, $order);
 		$data['offset'] = $offset;
 		$data['order'] = $order;
 
@@ -28,15 +28,16 @@ class Patients extends BaseController
 		$model = new PatientsModel();
 
 		if ($this->request->getGet('search-criteria')) {
-
 			$data['patients'] = $model->search([
 				$this->request->getGet('search-criteria') => $this->request->getGet('search-value')
 			]);
-			
 		} else {
-
 			$data['patients'] = $model->search($this->request->getGet());
 		}
+
+		$data['records'] = count($data['patients']);
+		$data['offset'] = 0;
+		$data['order'] = 'asc';
 
 		echo view('pages/patients.php', $data);
 		echo view('templates/footer.php');
@@ -44,13 +45,21 @@ class Patients extends BaseController
 		die();
 	}
 
-	public function history($id){
+	public function history($id)
+	{
 		echo view('templates/header.php');
 		echo '<h3> history of patient with id ' . (string)$id . '</h3>';
 	}
 
-	public function edit($id){
+	public function edit($id)
+	{
 		echo view('templates/header.php');
 		echo '<h3> edit patient with id ' . (string)$id . '</h3>';
+	}
+
+	public function add()
+	{
+		echo view('templates/header.php');
+		echo '<h3> edit patient page </h3>';
 	}
 }

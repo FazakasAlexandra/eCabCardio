@@ -1,10 +1,11 @@
  <!-- PATIETNS TABLE  -->
- <table style="width:100%">
+ <table style="width:100%" class="patients-table">
      <tr>
          <th>NAME</th>
          <th>SURNAME</th>
          <th>CNP</th>
 
+     <!-- ORDER BUTTONS  -->
          <?php echo view('/patients_templates/order.php'); ?>
 
      <!-- FILL TABLE WITH PATIENTS DATA  -->
@@ -16,7 +17,7 @@
              <td><?php echo $patient['cnp'] ?></td>
 
              <!-- EDIT BUTTON  -->
-             <td><a href="<?php echo "/ecabcardio/public/patients/edit/" . (string)$patient['id'] ?>" id="edit-patient-button"><i class="fas fa-pen"></i>EDIT PATIENT</a></td>
+             <td  ?><a href="<?php echo "/ecabcardio/public/patients/edit/" . (string)$patient['id'] ?>" class="edit-patient-button"><i class="fas fa-pen"></i>EDIT PATIENT</a></td>
 
              <!-- CONSULT BUTTON  -->
              <td><a href="<?php echo "/ecabcardio/public/consult/" . (string)$patient['id'] ?>" id="consult-patient-button">CONSULT</a></td>

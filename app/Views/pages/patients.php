@@ -6,4 +6,5 @@
         <?php echo view('/patients_templates/table.php'); ?>
         <?php echo view('/patients_templates/pagination.php'); ?>
     </div>
+
 </div>
