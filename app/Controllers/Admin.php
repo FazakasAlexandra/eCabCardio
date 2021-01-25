@@ -20,14 +20,9 @@ class Admin extends BaseController
 		$data = $examinationmodel->getExaminations();
 		
 		$info = [
-<<<<<<< HEAD
-			'title' => 'Modify and examination',
-			'data' => $data
-=======
 			'title' => 'Modify an examination',
 			'data' => $data,
 			'message' => ''
->>>>>>> 43af1497660041a646f43b57ff0622d55fd67a40
 		];
 
 		return view('pages/examinations.php', $info);

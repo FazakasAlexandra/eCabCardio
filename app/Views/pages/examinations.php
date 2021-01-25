@@ -58,29 +58,4 @@
       </div>
 </div>
 
-<<<<<<< HEAD
-   <div class="row">
-         <table class="table table-sm">
-            <thead>
-               <tr>
-                  <th scope="col">Examination</th>
-                  <th scope="col">Price</th>
-               </tr>
-            </thead>
-            <tbody>
-            <?php     
-            for($i = 0; $i<count($data); $i++){
-               //echo "<tr><br><td><br><a href='http://localhost/ecabcardio/public/admin/examinations/".$data[$i]['examination']."' role='button'>";
-               echo "<tr><br><td><br><a href='#' role='button'>";
-               echo($data[$i]['examination']);
-               echo "</a></button></td><br><td>";
-               echo($data[$i]['price']);
-               echo "</td><br></tr>";
-               }?>
-            </tbody>
-         </table>
-   </div>   
-</div>
-=======
 <?php echo view('templates/footer.php'); ?>
->>>>>>> 43af1497660041a646f43b57ff0622d55fd67a40
