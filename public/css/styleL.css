@@ -1,0 +1,33 @@
+/****************************EXAMINATIONS***********************/
+
+#table-button{
+    border:none;
+    text-decoration: none;
+    background: none;
+}
+
+#table-button:hover{
+   font-weight: bolder;
+}
+
+
+#form{
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+.buttons{
+    margin-top:20px;
+}
+
+#hidden{
+    display:none;
+}
+
+#message{
+    transition:0.4s;
+    color: red;
+    font-weight: bolder;
+}

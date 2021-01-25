@@ -7,6 +7,8 @@ use CodeIgniter\Model;
 class ExaminationsModel extends Model
 {
     protected $table = 'examinations';
+    protected $primaryKey = 'id';
+    protected $allowedFields = ['examination', 'price'];
 
     public function getExaminations()
     {
