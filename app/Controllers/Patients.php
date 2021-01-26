@@ -60,6 +60,25 @@ class Patients extends BaseController
 	public function add()
 	{
 		echo view('templates/header.php');
-		echo '<h3> edit patient page </h3>';
+		// view-ul cu formul pentru add patient
+		echo view('pages/add_form.php');
+	}
+
+	public function submit(){
+		$data = $this->request->getPost();
+		$data['is_admin'] = 0;
+		var_dump($data);
+
+		$model = new PatientsModel();
+		$model->insertPatient($data); 
+	}
+
+	public function submitEdit(){
+		$data = $this->request->getPost();
+		$data['is_admin'] = 0;
+		var_dump($data);
+
+		$model = new PatientsModel();
+		$model->editPatient($data);
 	}
 }

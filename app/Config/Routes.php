@@ -32,7 +32,6 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 
-
 // GET PATIENTS ROUTE
 $routes->get('/patients/offset/(:any)', 'Patients::index/$1');
 
@@ -44,7 +43,6 @@ $routes->get('/patients/search/', 'Patients::search/$1/$2');
 
 // CONSULT ROUTE
 $routes->get('/consult/(:any)', 'Consult::index/$1'); 
-
 
 // ADMIN ROUTES FOR UPDATING FILES
 $routes->get('/admin/examinations/dltexam/(:any)', 'Admin::dltexam/$1');

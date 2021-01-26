@@ -31,4 +31,18 @@ class PatientsModel extends Model
 
         return $builder->where(['id', $patientId])->get()->getResultArray();
     }
+
+    public function insertPatient($data){
+        // functia care pune date in baza de date
+        $db = \Config\Database::connect();
+        // tabelul folosit din baza de date
+        $builder = $db->table('users');
+
+        $builder->insert($data);
+    }
+
+    public function editPatients($id){
+        // functia care editeaza date din baza de date
+    }
+
 }
