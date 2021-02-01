@@ -6,5 +6,7 @@
         <?php echo view('/patients_templates/table.php'); ?>
         <?php echo view('/patients_templates/pagination.php'); ?>
     </div>
-
 </div>
+
+<script src="/ecabcardio/public/javascript/patients.js"></script>
+<?php echo view('/templates/footer.php'); ?>

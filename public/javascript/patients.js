@@ -1,15 +1,17 @@
 // SHOW/HIDE ADVANCED SEARCHBAR
-document.querySelector('#advanced-search-button').addEventListener('click', (e) => {
+function toggleSearchbar() {
+    document.querySelector('#advanced-search-button').addEventListener('click', (e) => {
 
-    e.stopPropagation()
+        e.stopPropagation()
 
-    const advancedSearchbarButton = document.querySelector('#advanced-search-button')
-    const advancedSearchbar = document.querySelector('.advanced-searchbar')
+        const advancedSearchbarButton = document.querySelector('#advanced-search-button')
+        const advancedSearchbar = document.querySelector('.advanced-searchbar')
 
-    advancedSearchbar.classList.toggle('hidden')
+        advancedSearchbar.classList.toggle('hidden')
 
-    advancedSearchbarButton.innerHTML = advancedSearchbar.classList.contains('hidden') ? `<i class="fas fa-angle-up"></i>` : `<i class="fas fa-angle-down"></i>`
-})
+        advancedSearchbarButton.innerHTML = advancedSearchbar.classList.contains('hidden') ? `<i class="fas fa-angle-up"></i>` : `<i class="fas fa-angle-down"></i>`
+    })
+}
 
 // SET ACTIVE ORDER BUTTON
 function setActiveButtonColor() {
@@ -23,3 +25,4 @@ function setActiveButtonColor() {
 };
 
 setActiveButtonColor()
+toggleSearchbar()

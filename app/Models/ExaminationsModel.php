@@ -17,5 +17,4 @@ class ExaminationsModel extends Model
         $query = $builder->get()->getResult('array');
         return $query;
     }
-
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models;
-
 use CodeIgniter\Model;
 
 class PatientsModel extends Model
@@ -31,6 +30,10 @@ class PatientsModel extends Model
 
         return $builder->where(['id', $patientId])->get()->getResultArray();
     }
+
+
+
+    /* EXAMPLES */
 
     public function insertPatient($data){
         // functia care pune date in baza de date

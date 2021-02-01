@@ -75,8 +75,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.25);
-
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
 }
 
 .patients-page-container table {
@@ -136,25 +135,29 @@ a {
 }
 
 
-#advanced-search-button,
-#consult-patient-button,
-.edit-patient-button {
+#advanced-search-button {
     cursor: pointer;
     color: white;
     background-color: #828080;
     padding: 0.3rem 1rem 0.3rem 1rem;
     font-weight: normal;
-}
-
-
-#advanced-search-button {
     border-style: solid;
     border-color: #828080;
     border-width: 2px;
 }
 
+#advanced-search-button:hover{
+    background-color: #949292;
+    border-color:  #949292;
+
+}
+
 .edit-patient-button {
     padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+}
+
+.edit-patient-button:hover {
+    color: white;
 }
 
 .edit-patient-button i {
@@ -170,6 +173,10 @@ a {
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.add-patient-button-text:hover {
+    text-decoration: underline;
 }
 
 .add-patient-button-icon {
@@ -193,9 +200,16 @@ a {
     background-color: #57B0F1;
 }
 
-#consult-patient-button {
+.button-blue {
     background-color: #57B0F1;
     color: white;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+    font-weight: normal;
+}
+
+.button-blue:hover {
+    color: white;
+    background-color: #7ec2f3;
 }
 
 th {
@@ -227,14 +241,15 @@ td:nth-child(6) {
 
 td:nth-child(6) {
     font-size: 2rem;
-    color: #828080;
 }
 
 td:nth-child(6) a {
-    color: #828080;
-
+    color: #C4C4C4;
 }
 
+td:nth-child(6) a:hover {
+    color: #57B0F1;
+}
 
 .order-by-th .order {
     background: #DADADA;
@@ -256,27 +271,103 @@ td:nth-child(6) a {
     align-items: center;
 }
 
-.pagination-direction{
-    color:#828080;
+.pagination-direction {
+    color: #DADADA;
     font-weight: bolder;
     display: flex;
     align-items: center;
 }
 
-.pagination-direction:hover{
+.pagination-direction:hover {
     color: #57B0F1;
 }
 
-.pagination-direction .fa-angle-left{
+.pagination-direction .fa-angle-left {
     font-size: 2rem;
     margin-right: 0.5rem;
 }
 
-.pagination-direction .fa-angle-right{
+.pagination-direction .fa-angle-right {
     font-size: 2rem;
     margin-left: 0.5rem;
 }
 
-.pagination-info{
+.pagination-info {
     color: #828080;
+}
+
+
+/*  PATIENTS HISTORY PAGE */
+
+.pacients-table-wraper.history{
+    height: fit-content;
+}
+.pacients-table-wraper.history table th {
+    background-color: #57B0F1;
+    color: white;
+    font-weight: normal;
+}
+
+.pacients-table-wraper.history table th:nth-child(1) {
+    border-bottom-style: solid;
+    border-color: white;
+    border-bottom-width: 2px;
+}
+
+.button-orange {
+    background-color: #F1AA57;
+    border: none;
+    color: white;
+
+}
+
+.button-orange:hover {
+    background-color: #f1be83;
+
+}
+
+.pacients-table-wraper.history .fa-chevron-left,
+.pacients-table-wraper.history .fa-chevron-right,
+.fa-file-alt {
+    font-size: 1.5rem;
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    color: #828080;
+    cursor: pointer;
+}
+
+.pacients-table-wraper.history .fa-chevron-left:hover,
+.pacients-table-wraper.history .fa-chevron-right:hover,
+.fa-file-alt:hover{
+    color: #57B0F1;
+}
+
+.pacients-table-wraper.history .fa-chevron-right.active-arrow {
+    color: #57B0F1;
+    border-radius: 100%;
+    background-color: #d6eeff;
+}
+
+
+.consult-fields-container{
+    max-height: 700px;
+    overflow: auto;
+    margin-top: 30px;
+    margin-left: 1rem;
+}
+
+.consult-fields-container .field-container{
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);    
+    margin: 0.5rem;
+}
+
+.consult-fields-container .field-name{
+    background-color: #57B0F1;
+    text-align: center;
+    color: white;
+    padding: 0.5rem 0rem;
+    text-transform: capitalize;
+}
+
+.consult-fields-container .field-content{
+    padding: 0rem 1rem 1rem;
 }

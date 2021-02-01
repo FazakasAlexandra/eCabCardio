@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PatientsModel;
+use App\Models\PatientsHistoryModel;
 
 class Patients extends BaseController
 {
@@ -16,7 +17,6 @@ class Patients extends BaseController
 		$data['order'] = $order;
 
 		echo view('pages/patients.php', $data);
-		echo view('templates/footer.php');
 
 		die();
 	}
@@ -40,15 +40,23 @@ class Patients extends BaseController
 		$data['order'] = 'asc';
 
 		echo view('pages/patients.php', $data);
-		echo view('templates/footer.php');
-
+		
 		die();
 	}
 
 	public function history($id)
 	{
 		echo view('templates/header.php');
-		echo '<h3> history of patient with id ' . (string)$id . '</h3>';
+
+		$historyModel = new PatientsHistoryModel();
+		$patientHistory = $historyModel->getPatientHistory($id);
+
+ 		echo view('pages/patients_history.php', [
+			'patientHistory' => [
+				'data' => $patientHistory,
+				'name' => $patientHistory[0]['patient_name']
+			]
+		]);
 	}
 
 	public function edit($id)
@@ -64,16 +72,18 @@ class Patients extends BaseController
 		echo view('pages/add_form.php');
 	}
 
-	public function submit(){
+	public function submit()
+	{
 		$data = $this->request->getPost();
 		$data['is_admin'] = 0;
 		var_dump($data);
 
 		$model = new PatientsModel();
-		$model->insertPatient($data); 
+		$model->insertPatient($data);
 	}
 
-	public function submitEdit(){
+	public function submitEdit()
+	{
 		$data = $this->request->getPost();
 		$data['is_admin'] = 0;
 		var_dump($data);

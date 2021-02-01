@@ -35,14 +35,20 @@ $routes->get('/', 'Home::index');
 // GET PATIENTS ROUTE
 $routes->get('/patients/offset/(:any)', 'Patients::index/$1');
 
-// GET PATIENTS AND ORDER ROTUE
+// GET PATIENTS AND ORDER ROTUE 
+// $1 = offset, $2 = order
 $routes->get('/patients/offset/(:any)/(:any)', 'Patients::index/$1/$2');
 
 // SEARCH ROUTE
 $routes->get('/patients/search/', 'Patients::search/$1/$2'); 
 
-// CONSULT ROUTE
-$routes->get('/consult/(:any)', 'Consult::index/$1'); 
+// CONSULT PATIENT 
+// $1 = patient_id
+$routes->get('/patients/consults/(:any)', 'Consults::Index/$1'); 
+
+// GET SINGLE CONSULT 
+// $1 = consult_id
+$routes->get('/consults/(:any)', 'Consults::getSingleConsult/$1');
 
 // ADMIN ROUTES FOR UPDATING FILES
 $routes->get('/admin/examinations/dltexam/(:any)', 'Admin::dltexam/$1');
