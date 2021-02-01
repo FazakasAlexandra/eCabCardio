@@ -1,4 +1,4 @@
-QUERY FOR PATIENTS HISTORY VIEW:
+/* QUERY FOR patients_history VIEW */
 
 SELECT
     consults.id AS consult_id,

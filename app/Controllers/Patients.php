@@ -59,6 +59,12 @@ class Patients extends BaseController
 		]);
 	}
 
+
+
+	/* EXAMPLES */
+
+
+	
 	public function edit($id)
 	{
 		echo view('templates/header.php');
