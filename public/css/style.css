@@ -146,9 +146,9 @@ a {
     border-width: 2px;
 }
 
-#advanced-search-button:hover{
+#advanced-search-button:hover {
     background-color: #949292;
-    border-color:  #949292;
+    border-color: #949292;
 
 }
 
@@ -299,9 +299,10 @@ td:nth-child(6) a:hover {
 
 /*  PATIENTS HISTORY PAGE */
 
-.pacients-table-wraper.history{
+.pacients-table-wraper.history {
     height: fit-content;
 }
+
 .pacients-table-wraper.history table th {
     background-color: #57B0F1;
     color: white;
@@ -337,7 +338,7 @@ td:nth-child(6) a:hover {
 
 .pacients-table-wraper.history .fa-chevron-left:hover,
 .pacients-table-wraper.history .fa-chevron-right:hover,
-.fa-file-alt:hover{
+.fa-file-alt:hover {
     color: #57B0F1;
 }
 
@@ -348,19 +349,21 @@ td:nth-child(6) a:hover {
 }
 
 
-.consult-fields-container{
+.consult-fields-container {
     max-height: 700px;
     overflow: auto;
     margin-top: 30px;
     margin-left: 1rem;
 }
 
-.consult-fields-container .field-container{
-    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);    
+.modal-body .field-container,
+.consult-fields-container .field-container {
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     margin: 0.5rem;
 }
 
-.consult-fields-container .field-name{
+.modal-body .field-name,
+.consult-fields-container .field-name {
     background-color: #57B0F1;
     text-align: center;
     color: white;
@@ -368,6 +371,168 @@ td:nth-child(6) a:hover {
     text-transform: capitalize;
 }
 
-.consult-fields-container .field-content{
+.modal-body .field-content,
+.consult-fields-container .field-content {
     padding: 0rem 1rem 1rem;
+}
+
+/* .field-list {
+    padding: 0rem 16px 16px;
+    list-style: disc;
+    margin: 16px;
+} */
+
+
+.field-list {
+    list-style: none;
+    padding: 0rem 16px 16px;
+    margin: 16px;
+}
+
+.field-list li {
+    text-indent: -.7em;
+}
+
+.field-list li::before {
+    content: "•";
+    color: #57B0F1;
+    padding-right: 0.5rem;
+    /* or whatever color you prefer */
+}
+
+#history-arrow {
+    padding-left: 0rem;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 50px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    width: 800px;
+    border-style: none !important;
+}
+
+/* The Close Button */
+.close {
+    color: #323232;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus,
+.fa-print:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 1rem;
+    background-color: #57B0F1;
+    color: white;
+}
+
+.modal-header .medical-letter-logo{
+    margin-left: 1.5rem;
+}
+
+.modal-header h2 {
+    width: 100%;
+    text-align: center;
+
+    margin: 0px;
+    font-size: 1.5rem;
+}
+
+.modal-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.modal-body .info {
+    font-size: 16px;
+    margin: 0px 8px 1rem 8px;
+}
+
+.modal-body .field-content {
+    font-size: 16px;
+}
+
+.modal-body .field-name {
+    font-size: 18px;
+}
+
+.modal-body .field-list {
+    font-size: 16px;
+}
+
+.modal-body .field-container.field-0,
+.modal-body .field-container.field-3 {
+    width: 50%;
+}
+
+.modal-body .field-container.field-1,
+.modal-body .field-container.field-4 {
+    width: 45.6%;
+}
+
+.modal .modal-footer {
+    display: flex;
+    /* flex-wrap: wrap; */
+    /* flex-shrink: 0; */
+    align-items: center;
+    justify-content: space-between;
+    /* justify-content: flex-end; */
+    padding: 1rem 2.5rem 1.5rem 2.5rem;
+    border: none;
+}
+
+.modal .modal-footer p {
+    font-size: 18px;
+}
+
+.modal-body .field-container.field-2 {
+    width: 100%;
+}
+
+.modal-body .price {
+    display: flex;
+    width: 95%;
+    justify-content: flex-end;
+    font-size: 16px;
+    margin: 0px 0px 16px;
+}
+
+.medical-letter-logo {
+    height: 2rem;
+}
+
+.fa-print{
+    color: #323232;
+    padding-right: 1rem;
 }

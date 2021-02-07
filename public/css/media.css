@@ -1,0 +1,8 @@
+@media print{
+    .noprint{
+        visibility: hidden !important;
+    }
+    .modal{
+        padding-top: 0px;
+    }
+ }

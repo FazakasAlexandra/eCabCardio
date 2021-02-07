@@ -18,7 +18,6 @@ class Patients extends BaseController
 
 		echo view('pages/patients.php', $data);
 
-		die();
 	}
 
 	public function search()
@@ -41,7 +40,6 @@ class Patients extends BaseController
 
 		echo view('pages/patients.php', $data);
 		
-		die();
 	}
 
 	public function history($id)

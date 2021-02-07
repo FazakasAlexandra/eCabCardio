@@ -3,7 +3,7 @@
 SELECT
     consults.id AS consult_id,
     patients.id AS patient_id,
-    CONCAT(patients.name, ' ',patients.surname) AS patient_name,
+    CONCAT(patients.name, ' ', patients.surname) AS patient_name,
     users.name_surname AS doctor,
     consults.date,
     consults.hour,
