@@ -20,7 +20,12 @@
 		<ul class="navbar menu">
 			<li><a href="/ecabcardio/public/patients">Patients</a> </li>
 			<li><a href="/ecabcardio/public/history">History</a></li>
-			<li><a href="/ecabcardio/public/admin">Admin</a></li>
+			<li><a href="#" onclick="dropdownMenu()">Admin</a></li>
+		</ul>
+		<ul class="drop-menu">
+			<li><a href="/ecabcardio/public/">Edit Users</a></li>
+			<li><a href="http://localhost/ecabcardio/public/admin/examinations">Edit Examinations</a></li>
+			<li><a href="/ecabcardio/public/">Edit Analysis</a></li>
 		</ul>
 	</nav>
 </header>
