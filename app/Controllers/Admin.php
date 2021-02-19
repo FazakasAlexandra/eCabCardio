@@ -71,5 +71,31 @@ class Admin extends BaseController
 		
 		return view('pages/examinations.php', $info);
 	}
+
+	public function addexam(){
+
+        echo view('templates/header.php');
+
+        if($this->request->getMethod()=='post'){
+            $model = new ExaminationsModel();
+            $newdata = [
+                'id' => $_POST['idReceived'],
+                'examination' => $_POST['newExam'],
+                'price' => $_POST['newPrice']
+            ];              
+            $model->insert($newdata);
+        }
+
+        $data = $model->getExaminations();
+
+        $info = [
+            'title' => 'Modify an examination',
+            'data' => $data,
+            'message' => 'The entry has been successfully added!',
+        ];
+
+        return view('pages/examinations.php', $info);
+    }
+
 }
 	

@@ -1,33 +1,220 @@
-/****************************EXAMINATIONS***********************/
+/***************EXAMINATIONS***********************/
 
-#table-button{
-    border:none;
-    text-decoration: none;
-    background: none;
-}
-
-#table-button:hover{
-   font-weight: bolder;
-}
-
-
-#form{
+.page-title {
+    margin: 50px;
+    box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.25);
     text-align: center;
-    margin-top: 20px;
-    margin-left: 20px;
-    font-size: 24px;
+    padding: 3px;
+    color: red;
 }
 
-.buttons{
-    margin-top:20px;
+#form-update{
+    display: block;
 }
 
-#hidden{
+#form-add{
     display:none;
 }
 
-#message{
-    transition:0.4s;
+.exam-table {
+    box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.25);
+    width: 95%;
+    font-size: 22px;
+}
+
+.add-examination-button-top {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #57B0F1;
+    color: white;
+    border-color: #57B0F1;
+}
+
+.add-examination-button {
+    cursor: pointer;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #57B0F1;
+    color: white;
+    border-color: #57B0F1;
+    display: none;
+}
+
+.delete-examination-button {
+    cursor: pointer;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #f24646;
+    color: white;
+    border-color: #f24646
+}
+
+.update-examination-button {
+    cursor: pointer;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #57B0F1;
+    color: white;
+    border-color: #57B0F1;
+}
+
+.add-examination-button:hover {
+    color: black;
+}
+
+.add-examination-button-top:hover {
+    color: black;
+}
+
+.update-examination-button:hover {
+    color: black;
+}
+
+.delete-examination-button:hover {
+    color: black;
+}
+
+#table-button {
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    background: #828080;
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+}
+
+.fas {
+    margin-right: 6px;
+}
+
+#table-button:hover {
+    color: #57B0F1;
+}
+
+.right {
+    float: right;
+    margin-right: 10px;
+}
+
+.info {
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.fa-info {
+    color: #828080;
+}
+
+.form-wrap {
+    border: 1px solid black;
+    padding: 30px;
+}
+
+#form {
+    text-align: center;
+    font-size: 24px;
+    width: 95%;
+    margin: auto;
+}
+
+.form-control {
+    width: 80%;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 2px;
+}
+
+.form-label {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buttons-examinations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0;
+}
+
+#message {
+    transition: 0.4s;
     color: red;
     font-weight: bolder;
+}
+
+.exam-form-text{
+    display: grid;
+    grid-template-columns: 75% auto;
+    justify-content: space-between;
+    align-content: start;
+}
+
+
+.btn-save-changes{
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #57B0F1;
+    color: white;
+    border-color: #57B0F1;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.btn-delete-entry{
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5%;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    background-color: #d94c4c;
+    color: white;
+    border-color: #d94c4c;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/************************ADMIN TOGGLE MENU**********************/
+.drop-menu{
+    display: none;
+    position: absolute;
+    right:0;
+    background: #57B0F1;
+    top: 74px;
+    text-align: right;
+    width: 300px;
+    padding: 5px 20px;
+}
+
+.drop-menu a{
+    color: white;
+}
+
+.drop-menu li:hover{
+    background: #cfeaff;
+    transition: 0.6s;
+    font-weight: bolder;
+}
+
+.drop-menu a:hover{
+    color: black;
 }
