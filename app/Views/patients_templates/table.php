@@ -1,8 +1,8 @@
  <!-- PATIETNS TABLE  -->
  <table style="width:100%" class="patients-table">
      <tr>
-         <th>NAME</th>
-         <th>SURNAME</th>
+         <th>Name</th>
+         <th>Surname</th>
          <th>CNP</th>
 
      <!-- ORDER BUTTONS  -->
@@ -17,10 +17,10 @@
              <td><?php echo $patient['cnp'] ?></td>
 
              <!-- EDIT BUTTON  -->
-             <td><a href="<?php echo "/ecabcardio/public/patients/edit/" . (string)$patient['id'] ?>" class="edit-patient-button button-blue"><i class="fas fa-pen"></i>EDIT PATIENT</a></td>
+             <td><a href="<?php echo "/ecabcardio/public/patients/edit/" . (string)$patient['id'] ?>" class="edit-patient-button button-blue"><i class="fas fa-pen"></i>Edit Patient</a></td>
 
              <!-- CONSULT BUTTON  -->
-             <td><a href="<?php echo "/ecabcardio/public/patients/consult/" . (string)$patient['id'] ?>" id="consult-patient-button" class="button-blue">CONSULT</a></td>
+             <td><a href="<?php echo "/ecabcardio/public/patients/" . (string)$patient['id'] . "/consult" ?>" id="consult-patient-button" class="button-blue">Consult</a></td>
 
              <!-- HISTORY BUTTON  -->
              <td><a href="<?php echo "/ecabcardio/public/patients/history/" . (string)$patient['id'] ?>" id="history-patient-button"><i class="fas fa-history"></i></a></td>

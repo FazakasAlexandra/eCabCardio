@@ -8,20 +8,18 @@
         <div class="consult-fields-container"></div>
     </div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <img src="/ecabcardio/public/assets/logo.png" alt="logo" class="medical-letter-logo">
-                <h2>MEDICAL LETTER</h2>
-                <i class="fas fa-print noprint" onclick="window.print()"></i>
-                <span class="close noprint">&times;</span>
-            </div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
-        </div>
+    <div class = "consult-images-wraper hidden">
+        <form action="" class="file-upload-form">
+            <input type="file" name="images[]" multiple id="images">
+            <button class="button-blue-dark hidden" id="save-images-button">Save Images</button>
+        </form>
+        <div class="alert alert-success hidden" role="alert">Images successfully saved !</div>
+        <div class="consult-images-container"></div>
     </div>
-
 </div>
 
-<script src="/ecabcardio/public/javascript/patient_history.js"></script>
+<?php echo view('/templates/medical_letter.php'); ?>
+
+<script type="module" src="/ecabcardio/public/javascript/patient_history.js"></script>
+
 <?php echo view('/templates/footer.php'); ?>

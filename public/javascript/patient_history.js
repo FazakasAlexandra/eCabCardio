@@ -1,13 +1,17 @@
+import { displayImages, toggleArrows } from './utilities.js'
+
 /* ARROW ICON CLICK EVENT */
 function arrowClickEvent() {
     document.querySelectorAll('.fa-chevron-left').forEach(arrow => {
         arrow.addEventListener('click', (e) => {
             fetchConsult(e.target.id)
                 .then((consult) => {
-                    console.log(consult)
                     removeKeys(['id', 'hour', 'date', 'patient_id', 'doctor_id'], consult)
                     document.querySelector('.consult-fields-container').innerHTML = consultHTML(consult)
                     toggleArrows(e.target);
+                    if (!document.querySelector('.fa-chevron-right')) {
+                        document.querySelector('.consult-fields-container').innerHTML = ''
+                    }
                 })
         })
     });
@@ -22,16 +26,6 @@ function consultHTML(consult) {
         if (key === 'examinations' || key === 'analysis') return acc + consultFieldList(key, consult, idx)
 
         return acc + consultField(key, consult, idx)
-    }, '')
-}
-
-function medicalLetterHTML(letter, consultPrice){
-    return Object.keys(letter).reduce((acc, key, idx) => {
-        if (key === 'analysis') return acc + consultFieldList(key, letter, idx)
-
-        if(key === 'examinations') return acc + consultBill(key, letter, idx, consultPrice)
-
-        return acc + consultField(key, letter, idx)
     }, '')
 }
 
@@ -51,32 +45,11 @@ function consultField(key, consult, idx) {
             </div>`
 }
 
-function consultBill(key, letter, idx, consultPrice){
-    return `<div class="field-container field-${idx}">
-              <p class="field-name">Consult Bill</p>
-              <ul class="field-list">
-                ${consultListItems(key, letter)}
-              </ul>
-              <span class="price">Total : ${consultPrice} lei</span>
-            </div>`
-}
 
 function consultListItems(key, consult) {
     return consult[key].reduce((acc, listItem) => {
         return `${acc}<li>${listItem.name} ... ${listItem.price} lei</li>`
     }, '')
-}
-
-function toggleArrows(arrow) {
-    if (document.querySelector('.fa-chevron-right') && document.querySelector('.fa-chevron-right') !== arrow) {
-        document.querySelector('.fa-chevron-right').classList.remove('fa-chevron-right', 'active-arrow')
-    }
-    arrow.classList.toggle('fa-chevron-right')
-    arrow.classList.toggle('active-arrow')
-
-    if (!document.querySelector('.fa-chevron-right')) {
-        document.querySelector('.consult-fields-container').innerHTML = ''
-    }
 }
 
 function fetchConsult(consultId) {
@@ -85,48 +58,108 @@ function fetchConsult(consultId) {
         .then(res => res.consult)
 }
 
-/* FILE ICON CLICK EVENT */
-function fileClickEvent() {
-    document.querySelectorAll('.fa-file-alt').forEach(file => {
-        file.addEventListener('click', (e) => {
-            fetchMedicalLetter(e.target.id).then(letterContent => {
-                toggleModal("block")
-                fillModalBody(letterContent)
-            })
+function fetchConsultImages(consultId) {
+    return fetch(`/ecabcardio/public/consults/${consultId}/images`)
+        .then(res => res.json())
+        .then(res => res.consult_images)
+        .then((images) => {
+            renderConsultImages(images)
+        })
+}
+
+function renderConsultImages(images) {
+    if (images.length > 0) {
+        document.querySelector('.consult-images-container').innerHTML = consultImagesHTML(images)
+    } else {
+        document.querySelector('.consult-images-container').innerHTML = '<p id="no-images-message">consult has no images</p>'
+    }
+}
+
+function consultImagesHTML(images) {
+    return images.reduce((acc, img) => {
+        return `${acc}<div class="consult-image"><img src="../../assets/${img.file_name}"/></div>`
+    }, '')
+}
+
+/* IMAGES ICON CLICK EVENT */
+function imgIconsClickEvent() {
+    document.querySelectorAll('.fa-images').forEach(imgIcon => {
+        imgIcon.addEventListener('click', () => {
+            changeInterface(imgIcon);
+            fetchConsultImages(imgIcon.id);
+            document.querySelector('#save-images-button').setAttribute('consultId', imgIcon.id)
         })
     })
 }
 
-function toggleModal(mode){
-    document.getElementById("myModal").style.display = mode;
+function changeInterface(imgIcon) {
+    let currentActive = document.querySelector('.active-imageIcon')
+    let wraper = document.querySelector('.consult-images-wraper')
+    let imagesContainer = document.querySelector('.consult-images-container')
+    document.querySelector("#save-images-button").classList.add('hidden')
+
+    if (!document.querySelector('.alert').classList.contains('hidden')) {
+        document.querySelector('.alert').classList.add('hidden')
+    }
+
+    // removes active class if it exists on a different img icon than the target
+    if (currentActive && imgIcon != currentActive) {
+        currentActive.classList.remove('active-imageIcon')
+    }
+
+    // remove / add active clas on imgIcon
+    imgIcon.classList.toggle('active-imageIcon')
+
+    // displays the wraper that contains the file input and the imgs containter
+    if (wraper.classList.contains('hidden')) {
+        wraper.classList.remove('hidden');
+    }
+
+    // if after toggle no active class is found on img icon, hide the wraper and clear the imgs container
+    document.querySelector('#images').value = null
+    imagesContainer.innerHTML = ''
+
+    if (!document.querySelector('.active-imageIcon')) {
+        wraper.classList.add('hidden');
+    }
 }
 
-function fillModalBody(letterContent){
-    const modalBody = document.querySelector('.modal-body')
-    modalBody.innerHTML = `<p class="info">${letterContent.letter_info}</p><p class="info">${letterContent.patient_info}</p>`
+let selectedFiles;
 
-    const consultPrice = letterContent.consult_price
+function inputFileChangeEvent() {
+    document.querySelector('#images').onchange = (e) => {
+        document.querySelector('#save-images-button').classList.remove('hidden');
+        document.querySelector('#no-images-message').remove();
 
-    removeKeys(['consult_id', 'consult_price', 'patient_info', 'letter_info'], letterContent)
+        displayImages(document.querySelector('.consult-images-container'))
+        selectedFiles = e.target.files
+    }
+}
 
-    modalBody.innerHTML += medicalLetterHTML(letterContent, consultPrice);
+function uploadConsultImages(consultId) {
+    var formData = new FormData();
 
-    letterContent.date = '02-04-2020'
-
-    document.querySelector('.modal-footer').innerHTML = `<p>Signature<p><p>Date : 02-04-2020</p>`
+    Array.from(selectedFiles).forEach(file => {
+        formData.append('images[]', file)
+    });
     
+    return fetch(`/ecabcardio/public/consults/${consultId}/images`, {
+        method: 'POST',
+        body: formData
+    })
 }
 
-function fetchMedicalLetter(consultId) {
-    return fetch(`/ecabcardio/public/consults/${consultId}/letter`)
-        .then(res => res.json())
-        .then(res => res.medical_letter)
-}
+function saveImagesButtonEvent() {
+    document.querySelector('#save-images-button').addEventListener('click', (e) => {
+        e.preventDefault();
 
-/* MODAL CLOSE BUTTON CLICK EVENT */
-document.querySelector('.close').addEventListener('click', () => {
-    toggleModal("none")
-})
+        uploadConsultImages(e.target.getAttribute('consultId')).then(()=>{
+            document.querySelector('.alert').classList.remove('hidden')
+        });
+    })
+};
 
 arrowClickEvent()
-fileClickEvent()
+imgIconsClickEvent()
+inputFileChangeEvent();
+saveImagesButtonEvent();

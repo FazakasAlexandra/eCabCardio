@@ -1,7 +1,6 @@
 <!-- PATIETNS TABLE PAGINATION -->
 <div class="pagination">
 
-
     <!-- PREVIOUS 5 PATIENTS BUTTON -->
     <a href="<?php echo "/ecabcardio/public/patients/offset/" .  (string) ($offset - 5) . "/" . $order ?>" class="pagination-direction">
 

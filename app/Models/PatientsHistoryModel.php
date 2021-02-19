@@ -5,7 +5,6 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class PatientsHistoryModel extends Model
-
 {
     function getPatientHistory($patientId){
         $db = \Config\Database::connect();

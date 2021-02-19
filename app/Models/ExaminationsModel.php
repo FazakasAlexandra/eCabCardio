@@ -17,4 +17,12 @@ class ExaminationsModel extends Model
         $query = $builder->get()->getResult('array');
         return $query;
     }
+
+    function getExaminationPrice($examId){
+        $db = \Config\Database::connect();
+        $builder = $db->table('examinations');
+
+        $exam = $builder->where('id',$examId)->get()->getRowObject();
+        return $exam->price;
+    }
 }

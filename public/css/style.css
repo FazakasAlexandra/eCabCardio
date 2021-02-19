@@ -76,6 +76,7 @@ a {
     flex-direction: column;
     align-items: center;
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+    border-radius: 0.3rem;
 }
 
 .patients-page-container table {
@@ -87,7 +88,6 @@ a {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background: #DADADA;
     width: 100%;
     padding: 1rem;
 }
@@ -102,19 +102,19 @@ a {
 .searchbar-form select {
     border: solid;
     border-width: 3px;
-    border-color: #828080;
+    border-color: #2E3A59;
 }
 
 .searchbar-form button {
     cursor: pointer;
     border: solid;
-    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    padding: 0.4rem 0.5rem 0.3rem 0.5rem;
     border-radius: 20%;
     border-top-left-radius: 0%;
     border-bottom-left-radius: 0%;
-    border-color: #828080;
-    border-width: 4px;
-    color: #828080;
+    border-color: #2E3A59;
+    border-width: 3px;
+    color: #2E3A59;
     font-size: 1.1rem;
     background-color: white;
     margin-left: -0.4rem;
@@ -138,22 +138,20 @@ a {
 #advanced-search-button {
     cursor: pointer;
     color: white;
-    background-color: #828080;
-    padding: 0.3rem 1rem 0.3rem 1rem;
+    background-color: #2E3A59;
+    padding: 0.4rem 1rem 0.4rem 1rem;
     font-weight: normal;
-    border-style: solid;
-    border-color: #828080;
-    border-width: 2px;
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
 }
 
 #advanced-search-button:hover {
-    background-color: #949292;
-    border-color: #949292;
+    background-color: #2e3a59ce;
 
 }
 
-.edit-patient-button {
-    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+.button-blue.edit-patient-button {
+    padding-left: 0.5rem;
 }
 
 .edit-patient-button:hover {
@@ -184,20 +182,23 @@ a {
     border-radius: 20%;
     border-top-right-radius: 0%;
     border-bottom-right-radius: 0%;
-    border-width: 4px;
-    padding: 0.2rem 0rem 0.2rem 0.3rem;
-    border: solid;
-    background-color: #57B0F1;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    ;
+    background-color: #2E3A59;
     color: white;
-    border-color: #57B0F1;
+}
+
+.add-patient-button-icon i {
+    font-size: 1.2rem;
 }
 
 .add-patient-button-text {
     padding: 0.2rem 0.5rem 0.2rem 0.3rem;
-    border-style: solid;
-    border-color: #57B0F1;
+    border-color: #2E3A59;
     color: white;
-    background-color: #57B0F1;
+    background-color: #2E3A59;
+    border-bottom-right-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
 }
 
 .button-blue {
@@ -205,6 +206,7 @@ a {
     color: white;
     padding: 0.3rem 1rem 0.3rem 1rem;
     font-weight: normal;
+    border-radius: 0.3rem;
 }
 
 .button-blue:hover {
@@ -213,7 +215,9 @@ a {
 }
 
 th {
-    background-color: #C4C4C4;
+    background-color: #2E3A59;
+    color: white;
+    font-weight: 300;
 }
 
 table,
@@ -244,23 +248,30 @@ td:nth-child(6) {
 }
 
 td:nth-child(6) a {
-    color: #C4C4C4;
-}
-
-td:nth-child(6) a:hover {
     color: #57B0F1;
 }
 
+td:nth-child(6) a:hover {
+    color: #7ec2f3;
+}
+
 .order-by-th .order {
-    background: #DADADA;
+    border-radius: 100%;
+    border-style: solid;
     color: white;
-    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+    padding: 0rem 0.3rem 0rem 0.3rem;
+    ;
     margin-left: 0.2rem;
 }
 
-.order-by-th .order.active-order,
+.order-by-th .active-order,
 .order-by-th .order:hover {
-    background-color: #57B0F1;
+    color: #57B0F1;
+}
+
+.order-by-th i {
+    padding: 0rem 0.1rem 0rem 0.1rem;
+    font-size: 1rem;
 }
 
 .pagination {
@@ -294,6 +305,8 @@ td:nth-child(6) a:hover {
 
 .pagination-info {
     color: #828080;
+    font-size: 16px;
+    color: #2E3A59;
 }
 
 
@@ -329,20 +342,27 @@ td:nth-child(6) a:hover {
 
 .pacients-table-wraper.history .fa-chevron-left,
 .pacients-table-wraper.history .fa-chevron-right,
-.fa-file-alt {
+.fa-file-alt,
+.fa-images {
     font-size: 1.5rem;
     padding: 0.5rem 0.7rem 0.5rem 0.7rem;
     color: #828080;
     cursor: pointer;
 }
 
+.fa-file-alt {
+    padding-right: 0px;
+}
+
 .pacients-table-wraper.history .fa-chevron-left:hover,
 .pacients-table-wraper.history .fa-chevron-right:hover,
-.fa-file-alt:hover {
+.fa-file-alt:hover,
+.fa-images:hover {
     color: #57B0F1;
 }
 
-.pacients-table-wraper.history .fa-chevron-right.active-arrow {
+.pacients-table-wraper.history .fa-chevron-right.active-arrow,
+.fa-images.active-imageIcon {
     color: #57B0F1;
     border-radius: 100%;
     background-color: #d6eeff;
@@ -350,10 +370,9 @@ td:nth-child(6) a:hover {
 
 
 .consult-fields-container {
-    max-height: 700px;
+    max-height: 87vh;
     overflow: auto;
-    margin-top: 30px;
-    margin-left: 1rem;
+    margin: 30px 1rem 0px 1rem;
 }
 
 .modal-body .field-container,
@@ -435,7 +454,7 @@ td:nth-child(6) a:hover {
 
 /* The Close Button */
 .close {
-    color: #323232;
+    color: #2E3A59;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -443,10 +462,15 @@ td:nth-child(6) a:hover {
 
 .close:hover,
 .close:focus,
-.fa-print:hover {
+.fa-print:hover,
+.file-pdf:hover {
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+.modal-header img:hover {
+    color: white;
 }
 
 .modal-header {
@@ -455,7 +479,19 @@ td:nth-child(6) a:hover {
     color: white;
 }
 
-.modal-header .medical-letter-logo{
+.modal-header .buttons-container img {
+    width: 1.5rem;
+    margin-right: 1rem;
+}
+
+.modal-header .buttons-container {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    left: 86%;
+}
+
+.modal-header .medical-letter-logo {
     margin-left: 1.5rem;
 }
 
@@ -532,7 +568,275 @@ td:nth-child(6) a:hover {
     height: 2rem;
 }
 
-.fa-print{
-    color: #323232;
+.fa-print {
+    color: #2E3A59;
     padding-right: 1rem;
+}
+
+.consult-form {
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+    width: 1050px;
+    height: fit-content;
+    margin-top: 2rem;
+    border-radius: 0.3rem;
+}
+
+.consult-form label {
+    text-transform: capitalize;
+    font-size: 17px;
+}
+
+.consult-form .outer-wraper {
+    padding: 2rem;
+    padding-right: 1rem;
+}
+
+.consult-form .outer-wraper .wraper:nth-child(1) .wraper:last-child {
+    flex-direction: column;
+    width: 33.3% !important;
+}
+
+.consult-form .outer-wraper .wraper:nth-child(1) .wraper:last-child .inner-wraper {
+    width: 100% !important;
+}
+
+.consult-form .outer-wraper .wraper:nth-child(1) .wraper:last-child .inner-wraper input {
+    margin-bottom: 1rem;
+}
+
+.consult-form input,
+.consult-form select {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.consult-form .wraper {
+    display: flex;
+    width: 100%;
+}
+
+.consult-form .inner-wraper {
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+}
+
+.consult-form .outer-wraper .wraper:last-child .inner-wraper:first-child {
+    width: 90%;
+}
+
+.consult-form .outer-wraper .wraper:last-child .inner-wraper:last-child {
+    width: 10%;
+}
+
+.consult-form .outer-wraper .wraper:last-child .inner-wraper input {
+    margin-bottom: 0rem;
+}
+
+.consult-form .consult-form-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom-style: solid;
+    border-bottom-width: 0.3rem;
+    border-bottom-color: #2E3A59;
+}
+
+.consult-form .consult-form-header .header-wraper {
+    display: flex;
+    align-items: center;
+}
+
+.consult-form .consult-form-header .header-wraper span {
+    font-weight: bolder;
+    margin-right: 0.8rem;
+}
+
+.consult-form .consult-form-header .header-wraper .fa-chevron-left {
+    cursor: pointer;
+}
+
+.consult-form .consult-form-header .header-wraper .fa-chevron-left:hover {
+    color: #40496156;
+}
+
+.consult-form .consult-form-header .header-wraper span,
+.consult-form .consult-form-header .header-wraper .fa-chevron-left {
+    color: #2E3A59;
+}
+
+.consult-form .fa-file-alt {
+    font-size: 2.2rem;
+    color: #2E3A59;
+}
+
+.consult-form .alert {
+    margin-bottom: 0px !important;
+}
+
+.consult-form .alert.alert-success {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.consult-form .fa-file-alt {
+    background-color: #0f56422e;
+    border-radius: 100%;
+    position: absolute;
+    left: 95%;
+    font-size: 1.4rem;
+    animation: grow 1s infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-out;
+}
+
+@keyframes grow {
+    from {
+        padding: 0.8rem;
+        padding: 0.8rem
+    }
+
+    to {
+        padding: 1rem;
+        padding: 1rem;
+    }
+}
+
+.button-blue-dark {
+    background-color: #2E3A59;
+    color: white;
+    height: 2.2rem;
+    padding: 0rem 0.8rem 0rem 0.8rem;
+    font-size: 14px;
+    border: none;
+    border-radius: 0.3rem;
+}
+
+.button-blue-dark:hover {
+    background-color: #2e3a59ce;
+}
+
+.consult-form .file-pdf {
+    cursor: pointer;
+}
+
+#consult-page {
+    display: flex;
+    justify-content: center;
+}
+
+#consult-page .patient-fields-container {
+    margin-top: 2rem;
+    margin-left: 1.5rem;
+    height: fit-content;
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+    padding: 1.8rem;
+    font-size: 17px;
+    border-radius: 0.3rem;
+}
+
+#consult-page .patient-fields-container .patient-field {
+    border-bottom-style: solid;
+    padding: 0.8rem;
+    border-color: #2E3A59;
+}
+
+#consult-page .patient-fields-container .patient-field:last-child {
+    border-bottom: none;
+    padding-bottom: 0px;
+}
+
+#consult-page .patient-fields-container .patient-field:nth-child(1) {
+    padding-top: 0px;
+}
+
+#consult-page .active-arrow {
+    border-radius: 100%;
+    background-color: #2e3a5952;
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+}
+
+#consult-page .active-arrow:hover {
+    background-color: #2e3a5915;
+}
+
+#consult-page .consult-footer {
+    background-color: #2E3A59;
+    padding: 16px 0px;
+    color: white;
+    border-bottom-left-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+}
+
+#consult-page .consult-footer input {
+    font-size: 16px !important;
+    margin-left: 17px;
+}
+
+#consult-page .consult-footer .consult-images-container {
+    border-top-style: solid;
+}
+
+.consult-images-container {
+    display: flex;
+    padding-left: 16px;
+}
+
+.consult-images-container .consult-image {
+    max-height: 180px;
+    max-width: 180px;
+    padding: 16px 16px 0px 0px;
+}
+
+.consult-images-container .consult-image img {
+    height: 100%;
+    width: 100%;
+}
+
+.patients-page-container .consult-images-container {
+    align-items: center;
+    flex-direction: column;
+    overflow: auto;
+    padding: 16px;
+    padding-bottom: 0px;
+    max-height: 81vh;
+    overflow: auto;
+}
+
+.patients-page-container .consult-images-container .consult-image {
+    max-height: none;
+    width: fit-content;
+    max-width: 250px;
+    padding: 0px;
+    border-style: solid;
+    border-width: thick;
+    margin-bottom: 16px;
+    border-color: #57B0F1;
+    border-radius: 0.3rem;
+}
+
+.file-upload-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #57B0F1;
+    padding: 1rem;
+    color: white;
+}
+
+.file-upload-form input {
+    font-size: 16px !important;
+    width: 14rem;
+}
+
+.file-upload-form button {
+    margin-top: 1rem;
+    font-size: 16px;
+}
+
+.consult-images-wraper {
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+    margin-top: 30px;
+    height: fit-content;
 }

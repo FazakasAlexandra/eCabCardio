@@ -5,7 +5,6 @@ namespace App\Models;
 use CodeIgniter\Model;
 
 class MedicalLetterModel extends Model
-
 {
     function getMedicalLetter($consultId)
     {

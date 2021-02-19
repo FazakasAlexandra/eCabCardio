@@ -39,16 +39,22 @@ $routes->get('/patients/offset/(:any)', 'Patients::index/$1');
 // $1 = offset, $2 = order
 $routes->get('/patients/offset/(:any)/(:any)', 'Patients::index/$1/$2');
 
-// SEARCH ROUTE
-$routes->get('/patients/search/', 'Patients::search/$1/$2'); 
-
-// CONSULT PATIENT 
+// CONSULT PATIENT
 // $1 = patient_id
-$routes->get('/patients/consults/(:any)', 'Consults::Index/$1'); 
+$routes->get('/patients/(:any)/consult', 'Consults::Index/$1'); 
+$routes->post('/patients/(:any)/consult', 'Consults::Index/$1'); 
 
 // GET CONSULT MEDICAL LETTER
 // $1 = consult_id
 $routes->get('/consults/(:any)/letter', 'Consults::getMedicalLetter/$1');
+
+// GET CONSULT IMAGES
+// $1 = consult_id
+$routes->get('/consults/(:any)/images', 'Consults::getConsultImages/$1');
+
+// UPLOAD CONSULT IMAGES
+// $1 = consult_id
+$routes->post('/consults/(:any)/images', 'Consults::storeConsultImages/$1');
 
 // GET SINGLE CONSULT 
 // $1 = consult_id
@@ -56,8 +62,6 @@ $routes->get('/consults/(:any)', 'Consults::getSingleConsult/$1');
 
 // ADMIN ROUTES FOR UPDATING FILES
 $routes->get('/admin/examinations/dltexam/(:any)', 'Admin::dltexam/$1');
-
-
 
 /**
  * --------------------------------------------------------------------
