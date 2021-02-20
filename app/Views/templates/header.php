@@ -18,11 +18,11 @@
 	<nav class="navbar">
 		<a href="home"><img src="/ecabcardio/public/assets/logo.png" alt="logo" class="navbar logo" /></a>
 		<ul class="navbar menu">
-			<li><a href="/ecabcardio/public/patients">Patients</a> </li>
-			<li><a href="/ecabcardio/public/history">History</a></li>
-			<li><a href="#" onclick="dropdownMenu()">Admin</a></li>
+			<li class="patients-tab"><a href="/ecabcardio/public/patients">Patients</a> </li>
+			<li class="history-tab"><a href="/ecabcardio/public/history">History</a></li>
+			<li class="admin-tab" onclick="dropdownMenu()"><a href="#admin">Admin</a></li>
 		</ul>
-		<ul class="drop-menu">
+		<ul class="drop-menu" style="display: none;">
 			<li><a href="/ecabcardio/public/">Edit Users</a></li>
 			<li><a href="http://localhost/ecabcardio/public/admin/examinations">Edit Examinations</a></li>
 			<li><a href="/ecabcardio/public/">Edit Analysis</a></li>

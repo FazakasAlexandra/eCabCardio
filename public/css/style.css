@@ -21,26 +21,39 @@ a {
 }
 
 .navbar {
-    display: flex;
     background-color: #57b0f1;
-    padding: 5px 5px;
-    align-items: center;
-}
-
-.navbar .logo {
-    width: 69px;
-    height: 64px;
+    height: 70px;
+    padding: 0rem;
 }
 
 .navbar .menu {
+    height: 100%;
+}
+
+.navbar .menu li {
+    cursor: pointer;
+    height: 100%;
     display: flex;
-    width: 270px;
-    justify-content: space-around;
-    margin-left: auto;
+    align-items: center;
+    padding: 0rem 1rem 0rem 1rem;
+}
+
+.navbar.menu li:hover,
+.active-navbar-tab{
+    background-color: #2e3a596b;
+    border-bottom-color: #2e3a59;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+    transition: 0.6s;
 }
 
 .navbar .menu a {
     color: white;
+}
+
+.navbar img{
+    height: 50px;
+    margin-left: 0.5rem;
 }
 
 .welcome-message {
@@ -158,10 +171,6 @@ a {
     color: white;
 }
 
-.edit-patient-button i {
-    margin-right: 0.5rem;
-}
-
 .hidden {
     display: none;
 }
@@ -182,7 +191,7 @@ a {
     border-radius: 20%;
     border-top-right-radius: 0%;
     border-bottom-right-radius: 0%;
-    padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+    padding: 0.2rem 0.2rem 0.2rem 0.5rem;
     ;
     background-color: #2E3A59;
     color: white;
@@ -202,6 +211,7 @@ a {
 }
 
 .button-blue {
+    border: none;
     background-color: #57B0F1;
     color: white;
     padding: 0.3rem 1rem 0.3rem 1rem;
@@ -212,6 +222,7 @@ a {
 .button-blue:hover {
     color: white;
     background-color: #7ec2f3;
+    transition: 0.6s;
 }
 
 th {
@@ -717,6 +728,12 @@ td:nth-child(6) a:hover {
     background-color: #2e3a59ce;
 }
 
+.button-blue .fa-plus {
+    margin-right: 0.5rem;
+}
+.button-blue .fa-pen {
+    margin-right: 0.5rem;
+}
 .consult-form .file-pdf {
     cursor: pointer;
 }
@@ -835,8 +852,56 @@ td:nth-child(6) a:hover {
     font-size: 16px;
 }
 
-.consult-images-wraper {
+.consult-files-wraper {
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     margin-top: 30px;
     height: fit-content;
+    border-radius: 0.2rem;
+}
+
+.consult-files-wraper .file-upload-form{
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+}
+
+.consult-files-wraper .alert{
+    border-top-right-radius: 0rem;
+    border-top-left-radius: 0rem;
+    margin-bottom: 1rem;
+}
+
+.consult-pdf-container{
+    background-color: #57B0F1;
+    border-top-style: solid;
+    border-top-color: white;
+    border-width: 0.1rem;
+    padding: 0.3rem 0.7rem 0.3rem 0rem;
+    display: flex;
+}
+
+.consult-pdf-container i{
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    font-size: 2rem;
+    color: white;
+    border-radius: 100%;
+}
+
+.consult-pdf-container i:hover{
+    color: white;
+    background-color: rgba(255, 255, 255, 0.274);
+}
+
+.pdf-wraper{
+    display: flex;
+    flex-direction: column;
+    margin-left: 0.7rem
+}
+
+.pdf-wraper span{
+    font-size: 0.8rem;
+    color: white;
+}
+
+.pdf-wraper a{
+    text-align: center;
 }

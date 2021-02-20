@@ -1,4 +1,7 @@
 /***************EXAMINATIONS***********************/
+.container {
+    margin-top: 30px;
+}
 
 .page-title {
     margin: 50px;
@@ -6,6 +9,12 @@
     text-align: center;
     padding: 3px;
     color: red;
+}
+
+.form-wrap{
+    border: none !important;;
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+    border-radius: 0.3rem;
 }
 
 #form-update{
@@ -17,9 +26,20 @@
 }
 
 .exam-table {
-    box-shadow: 0px 1px 10px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     width: 95%;
     font-size: 22px;
+    border-radius: 0.3rem;
+}
+
+.exam-table th:last-child{
+    display: flex;
+    justify-content: flex-end;
+    border-top-right-radius: 0.3rem;
+}
+
+.exam-table th:nth-child(1){
+    border-top-left-radius: 0.3rem;
 }
 
 .add-examination-button-top {
@@ -98,7 +118,7 @@
     padding: 0.3rem 0.7rem 0.3rem 0.7rem;
 }
 
-.fas {
+.exam-form-text .fas {
     margin-right: 6px;
 }
 
@@ -199,10 +219,18 @@
     position: absolute;
     right:0;
     background: #57B0F1;
-    top: 74px;
-    text-align: right;
-    width: 300px;
-    padding: 5px 20px;
+    top: 70px;
+    border-bottom-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.drop-menu li{
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+
+.drop-menu li:last-child{
+    border-bottom-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
 }
 
 .drop-menu a{
@@ -210,11 +238,6 @@
 }
 
 .drop-menu li:hover{
-    background: #cfeaff;
+    background: #2e3a596b;
     transition: 0.6s;
-    font-weight: bolder;
-}
-
-.drop-menu a:hover{
-    color: black;
 }

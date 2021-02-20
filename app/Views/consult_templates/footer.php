@@ -1,6 +1,5 @@
 <div class="consult-footer">
-    <input type="file" name="images[]" multiple="" id="images">
-    <div class="consult-images-container">
-
-    </div>
+    <input type="file" name="files[]" multiple="" id="files" accept=".png, .jpg, .jpeg, .pdf">
+    <div class="consult-pdf-container"></div>
+    <div class="consult-images-container"></div>
 </div>

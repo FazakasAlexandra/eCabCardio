@@ -50,11 +50,11 @@ $routes->get('/consults/(:any)/letter', 'Consults::getMedicalLetter/$1');
 
 // GET CONSULT IMAGES
 // $1 = consult_id
-$routes->get('/consults/(:any)/images', 'Consults::getConsultImages/$1');
+$routes->get('/consults/(:any)/files', 'Consults::getConsultFiles/$1');
 
 // UPLOAD CONSULT IMAGES
 // $1 = consult_id
-$routes->post('/consults/(:any)/images', 'Consults::storeConsultImages/$1');
+$routes->post('/consults/(:any)/files', 'Consults::storeConsultFiles/$1');
 
 // GET SINGLE CONSULT 
 // $1 = consult_id

@@ -6,7 +6,7 @@
          <p><i class="fas fa-info"></i>Make the necessary changes and press the <b>Save Changes</b> button</p>
       </div>
       <div>
-         <button class="btn-empty-cells" type="button" onclick="clearCells()">CLEAR</button>
+         <button class="btn-empty-cells button-blue-dark" type="button" onclick="clearCells()">CLEAR</button>
       </div>
 </div>
 <form id="form" method="post"  action="http://localhost/ecabcardio/public/admin/updexam">

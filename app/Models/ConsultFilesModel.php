@@ -4,23 +4,23 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ConsultImagesModel extends Model
+class ConsultFilesModel extends Model
 
 {
-    function getConsultImages($consultId)
+    function getConsultFiles($consultId)
     {
         $db = \Config\Database::connect();
-        $builder = $db->table('consult_images');
+        $builder = $db->table('consult_files');
 
         $consultImages = $builder->where('consult_id', $consultId)->get()->getResultArray();
 
         return $consultImages;
     }
 
-    function insertConsultImages($consultImages)
+    function insertConsultFiles($consultImages)
     {
         $db = \Config\Database::connect();
-        $builder = $db->table('consult_images');
+        $builder = $db->table('consult_files');
 
         $builder->insert($consultImages);
     }

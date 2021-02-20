@@ -1,4 +1,4 @@
-import {displayImages, toggleArrows} from './utilities.js'
+import {displayFiles, toggleArrows} from './utilities.js'
 
 function arrowClickEvent() {
     document.querySelector('.fa-chevron-left').addEventListener('click', (e)=>{
@@ -8,8 +8,8 @@ function arrowClickEvent() {
 }
 
 function inputFileChangeEvent(){
-    document.querySelector('#images').onchange = ()=>{
-        displayImages(document.querySelector('.consult-images-container'))
+    document.querySelector('#files').onchange = ()=>{
+        displayFiles(document.querySelector('.consult-images-container'), document.querySelector('.consult-images-container'))
     }
 }
 

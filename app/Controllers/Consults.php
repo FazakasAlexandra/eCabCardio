@@ -10,7 +10,7 @@ use App\Models\MedicalLetterModel;
 use App\Models\ExaminationsModel;
 use App\Models\AnalysisModel;
 use App\Models\PatientsModel;
-use App\Models\ConsultImagesModel;
+use App\Models\ConsultFilesModel;
 
 class Consults extends BaseController
 {
@@ -19,7 +19,7 @@ class Consults extends BaseController
 	public function __construct()
 	{
 		$this->consultsModel = new ConsultsModel();
-		$this->consultImgsModel = new ConsultImagesModel();
+		$this->consultFilesModel = new ConsultFilesModel();
 		$this->consultsAnalysisModel = new ConsultsAnalysisModel();
 		$this->examModel = new ExaminationsModel();
 		$this->analysisModel = new AnalysisModel();
@@ -53,7 +53,7 @@ class Consults extends BaseController
 				$consultId = $this->consultsModel->insertConsult($request);
 				$data['consult_id'] = $consultId;
 
-				$this->storeConsultImages($consultId);
+				$this->storeConsultFiles($consultId);
 
 				$this->consultsAnalysisModel->insertConsultAnalysis($consultId, $request['analysis']);
 				$this->consultsExaminationsModel->insertConsultExamination($consultId, $request['examinations']);
@@ -65,22 +65,22 @@ class Consults extends BaseController
 		]);
 	}
 
-	public function storeConsultImages($consultId)
+	public function storeConsultFiles($consultId)
 	{
 		if ($this->request->getFiles()) {
 
-			foreach ($this->request->getFiles()['images'] as $file) {
+			foreach ($this->request->getFiles()['files'] as $file) {
 				// file type check
 				$fileName = $file->getRandomName();
 				$file->move('assets', $fileName);
-				$this->consultImgsModel->insertConsultImages(['consult_id' => $consultId, 'file_name' => $fileName]);
+				$this->consultFilesModel->insertConsultFiles(['consult_id' => $consultId, 'file_name' => $fileName]);
 			}
 		}
 	}
 
-	public function getConsultImages($consultId)
+	public function getConsultFiles($consultId)
 	{
-		$consultImgs = $this->consultImgsModel->getConsultImages($consultId);
+		$consultImgs = $this->consultFilesModel->getConsultFiles($consultId);
 
 		return $this->respond([
 			'status' => 201,
