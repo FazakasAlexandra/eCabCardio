@@ -9,7 +9,9 @@ function arrowClickEvent() {
 
 function inputFileChangeEvent(){
     document.querySelector('#files').onchange = ()=>{
-        displayFiles(document.querySelector('.consult-images-container'), document.querySelector('.consult-images-container'))
+        let imgsContainer = document.querySelector('.consult-images-container')
+        imgsContainer.innerHTML = '';
+        displayFiles(imgsContainer, imgsContainer)
     }
 }
 

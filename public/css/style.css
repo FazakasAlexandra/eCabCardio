@@ -31,6 +31,11 @@ a {
 }
 
 .navbar .menu li {
+    height: 100%;
+
+}
+
+.navbar .menu a{
     cursor: pointer;
     height: 100%;
     display: flex;
@@ -676,7 +681,7 @@ td:nth-child(6) a:hover {
     color: #2E3A59;
 }
 
-.consult-form .fa-file-alt {
+.consult-form .alert .fa-file-alt {
     font-size: 2.2rem;
     color: #2E3A59;
 }
@@ -691,7 +696,7 @@ td:nth-child(6) a:hover {
     justify-content: space-between;
 }
 
-.consult-form .fa-file-alt {
+.consult-form .alert .fa-file-alt {
     background-color: #0f56422e;
     border-radius: 100%;
     position: absolute;
@@ -793,6 +798,16 @@ td:nth-child(6) a:hover {
 
 #consult-page .consult-footer .consult-images-container {
     border-top-style: solid;
+}
+
+#consult-page .consult-footer .pdf-wraper{
+    margin: 0rem;
+    padding: 16px 16px 0px 0px;
+}
+
+#consult-page .consult-footer .pdf-wraper .fa-file-alt{
+    color: white;
+    font-size: 2rem;
 }
 
 .consult-images-container {
