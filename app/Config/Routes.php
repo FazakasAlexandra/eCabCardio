@@ -44,6 +44,11 @@ $routes->get('/patients/offset/(:any)/(:any)', 'Patients::index/$1/$2');
 $routes->get('/patients/(:any)/consult', 'Consults::Index/$1'); 
 $routes->post('/patients/(:any)/consult', 'Consults::Index/$1'); 
 
+
+// GET CONSULT HISTORY
+// $1 = consult_id
+$routes->get('/consults/history/(:any)', 'Consults::history/$1');
+
 // GET CONSULT MEDICAL LETTER
 // $1 = consult_id
 $routes->get('/consults/(:any)/letter', 'Consults::getMedicalLetter/$1');

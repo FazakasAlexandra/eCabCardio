@@ -14,11 +14,11 @@
             <?php echo view('/examinations_templates/examinations_table.php'); ?>
         </div>
 
-        <div class="col-4" id="form-update" style="">         
+        <div class="col-4" id="form-update">         
             <?php echo view('/examinations_templates/update_form.php'); ?> 
         </div>
 
-        <div class="col-md-4 col sm-4 " id="form-add" style="">
+        <div class="col-md-4 col sm-4 " id="form-add">
             <?php echo view('/examinations_templates/add_form.php'); ?> 
          </div>
 

@@ -11,6 +11,7 @@ use App\Models\ExaminationsModel;
 use App\Models\AnalysisModel;
 use App\Models\PatientsModel;
 use App\Models\ConsultFilesModel;
+use App\Models\HistoryModel;
 
 class Consults extends BaseController
 {
@@ -26,6 +27,7 @@ class Consults extends BaseController
 		$this->patientModel = new PatientsModel();
 		$this->consultsExaminationsModel = new ConsultsExaminationsModel();
 		$this->medicalLetterModel = new MedicalLetterModel();
+		$this->historyModel = new HistoryModel();
 	}
 
 	// RENDERS CONSULT PAGE & HANDLES POST CONSULT REQUEST
@@ -113,7 +115,7 @@ class Consults extends BaseController
 	public function getSingleConsult($consultId)
 	{
 		$consult = $this->consultsModel->getConsult($consultId);
-
+		
 		$consult->examinations = $this->consultsExaminationsModel->getExaminations($consult->id);
 		$consult->analysis = $this->consultsAnalysisModel->getAnalysis($consult->id);
 
@@ -134,6 +136,20 @@ class Consults extends BaseController
 			'status' => 201,
 			'error' => null,
 			'medical_letter' => $medicalLetter,
+		]);
+	}
+
+	public function history($consultId)
+	{
+		echo view('templates/header.php');
+
+		$consulthistory = $this->historyModel->getConsultHistory($consultId);
+
+		echo view('pages/patients_history.php', [
+			'patientHistory' => [
+				'data' => $consulthistory,
+				'name' => $consulthistory[0]['patient_name']
+			]
 		]);
 	}
 }

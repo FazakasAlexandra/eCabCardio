@@ -43,9 +43,22 @@ a {
     padding: 0rem 1rem 0rem 1rem;
 }
 
-.navbar.menu li:hover,
+.navbar.menu li:hover{
+    border-bottom-color: #2e3a59;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+    transition: 0.6s;
+}
+
 .active-navbar-tab{
     background-color: #2e3a596b;
+    border-bottom-color: #2e3a59;
+    border-bottom-style: solid;
+    border-bottom-width: thick;
+    transition: 0.6s;
+}
+
+.active-admin-navbar-tab{
     border-bottom-color: #2e3a59;
     border-bottom-style: solid;
     border-bottom-width: thick;
@@ -919,4 +932,17 @@ td:nth-child(6) a:hover {
 
 .pdf-wraper a{
     text-align: center;
+}
+
+.clinic-table-wraper{
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.clinic-table-wraper td:nth-child(6){
+    font-size: 20px;
+}
+
+.clinic-table-wraper form{
+    display: flex;
 }

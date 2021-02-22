@@ -67,14 +67,13 @@ function fillModalBody(letterContent){
     modalBody.innerHTML = `<p class="info">${letterContent.letter_info}</p><p class="info">${letterContent.patient_info}</p>`
 
     const consultPrice = letterContent.consult_price
+    const consultDate = letterContent.date
 
-    removeKeys(['consult_id', 'consult_price', 'patient_info', 'letter_info'], letterContent)
+    removeKeys(['consult_id', 'consult_price', 'patient_info', 'letter_info', 'date'], letterContent)
 
     modalBody.innerHTML += medicalLetterHTML(letterContent, consultPrice);
 
-    letterContent.date = '02-04-2020'
-
-    document.querySelector('.modal-footer').innerHTML = `<p>Signature<p><p>Date : 02-04-2020</p>`
+    document.querySelector('.modal-footer').innerHTML = `<p>Signature<p><p>Date : ${consultDate}</p>`
     
 }
 

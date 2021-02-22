@@ -6,6 +6,7 @@ function arrowClickEvent() {
         arrow.addEventListener('click', (e) => {
             fetchConsult(e.target.id)
                 .then((consult) => {
+                    console.log(consult)
                     removeKeys(['id', 'hour', 'date', 'patient_id', 'doctor_id'], consult)
                     document.querySelector('.consult-fields-container').innerHTML = consultHTML(consult)
                     toggleArrows(e.target);

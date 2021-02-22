@@ -3,14 +3,14 @@
 namespace App\Controllers;
 
 use App\Models\PatientsModel;
-use App\Models\PatientsHistoryModel;
+use App\Models\HistoryModel;
 
 class Patients extends BaseController
 {
 	public function __construct()
 	{
 		$this->patientsModel = new PatientsModel();
-		$this->historyModel = new PatientsHistoryModel();
+		$this->historyModel = new HistoryModel();
 	}
 
 	public function index($offset = 0, $order = 'asc')

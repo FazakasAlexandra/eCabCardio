@@ -16,7 +16,7 @@
 
 <header>
 	<nav class="navbar">
-		<a href="home"><img src="/ecabcardio/public/assets/logo.png" alt="logo" class="navbar logo" /></a>
+		<a href="/ecabcardio/public/home"><img src="/ecabcardio/public/assets/logo.png" alt="logo" class="navbar logo" /></a>
 		<ul class="navbar menu">
 			<li class="patients-tab"><a href="/ecabcardio/public/patients">Patients</a> </li>
 			<li class="history-tab"><a href="/ecabcardio/public/history">History</a></li>
