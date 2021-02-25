@@ -17,7 +17,7 @@
              <td><?php echo $patient['cnp'] ?></td>
 
              <!-- EDIT BUTTON  -->
-             <td><a href="<?php echo "/ecabcardio/public/patients/edit/" . (string)$patient['id'] ?>" class="edit-patient-button button-blue"><i class="fas fa-pen"></i>Edit Patient</a></td>
+             <td><a patient_id="<?php echo (string)$patient['id'] ?>" class="edit-patient-button button-blue edit-button"><i class="fas fa-pen"></i>Edit Patient</a></td>
 
              <!-- CONSULT BUTTON  -->
              <td><a href="<?php echo "/ecabcardio/public/patients/" . (string)$patient['id'] . "/consult" ?>" id="consult-patient-button" class="button-blue">Consult</a></td>

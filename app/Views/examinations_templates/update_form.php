@@ -2,8 +2,9 @@
 
 <div class="form-wrap">
 <div class="exam-form-text">
+<i class="fas fa-info"></i>
       <div>
-         <p><i class="fas fa-info"></i>Make the necessary changes and press the <b>Save Changes</b> button</p>
+         <p>Make the necessary changes and press the <b>Save Changes</b> button</p>
       </div>
       <div>
          <button class="btn-empty-cells button-blue-dark" type="button" onclick="clearCells()">CLEAR</button>
@@ -23,7 +24,7 @@
       <input name="newPrice" type="text" class="form-control" id="price">
    </div>
    <div class="buttons-examinations">
-      <button type="submit" class="btn btn-save-changes">Save changes</button>
+      <button type="submit" class="btn btn-save-changes button-blue">Save changes</button>
       <a href="" id="dltbutton" type="button" class="btn btn-delete-entry">Delete entry</a>
    </div>
 </form>

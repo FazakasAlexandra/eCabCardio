@@ -2,11 +2,12 @@
 
 <div class="form-wrap">
    <div class="exam-form-text">
+   <i class="fas fa-info"></i>
       <div>
-         <p><i class="fas fa-info"></i>Fill in the form and press the <b>Add New Examination</b> button</p>
+         <p>Fill in the form and press the <b>Add New Examination</b> button</p>
       </div>
       <div>
-         <button class="btn-empty-cells" type="button" onclick="clearCells()">CLEAR</button>
+         <button class="btn-empty-cells button-blue-dark" type="button" onclick="clearCells()">CLEAR</button>
       </div>
    </div>
 <form id="form" method="post" action="http://localhost/ecabcardio/public/admin/addexam">
@@ -23,7 +24,7 @@
       <input name="newPrice" type="text" class="form-control" id="price">
    </div>
    <div class="buttons-examinations">
-      <button type="submit" class="btn btn-save-changes">Add New Examination</button>
+      <button type="submit" class="btn btn-save-changes button-blue">Add New Examination</button>
    </div>
 </form>
 </div>      

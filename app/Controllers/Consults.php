@@ -36,7 +36,7 @@ class Consults extends BaseController
 		echo view('templates/header.php');
 
 		helper(['form', 'url']);
-
+		
 		$data = [
 			'examinations' => $this->examModel->getExaminations(),
 			'analysis' => $this->analysisModel->getAnalysis(),
@@ -62,6 +62,7 @@ class Consults extends BaseController
 			}
 		}
 
+		
 		echo view('pages/consult.php', [
 			'data' => $data
 		]);

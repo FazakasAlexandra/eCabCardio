@@ -119,7 +119,11 @@
 }
 
 .exam-form-text .fas {
-    margin-right: 6px;
+    padding: 0.6rem 1rem;
+    background-color: #57b0f16b;
+    border-radius: 100%;
+    color: white;
+    height: fit-content;
 }
 
 #table-button:hover {
@@ -161,7 +165,7 @@
 
 .form-label {
     margin-top: 20px;
-    margin-bottom: 20px;
+    font-size: 18px;
 }
 
 .buttons-examinations {
@@ -179,12 +183,25 @@
 }
 
 .exam-form-text{
-    display: grid;
-    grid-template-columns: 75% auto;
+    display: flex;
     justify-content: space-between;
-    align-content: start;
 }
 
+.exam-form-text p {
+    text-align: center;
+    font-size: 18px;
+    margin: 0px 6px;
+    margin-bottom: 20px;
+}
+
+.exam-form-text p b {
+    color: #57b0f1;
+}
+
+.form-wrap input {
+    border-width: thin;
+    border-radius: 0.3rem;
+}
 
 .btn-save-changes{
     padding: 6px 10px;

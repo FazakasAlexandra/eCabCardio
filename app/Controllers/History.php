@@ -14,8 +14,33 @@ class History extends BaseController
 		echo view('templates/header.php');
 
 		$clinicHistory = $this->historyModel->getClinicHistory();
+		$total = 0;
 
-		echo view('pages/clinic_history.php', [ 'data' => $clinicHistory ]);
+		foreach ($clinicHistory as $history) {
+			$total += (int)$history['total'];
+		}
+
+		echo view('pages/clinic_history.php', [ 'data' => $clinicHistory,
+		                                        'total' => $total
+		                                      ]);
+
+		echo view('templates/footer.php');
+	}
+
+	public function search(){
+		echo view('templates/header.php');
+
+		$req = 	$this->request->getGet();
+		$clinicHistory = $this->historyModel->getClinicHistoryInterval($req['date_from'], $req['date_to']);
+		$total = 0;
+
+		foreach ($clinicHistory as $history) {
+			$total += (int)$history['total'];
+		}
+
+		echo view('pages/clinic_history.php', [ 'data' => $clinicHistory,
+		                                        'total' => $total
+		                                      ]);
 
 		echo view('templates/footer.php');
 	}

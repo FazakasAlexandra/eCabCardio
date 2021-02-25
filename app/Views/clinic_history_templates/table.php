@@ -21,7 +21,7 @@
         </td>
 
         <!-- VIEW BILL BUTTON -->
-        <td><button class="button-blue">Bill</button></td>
+        <td><button class="button-blue bill" id=<?php echo $clinicHistory['consult_id']?>>Bill</button></td>
     </tr>
     
 

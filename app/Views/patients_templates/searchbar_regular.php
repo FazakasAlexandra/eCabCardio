@@ -5,13 +5,13 @@
 
             <a id="advanced-search-button"><i class="fas fa-angle-up"></i></a>
 
-            <select name="search-criteria" id="">
+            <select name="search-criteria" id="" class="form-control">
                 <option value="name">name</option>
                 <option value="surname">surname</option>
                 <option value="cnp">CNP</option>
             </select>
 
-            <input name="search-value" type="text">
+            <input name="search-value" type="text" class="form-control">
 
             <!-- SEARCH BUTTON  -->
             <button type="submit"><i class="fas fa-search"></i></button>

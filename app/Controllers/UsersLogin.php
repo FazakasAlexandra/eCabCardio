@@ -8,7 +8,7 @@ class UsersLogin extends BaseController
 	  helper(['form']);
 
 
-	  echo view('templates/header_login', $data);
+	  echo view('templates/header', $data);
 	  echo view('login', $data);
 	  echo view('templates/footer_login', $data);
 
@@ -20,7 +20,7 @@ class UsersLogin extends BaseController
 		helper(['form']);
   
   
-		echo view('templates/header_login', $data);
+		echo view('templates/header', $data);
 		echo view('register', $data);
 		echo view('templates/footer_login', $data);
   

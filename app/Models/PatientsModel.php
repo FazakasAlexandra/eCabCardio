@@ -31,6 +31,7 @@ class PatientsModel extends Model
 
     public function getSingle($patientId)
     {
+
         $patient = $this->builder->where('id', $patientId)->get()->getRowObject();
 
         $patientCity = $this->citysModel->getSingle($patient->city_id);

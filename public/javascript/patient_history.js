@@ -159,7 +159,7 @@ function inputFileChangeEvent() {
         if(document.querySelector('#no-files-message')) document.querySelector('#no-files-message').innerHTML = ''
 
         displayFiles(document.querySelector('.consult-images-container'), document.querySelector('.consult-pdf-container'))
-        selectedFiles = selectedFiles !== '' ? [...selectedFiles, ...e.target.files] : e.target.files
+        selectedFiles = !selectedFiles ? [...selectedFiles, ...e.target.files] : e.target.files
     }
 }
 

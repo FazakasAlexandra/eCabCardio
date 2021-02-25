@@ -4,9 +4,13 @@ namespace App\Controllers;
 
 use App\Models\PatientsModel;
 use App\Models\HistoryModel;
+use CodeIgniter\API\ResponseTrait;
 
 class Patients extends BaseController
 {
+
+	use ResponseTrait;
+
 	public function __construct()
 	{
 		$this->patientsModel = new PatientsModel();
@@ -43,10 +47,17 @@ class Patients extends BaseController
 		echo view('pages/patients.php', $data);
 	}
 
+	public function getPatient($patient_id){
+		return $this->respond([
+			'status' => 201,
+			'error' => null,
+			'patient' => $this->patientsModel->getSingle($patient_id)
+		]);
+	}
+
 	public function history($id)
 	{
 		echo view('templates/header.php');
-
 		$patientHistory = $this->historyModel->getPatientHistory($id);
 
 		echo view('pages/patients_history.php', [

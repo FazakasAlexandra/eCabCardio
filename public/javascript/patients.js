@@ -24,5 +24,20 @@ function setActiveButtonColor() {
     }
 };
 
+document.querySelectorAll('.edit-button').forEach(editBttn => {
+    editBttn.addEventListener('click', (e) => {
+        fetchPatient(e.target.getAttribute('patient_id')).then((patient) => {
+            console.log(patient)
+        })
+    })
+})
+
+
+function fetchPatient(patientId) {
+    return fetch(`/ecabcardio/public/patients/${patientId}`)
+        .then(res => res.json())
+        .then(res => res.patient)
+}
+
 setActiveButtonColor()
 toggleSearchbar()

@@ -153,7 +153,7 @@ a {
 
 .searchbar-form input,
 .searchbar-form select {
-    border-right: none;
+    border-right: medium;
     height: 2.7rem;
     width: 12rem;
     font-size: 16px;
@@ -183,6 +183,7 @@ a {
 
 .button-blue.edit-patient-button {
     padding-left: 0.5rem;
+    cursor: pointer;
 }
 
 .edit-patient-button:hover {
@@ -377,6 +378,12 @@ td:nth-child(6) a:hover {
     padding: 0.5rem 0.7rem 0.5rem 0.7rem;
     color: #828080;
     cursor: pointer;
+}
+
+.fa-receipt{
+    color: #57B0F1;
+    cursor: pointer;
+    font-size: 2rem;
 }
 
 .fa-file-alt {
@@ -647,6 +654,7 @@ td:nth-child(6) a:hover {
 .consult-form .inner-wraper {
     display: flex;
     flex-direction: column;
+    margin-bottom: 0.5rem;
     width: 33.3%;
 }
 
@@ -656,6 +664,7 @@ td:nth-child(6) a:hover {
 
 .consult-form .outer-wraper .wraper:last-child .inner-wraper:last-child {
     width: 10%;
+    margin-right: 0.6rem;
 }
 
 .consult-form .outer-wraper .wraper:last-child .inner-wraper input {
@@ -945,4 +954,98 @@ td:nth-child(6) a:hover {
 
 .clinic-table-wraper form{
     display: flex;
+}
+
+.clinic-table-wraper .alert{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0rem;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.clinic-table-wraper .alert i{
+    margin-right: 0.5rem;
+}
+
+.clinic-history-form{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-left: 0px;
+}
+
+.clinic-history-form .wraper{
+    display: flex;
+    align-items: center;
+}
+.clinic-history-form .wraper button{
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: 100%;
+}
+.clinic-history-form .wraper :nth-child(1){
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+}
+
+.clinic-history-form button,
+.consult-history-searchbar #show-all{
+    font-size: 18px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    height: 42px;
+}
+
+.clinic-history-form input {
+    border-color: #2E3A59;
+    border-style: solid;
+    border-width: medium;
+}
+
+.clinic-history-form .inner-wraper{
+    background-color: #2E3A59;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.clinic-history-form label{
+    height: 100%;
+    text-align: center;
+    padding: 0px 1rem 0px 1rem;
+}
+
+.consult-history-searchbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.consult-history-searchbar #show-all{
+    margin-left: 1rem;
+}
+
+.outer-wraper .form-control{
+    margin:0;
+    width: 97%;
+    height: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 0.3rem;
+}
+
+.modal.bill-modal .modal-header .buttons-container{
+    left: 1rem;
+}
+.modal.bill-modal .modal-content{
+    width: fit-content;
+}
+.modal.bill-modal .modal-content .price{
+    margin: 0px;
+}
+.modal.bill-modal .modal-content .field-list{
+    margin-top: 0px;
+}
+.modal.bill-modal .modal-footer{
+    display: none;
 }
