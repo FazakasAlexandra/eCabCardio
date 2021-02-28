@@ -1,9 +1,4 @@
 <div class="container">
-<!--     <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <h2 style="margin:50px;"><b><?php echo $title; ?></b></h2>
-        </div>
-    </div> -->
 
         <?php if($message): ?>
                   <div class="alert alert-primary" role="alert"><?= $message ?></div>

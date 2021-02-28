@@ -23,7 +23,7 @@
 			<li class="admin-tab" onclick="dropdownMenu()"><a href="#admin">Admin</a></li>
 		</ul>
 		<ul class="drop-menu" style="display: none;">
-			<li><a href="/ecabcardio/public/">Edit Users</a></li>
+			<li><a href="http://localhost/ecabcardio/public/admin/users">Edit Users</a></li>
 			<li><a href="http://localhost/ecabcardio/public/admin/examinations">Edit Examinations</a></li>
 			<li><a href="/ecabcardio/public/">Edit Analysis</a></li>
 		</ul>
