@@ -18,6 +18,11 @@ export function displayFiles(imagesContainer, pdfContainer) {
     })
 }
 
+export function removeKeys(keys, object) {
+    keys.forEach(k => delete object[k]);
+}
+
+
 export function shortenFileName(largeFileName) {
     if(largeFileName.length > 10){
         largeFileName = largeFileName.substr(0, 4) + '...' + largeFileName.substr(largeFileName.length - 6, 6)

@@ -44,6 +44,8 @@ $routes->get('/patients/offset/(:any)/(:any)', 'Patients::index/$1/$2');
 // CONSULT PATIENT
 // $1 = patient_id
 $routes->get('/patients/(:any)/consult', 'Consults::Index/$1'); 
+// POST PATIENT
+// $1 = patient_id
 $routes->post('/patients/(:any)/consult', 'Consults::Index/$1'); 
 
 // GET PATIENT HISTORY 
@@ -53,6 +55,16 @@ $routes->get('/patients/history/(:any)', 'Patients::history/$1');
 // GET SINGLE PATIENT 
 // $1 = patient_id
 $routes->get('/patients/(:any)', 'Patients::getPatient/$1'); 
+
+// GET SINGLE PATIENT 
+// $1 = patient_id
+$routes->post('/patients/(:any)', 'Patients::update/$1'); 
+
+// GET ALL CITIES
+$routes->get('/cities', 'Cities::index');
+
+// GET SINGLE COUNTY
+$routes->get('/counties/(:any)', 'Counties::index/$1'); 
 
 // GET CONSULT HISTORY
 // $1 = consult_id

@@ -21,9 +21,8 @@
         </td>
 
         <!-- VIEW BILL BUTTON -->
-        <td><button class="button-blue bill" id=<?php echo $clinicHistory['consult_id']?>>Bill</button></td>
+        <td><button class="button-blue bill" id=<?php echo $clinicHistory['consult_id']?>>Receipt</button></td>
     </tr>
-    
 
 <?php endforeach; ?>
 

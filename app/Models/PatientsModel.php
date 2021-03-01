@@ -16,6 +16,12 @@ class PatientsModel extends Model
         $this->citysModel = new CitysModel();
 	}
 
+
+    public function updatePatient($updatedPatient, $patientId)
+    {
+        return $this->builder->where('id', $patientId)->update($updatedPatient);
+    }
+
     public function getPatients($offset, $order)
     {
         return [
@@ -31,7 +37,6 @@ class PatientsModel extends Model
 
     public function getSingle($patientId)
     {
-
         $patient = $this->builder->where('id', $patientId)->get()->getRowObject();
 
         $patientCity = $this->citysModel->getSingle($patient->city_id);

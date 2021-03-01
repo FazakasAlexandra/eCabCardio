@@ -13,4 +13,4 @@
     </div>
 </div>
 
-<script src="/ecabcardio/public/javascript/medical_letter.js"></script>
+<script type="module" src="/ecabcardio/public/javascript/medical_letter.js"></script>

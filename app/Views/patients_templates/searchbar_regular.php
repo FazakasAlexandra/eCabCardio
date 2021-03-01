@@ -18,7 +18,7 @@
         </form>
 
         <!-- ADD PATIENT BUTTON  -->
-        <a class="add-patient-button" href="/ecabcardio/public/patients/add">
+        <a class="add-patient-button">
             <span class="add-patient-button-icon"><i class="fas fa-plus"></i></span>
             <span class="add-patient-button-text">Add Patient</span>
         </a>

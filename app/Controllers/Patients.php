@@ -67,4 +67,11 @@ class Patients extends BaseController
 			]
 		]);
 	}
+
+	public function update($patientId)
+	{
+		$this->patientsModel->updatePatient($this->request->getJSON(true), $patientId);
+
+		redirect('http://localhost/ecabcardio/public/patients');
+	}
 }

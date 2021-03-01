@@ -6,8 +6,9 @@
         <?php echo view('/patients_templates/table.php'); ?>
         <?php echo view('/patients_templates/pagination.php'); ?>
     </div>
-    <div class="patients-form"></div>
+    <?php echo view('/patients_templates/form_add.php'); ?>
+    <?php echo view('/patients_templates/form_edit.php'); ?>
 </div>
 
-<script src="/ecabcardio/public/javascript/patients.js"></script>
+<script type="module" src="/ecabcardio/public/javascript/patients.js"></script>
 <?php echo view('/templates/footer.php'); ?>

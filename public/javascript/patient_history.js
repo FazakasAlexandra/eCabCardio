@@ -1,10 +1,11 @@
-import { shortenFileName, displayFiles, toggleArrows } from './utilities.js'
+import { removeKeys, shortenFileName, displayFiles, toggleArrows } from './utilities.js'
+import { db } from './db.js'
 
 /* ARROW ICON CLICK EVENT */
 function arrowClickEvent() {
     document.querySelectorAll('.fa-chevron-left').forEach(arrow => {
         arrow.addEventListener('click', (e) => {
-            fetchConsult(e.target.id)
+            db.consults.fetchConsult(e.target.id)
                 .then((consult) => {
                     console.log(consult)
                     removeKeys(['id', 'hour', 'date', 'patient_id', 'doctor_id'], consult)
@@ -16,10 +17,6 @@ function arrowClickEvent() {
                 })
         })
     });
-}
-
-function removeKeys(keys, object) {
-    keys.forEach(k => delete object[k]);
 }
 
 function consultHTML(consult) {
@@ -53,21 +50,6 @@ function consultListItems(key, consult) {
     }, '')
 }
 
-function fetchConsult(consultId) {
-    return fetch(`/ecabcardio/public/consults/${consultId}`)
-        .then(res => res.json())
-        .then(res => res.consult)
-}
-
-function fetchConsultImages(consultId) {
-    return fetch(`/ecabcardio/public/consults/${consultId}/files`)
-        .then(res => res.json())
-        .then(res => res.consult_images)
-        .then((files) => {
-            renderConsultFiles(filterFiles(files))
-        })
-}
-
 function filterFiles(files, fileTypes = { img: [], pdf: [] }) {
     files.forEach(file => {
         if (file.file_name.includes('.pdf')) {
@@ -80,7 +62,9 @@ function filterFiles(files, fileTypes = { img: [], pdf: [] }) {
     return fileTypes
 }
 
-function renderConsultFiles(fileTypes) {
+function renderConsultFiles(files) {
+    let fileTypes = filterFiles(files)
+
     if (fileTypes.img.length === 0 && fileTypes.pdf.length === 0) {
         document.querySelector('.consult-images-container').innerHTML = '<p id="no-files-message">consult has no files</p>'
         return
@@ -112,7 +96,11 @@ function imgIconsClickEvent() {
     document.querySelectorAll('.fa-images').forEach(imgIcon => {
         imgIcon.addEventListener('click', () => {
             changeInterface(imgIcon);
-            fetchConsultImages(imgIcon.id);
+
+            db.consults.fetchConsultImages(imgIcon.id).then((files) => {
+                renderConsultFiles(files)
+            })
+
             document.querySelector('#save-files-button').setAttribute('consultId', imgIcon.id)
         })
     })
@@ -153,34 +141,29 @@ function changeInterface(imgIcon) {
 
 let selectedFiles = '';
 
+/* FILE INPUT ONCHANGE EVENT */
 function inputFileChangeEvent() {
     document.querySelector('#files').onchange = (e) => {
         document.querySelector('#save-files-button').classList.remove('hidden');
-        if(document.querySelector('#no-files-message')) document.querySelector('#no-files-message').innerHTML = ''
+        if (document.querySelector('#no-files-message')) document.querySelector('#no-files-message').innerHTML = ''
 
         displayFiles(document.querySelector('.consult-images-container'), document.querySelector('.consult-pdf-container'))
         selectedFiles = !selectedFiles ? [...selectedFiles, ...e.target.files] : e.target.files
     }
 }
 
-function uploadConsultFiles(consultId) {
-    var formData = new FormData();
-
-    Array.from(selectedFiles).forEach(file => {
-        formData.append('files[]', file)
-    });
-
-    return fetch(`/ecabcardio/public/consults/${consultId}/files`, {
-        method: 'POST',
-        body: formData
-    })
-}
-
+/* SAVE FILES BUTTON CLICK EVENT */
 function saveFilesButtonEvent() {
     document.querySelector('#save-files-button').addEventListener('click', (e) => {
         e.preventDefault();
 
-        uploadConsultFiles(e.target.getAttribute('consultId')).then(() => {
+        var formData = new FormData();
+
+        Array.from(selectedFiles).forEach(file => {
+            formData.append('files[]', file)
+        });
+
+        db.consults.uploadFiles(e.target.getAttribute('consultId'), formData).then(() => {
             document.querySelector('.alert').classList.remove('hidden')
         });
     })

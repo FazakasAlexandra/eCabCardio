@@ -1,6 +1,5 @@
-function removeKeys(keys, object) {
-    keys.forEach(k => delete object[k]);
-}
+import {removeKeys} from './utilities.js'
+import { db } from './db.js'
 
 function medicalLetterHTML(letter, consultPrice){
     return Object.keys(letter).reduce((acc, key, idx) => {
@@ -48,7 +47,7 @@ function consultListItems(key, consult) {
 function fileClickEvent() {
     document.querySelectorAll('.fa-file-alt').forEach(file => {
         file.addEventListener('click', (e) => {
-            fetchMedicalLetter(e.target.id).then(letterContent => {
+            db.consults.fetchMedicalLetter(e.target.id).then(letterContent => {
                 console.log(letterContent)
                 toggleModal("block")
                 fillModalBody(letterContent)
@@ -75,12 +74,6 @@ function fillModalBody(letterContent){
 
     document.querySelector('.modal-footer').innerHTML = `<p>Signature<p><p>Date : ${consultDate}</p>`
     
-}
-
-function fetchMedicalLetter(consultId) {
-    return fetch(`/ecabcardio/public/consults/${consultId}/letter`)
-        .then(res => res.json())
-        .then(res => res.medical_letter)
 }
 
 /* MODAL CLOSE BUTTON CLICK EVENT */

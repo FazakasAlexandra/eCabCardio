@@ -1,7 +1,9 @@
+import { db } from './db.js'
+
 function billClickEvent() {
     document.querySelectorAll('.bill').forEach(bill => {
         bill.addEventListener('click', (e) => {
-            fetchMedicalLetter(e.target.id).then(letter => {
+            db.consults.fetchMedicalLetter(e.target.id).then(letter => {
                 console.log(letter)
                 toggleModal("block")
                 const modalBody = document.querySelector('.modal-body')
@@ -9,12 +11,6 @@ function billClickEvent() {
             })
         })
     })
-}
-
-function fetchMedicalLetter(consultId) {
-    return fetch(`/ecabcardio/public/consults/${consultId}/letter`)
-        .then(res => res.json())
-        .then(res => res.medical_letter)
 }
 
 function toggleModal(mode) {
