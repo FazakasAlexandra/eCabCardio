@@ -1,4 +1,4 @@
-import {removeKeys, cancelButtonEvent , selectCitiesChangeEvent, fillSelectInputs, hideForm ,showForm} from './utilities.js'
+import {removeKeys, cancelButtonEvent , selectCitiesChangeEvent, fillSelectInputs, hideForm , showForm, collectTextValues} from './utilities.js'
 import {db} from './db.js'
 
 let form = document.querySelector('.edit-form');
@@ -46,24 +46,8 @@ function fillRadioInput(isMarried) {
 
 function saveChangesButtonEvent(){
     form.querySelector('.save-changes').addEventListener('click', (e)=>{
-        const updatedPatient = collectTextValues()
-        db.patients.updatePatient(e.target.id, updatedPatient).then(mssg => console.log(mssg))
+        form.action = `/ecabcardio/public/patients/update/${e.target.id}`
     })
-}
-
-function collectTextValues(updatedPatient = {}){
-    form.querySelectorAll('input').forEach((input)=>{
-        if(input.id === 'county') return
-        if(input.type !== 'radio' ) {
-            updatedPatient[input.id] = input.value
-        } else {
-            if(input.checked) updatedPatient.married = input.value
-        }
-    })
-
-    updatedPatient.city_id = form.querySelector('#city').value
-
-    return updatedPatient
 }
 
 editButtonClickEvent()

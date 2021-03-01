@@ -59,11 +59,15 @@ export function selectCitiesChangeEvent(form) {
 
     })
 }
-
-export function fillSelectInputs(patientCityId = 1, form) {
+``
+export function fillSelectInputs(patientCityId = 0, form) {
     let citiesSelectInput = form.querySelector('#city')
+
+    form.querySelector('#county').value = ""
+    if(patientCityId === 0) citiesSelectInput.innerHTML = "<option value='0' county_id='0' selected>Select a city</option>"
+
     db.cities.fetchCities().then((cities) => {
-        citiesSelectInput.innerHTML = cities.reduce((acc, city) => {
+        citiesSelectInput.innerHTML += cities.reduce((acc, city) => {
             if (patientCityId == city.id) return `${acc}<option value=${city.id} county_id=${city.county_id} selected>${city.city}</option>`
             return `${acc}<option value=${city.id} county_id=${city.county_id}>${city.city}</option>`
         }, '')
@@ -76,4 +80,19 @@ export function hideForm(form) {
 
 export function showForm(form) {
     if(form.classList.contains('hidden')) form.classList.remove('hidden')
+}
+
+export function collectTextValues(form, patient = {}){
+    form.querySelectorAll('input').forEach((input)=>{
+        if(input.id === 'county') return
+        if(input.type !== 'radio' ) {
+            patient[input.id] = input.value
+        } else {
+            if(input.checked) patient.married = input.value
+        }
+    })
+
+    patient.city_id = form.querySelector('#city').value
+
+    return patient
 }

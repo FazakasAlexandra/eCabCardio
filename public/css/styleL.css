@@ -260,6 +260,7 @@
 
 /************************ADMIN TOGGLE MENU**********************/
 .drop-menu{
+    z-index: 1;
     display: none;
     position: absolute;
     right:0;

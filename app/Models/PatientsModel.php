@@ -22,6 +22,14 @@ class PatientsModel extends Model
         return $this->builder->where('id', $patientId)->update($updatedPatient);
     }
 
+    public function postPatient($patient){
+        $db = \Config\Database::connect();
+		$builder = $this->db->table('patients');
+
+        $builder->insert($patient);
+        return $db->insertID();
+    }
+
     public function getPatients($offset, $order)
     {
         return [

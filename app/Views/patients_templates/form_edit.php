@@ -3,23 +3,23 @@
     <div class="outer-wraper">
         <div class="inner-wraper">
             <span class="patient-field-text">Name </span>
-            <input class="form-control" type="text" id="name">
+            <input class="form-control" name="name" type="text" id="name">
         </div>
         <div class="inner-wraper">
             <span class="patient-field-text">Surname </span>
-            <input class="form-control" type="text" id="surname">
+            <input class="form-control" name="surname" type="text" id="surname">
         </div>
     </div>
 
     <div class="outer-wraper">
         <div class="inner-wraper">
             <span class="patient-field-text">Phone </span>
-            <input class="form-control" type="text" id="phone">
+            <input class="form-control" name="phone" type="text" id="phone">
         </div>
 
         <div class="inner-wraper">
             <span class="patient-field-text">Email </span>
-            <input class="form-control" type="email" id="email">
+            <input class="form-control" name="email" type="email" id="email">
         </div>
 
     </div>
@@ -27,7 +27,7 @@
     <div class="outer-wraper">
         <div class="inner-wraper" style="width: 50%;">
             <span class="patient-field-text">City </span>
-            <select class="form-control" id="city"></select>
+            <select class="form-control" name="city_id" id="city"></select>
         </div>
 
         <div class="inner-wraper">
@@ -40,12 +40,12 @@
     <div class="outer-wraper">
         <div class="inner-wraper">
             <span class="patient-field-text">Address </span>
-            <input class="form-control" type="text" id="address">
+            <input class="form-control" name="address" type="text" id="address">
         </div>
 
         <div class="inner-wraper">
             <span class="patient-field-text">Work Place </span>
-            <input class="form-control" type="text" id="work_place">
+            <input class="form-control" name="work_place" type="text" id="work_place">
         </div>
 
     </div>
@@ -63,19 +63,19 @@
 
         <div class="inner-wraper">
             <span class="patient-field-text">Occupation </span>
-            <input class="form-control" type="text" id="occupation">
+            <input class="form-control" name="occupation" type="text" id="occupation">
         </div>
     </div>
 
     <div class="outer-wraper">
         <div class="inner-wraper">
             <span class="patient-field-text">Birth Date </span>
-            <input class="form-control" type="date" id="birth_date">
+            <input class="form-control" name="birth_date" type="date" id="birth_date">
         </div>
 
         <div class="inner-wraper">
             <span class="patient-field-text">CNP </span>
-            <input class="form-control" type="text" id="cnp">
+            <input class="form-control" name="cnp" type="text" id="cnp">
         </div>
     </div>
 

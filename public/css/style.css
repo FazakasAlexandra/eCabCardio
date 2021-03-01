@@ -109,6 +109,14 @@ a {
     align-items: center;
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     border-radius: 0.3rem;
+    height: fit-content;
+}
+
+.pacients-table-wraper .alert-primary{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .patients-page-container table {
