@@ -1,4 +1,4 @@
-import {removeKeys} from './utilities.js'
+import {removeKeys, cancelButtonEvent , selectCitiesChangeEvent, fillSelectInputs, hideForm ,showForm} from './utilities.js'
 import {db} from './db.js'
 
 let form = document.querySelector('.edit-form');
@@ -6,13 +6,11 @@ let form = document.querySelector('.edit-form');
 function editButtonClickEvent() {
     document.querySelectorAll('.edit-button').forEach(editBttn => {
         editBttn.addEventListener('click', (e) => {
-            let addForm = document.querySelector('.add-form')
-            if(!addForm.classList.contains('hidden')) addForm.classList.add('hidden')
+            hideForm(document.querySelector('.add-form'))
+            showForm(form)
 
             let patientId = e.target.getAttribute('patient_id')
             form.querySelector('.save-changes').id = patientId
-
-            if(form.classList.contains('hidden')) form.classList.remove('hidden')
 
             db.patients.fetchPatient(patientId).then((patient) => {
                 fillPatientForm(patient)
@@ -21,40 +19,12 @@ function editButtonClickEvent() {
     })
 }
 
-function cancelButtonEvent(){
-    form.querySelector('.cancel-edit').addEventListener('click', ()=>form.classList.add('hidden'))
-}
-
-function selectCitiesChangeEvent(citiesInput = form.querySelector('#city')) {
-    console.log('hahahah')
-    citiesInput.addEventListener('change', (e) => {
-        let countyInput = form.querySelector('#county')
-        let countyId = citiesInput.options[citiesInput.selectedIndex].getAttribute('county_id')
-
-        db.counties.fetchCounty(countyId).then(county => {
-            countyInput.value = county.county
-            countyInput.setAttribute('county_id', county.id)
-        })
-
-    })
-}
-
 function fillPatientForm(patient) {
-    fillSelectInputs(patient.city_id, patient.county)
+    fillSelectInputs(patient.city_id, form)
     let married = patient.married
     removeKeys(['id', 'city_id', 'married'], patient)
     fillTextInputs(patient)
     fillRadioInput(married)
-}
-
-function fillSelectInputs(patientCityId) {
-    let citiesSelectInput = form.querySelector('#city')
-    db.cities.fetchCities().then((cities) => {
-        citiesSelectInput.innerHTML = cities.reduce((acc, city) => {
-            if (patientCityId == city.id) return `${acc}<option value=${city.id} county_id=${city.county_id} selected>${city.city}</option>`
-            return `${acc}<option value=${city.id} county_id=${city.county_id}>${city.city}</option>`
-        }, '')
-    })
 }
 
 function fillTextInputs(patient) {
@@ -97,6 +67,6 @@ function collectTextValues(updatedPatient = {}){
 }
 
 editButtonClickEvent()
-selectCitiesChangeEvent()
-cancelButtonEvent()
+selectCitiesChangeEvent(form);
+cancelButtonEvent(form)
 saveChangesButtonEvent()

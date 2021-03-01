@@ -56,7 +56,7 @@ $routes->get('/patients/history/(:any)', 'Patients::history/$1');
 // $1 = patient_id
 $routes->get('/patients/(:any)', 'Patients::getPatient/$1'); 
 
-// GET SINGLE PATIENT 
+// UPDATE SINGLE PATIENT 
 // $1 = patient_id
 $routes->post('/patients/(:any)', 'Patients::update/$1'); 
 

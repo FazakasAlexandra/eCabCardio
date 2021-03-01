@@ -1,3 +1,5 @@
+import {db} from './db.js'
+
 export function displayFiles(imagesContainer, pdfContainer) {
     const imagesInput = document.querySelector('#files').files
     let imagesData = new FormData()
@@ -37,4 +39,41 @@ export function toggleArrows(arrow){
     }
     arrow.classList.toggle('fa-chevron-right')
     arrow.classList.toggle('active-arrow')
+}
+
+export function cancelButtonEvent(form){
+    form.querySelector('.cancel').addEventListener('click', ()=>hideForm(form))
+}
+
+export function selectCitiesChangeEvent(form) {
+    let citiesInput = form.querySelector('#city')
+
+    form.querySelector('#city').addEventListener('change', () => {
+        let countyInput = form.querySelector('#county')
+        let countyId = citiesInput.options[citiesInput.selectedIndex].getAttribute('county_id')
+
+        db.counties.fetchCounty(countyId).then(county => {
+            countyInput.value = county.county
+            countyInput.setAttribute('county_id', county.id)
+        })
+
+    })
+}
+
+export function fillSelectInputs(patientCityId = 1, form) {
+    let citiesSelectInput = form.querySelector('#city')
+    db.cities.fetchCities().then((cities) => {
+        citiesSelectInput.innerHTML = cities.reduce((acc, city) => {
+            if (patientCityId == city.id) return `${acc}<option value=${city.id} county_id=${city.county_id} selected>${city.city}</option>`
+            return `${acc}<option value=${city.id} county_id=${city.county_id}>${city.city}</option>`
+        }, '')
+    })
+}
+
+export function hideForm(form) {
+    if(!form.classList.contains('hidden')) form.classList.add('hidden')
+}
+
+export function showForm(form) {
+    if(form.classList.contains('hidden')) form.classList.remove('hidden')
 }

@@ -72,6 +72,6 @@ class Patients extends BaseController
 	{
 		$this->patientsModel->updatePatient($this->request->getJSON(true), $patientId);
 
-		redirect('http://localhost/ecabcardio/public/patients');
+		//redirect('http://localhost/ecabcardio/public/patients');
 	}
 }
