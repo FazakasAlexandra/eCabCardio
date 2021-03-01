@@ -12,34 +12,66 @@
 }
 
 .form-wrap{
-    border: none !important;;
+    border: none !important;
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     border-radius: 0.3rem;
 }
 
+.header-form{
+    background: #2E3A59;
+    border-top-right-radius: 0.3rem;
+    border-top-left-radius: 0.3rem;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.button-close{
+    color: white;
+    margin: 4px;
+    cursor:pointer;
+    padding: 0 7px;
+    background: none;
+    border: none;
+}
+
+
+.button-close:focus {
+    outline:0;
+}
+
+.form-body{
+    padding:30px;
+}
+
 #form-update{
-    display: block;
+    display: none;
 }
 
 #form-add{
     display:none;
 }
 
-.exam-table {
+.admin-modifications-table {
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     width: 95%;
     font-size: 22px;
     border-radius: 0.3rem;
 }
 
-.exam-table th:last-child{
+.admin-modifications-table th:last-child{
     display: flex;
     justify-content: flex-end;
     border-top-right-radius: 0.3rem;
 }
 
-.exam-table th:nth-child(1){
+.admin-modifications-table th:nth-child(1){
     border-top-left-radius: 0.3rem;
+}
+
+.admin-modifications-table td:last-child{
+    /* width: 40%; */
 }
 
 .add-examination-button-top {
@@ -144,10 +176,6 @@
     color: #828080;
 }
 
-.form-wrap {
-    border: 1px solid black;
-    padding: 30px;
-}
 
 #form {
     text-align: center;
@@ -258,3 +286,39 @@
     background: #2e3a596b;
     transition: 0.6s;
 }
+
+
+
+/***********ADMIN MODIFY USERS PAGE************/
+
+
+.user-admin{
+    color:#2E3A59;
+    font-size: 15px;
+    text-align: right;
+    padding-right: 0;
+    font-style: italic ;
+}
+
+.form-update-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+.user-table-row{
+    display: grid;
+    grid-template-columns: 85% auto;
+    justify-content: space-between;
+}
+
+.form-check-label{
+    margin-right: 30px;
+}
+
+.form-check-input:checked {
+    background-color: #2E3A59;
+    border-color: #2E3A59;
+}
+

@@ -34,3 +34,13 @@ function changeForm() {
         document.getElementById("form-update").style.display = 'none';
     } 
 }
+
+function closeForm(i) {
+
+    if (i == "update") {
+        document.getElementById("form-update").style.display = 'none'
+    }else if (i == "add") {
+        document.getElementById("form-add").style.display = 'none'
+    }
+
+}
