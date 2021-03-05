@@ -6,7 +6,7 @@ class History extends BaseController
 {
 	public function __construct()
 	{
-		$this->historyModel = new HistoryModel();
+		$this->historyModel = new \App\Models\HistoryModel();
 	}
 
 	public function index()
@@ -21,7 +21,8 @@ class History extends BaseController
 		}
 
 		echo view('pages/clinic_history.php', [ 'data' => $clinicHistory,
-		                                        'total' => $total
+		                                        'total' => $total,
+												'pager' => $this->historyModel->pager
 		                                      ]);
 
 		echo view('templates/footer.php');
@@ -39,7 +40,8 @@ class History extends BaseController
 		}
 
 		echo view('pages/clinic_history.php', [ 'data' => $clinicHistory,
-		                                        'total' => $total
+		                                        'total' => $total,
+												'pager' => $this->historyModel->pager
 		                                      ]);
 
 		echo view('templates/footer.php');

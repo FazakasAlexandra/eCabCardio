@@ -35,7 +35,7 @@ a {
 
 }
 
-.navbar .menu a{
+.navbar .menu a {
     cursor: pointer;
     height: 100%;
     display: flex;
@@ -43,14 +43,14 @@ a {
     padding: 0rem 1rem 0rem 1rem;
 }
 
-.navbar.menu li:hover{
+.navbar.menu li:hover {
     border-bottom-color: #2e3a59;
     border-bottom-style: solid;
     border-bottom-width: thick;
     transition: 0.6s;
 }
 
-.active-navbar-tab{
+.active-navbar-tab {
     background-color: #2e3a596b;
     border-bottom-color: #2e3a59;
     border-bottom-style: solid;
@@ -58,7 +58,7 @@ a {
     transition: 0.6s;
 }
 
-.active-admin-navbar-tab{
+.active-admin-navbar-tab {
     border-bottom-color: #2e3a59;
     border-bottom-style: solid;
     border-bottom-width: thick;
@@ -69,7 +69,7 @@ a {
     color: white;
 }
 
-.navbar img{
+.navbar img {
     height: 50px;
     margin-left: 0.5rem;
 }
@@ -112,7 +112,8 @@ a {
     height: fit-content;
 }
 
-.pacients-table-wraper .alert-primary{
+.pacients-table-wraper .alert-primary,
+.pacients-table-wraper .alert-danger {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -321,23 +322,31 @@ td:nth-child(6) a:hover {
     align-items: center;
 }
 
-.pagination-direction {
+.pagination-direction,
+.page-navigation .pagination .fa-angle-right,
+.page-navigation .pagination .fa-angle-left,
+.page-navigation .pagination .fa-angle-double-right,
+.page-navigation .pagination .fa-angle-double-left {
     color: #DADADA;
     font-weight: bolder;
     display: flex;
     align-items: center;
 }
 
-.pagination-direction:hover {
+.pagination-direction:hover,
+.page-navigation .pagination .fa-angle-right:hover,
+.page-navigation .pagination .fa-angle-left:hover,
+.page-navigation .pagination .fa-angle-double-right:hover,
+.page-navigation .pagination .fa-angle-double-left:hover {
     color: #57B0F1;
 }
 
-.pagination-direction .fa-angle-left {
+.pagination-direction a .fa-angle-left {
     font-size: 2rem;
     margin-right: 0.5rem;
 }
 
-.pagination-direction .fa-angle-right {
+.pagination-direction .fa-angle-right{
     font-size: 2rem;
     margin-left: 0.5rem;
 }
@@ -389,7 +398,7 @@ td:nth-child(6) a:hover {
     cursor: pointer;
 }
 
-.fa-receipt{
+.fa-receipt {
     color: #57B0F1;
     cursor: pointer;
     font-size: 2rem;
@@ -767,9 +776,11 @@ td:nth-child(6) a:hover {
 .button-blue .fa-plus {
     margin-right: 0.5rem;
 }
+
 .button-blue .fa-pen {
     margin-right: 0.5rem;
 }
+
 .consult-form .file-pdf {
     cursor: pointer;
 }
@@ -831,12 +842,12 @@ td:nth-child(6) a:hover {
     border-top-style: solid;
 }
 
-#consult-page .consult-footer .pdf-wraper{
+#consult-page .consult-footer .pdf-wraper {
     margin: 0rem;
     padding: 16px 16px 0px 0px;
 }
 
-#consult-page .consult-footer .pdf-wraper .fa-file-alt{
+#consult-page .consult-footer .pdf-wraper .fa-file-alt {
     color: white;
     font-size: 2rem;
 }
@@ -905,18 +916,18 @@ td:nth-child(6) a:hover {
     border-radius: 0.2rem;
 }
 
-.consult-files-wraper .file-upload-form{
+.consult-files-wraper .file-upload-form {
     border-top-left-radius: 0.2rem;
     border-top-right-radius: 0.2rem;
 }
 
-.consult-files-wraper .alert{
+.consult-files-wraper .alert {
     border-top-right-radius: 0rem;
     border-top-left-radius: 0rem;
     margin-bottom: 1rem;
 }
 
-.consult-pdf-container{
+.consult-pdf-container {
     background-color: #57B0F1;
     border-top-style: solid;
     border-top-color: white;
@@ -925,47 +936,48 @@ td:nth-child(6) a:hover {
     display: flex;
 }
 
-.consult-pdf-container i{
+.consult-pdf-container i {
     padding: 0.5rem 0.7rem 0.5rem 0.7rem;
     font-size: 2rem;
     color: white;
     border-radius: 100%;
 }
 
-.consult-pdf-container i:hover{
+.consult-pdf-container i:hover {
     color: white;
     background-color: rgba(255, 255, 255, 0.274);
 }
 
-.pdf-wraper{
+.pdf-wraper {
     display: flex;
     flex-direction: column;
     margin-left: 0.7rem
 }
 
-.pdf-wraper span{
+.pdf-wraper span {
     font-size: 0.8rem;
     color: white;
 }
 
-.pdf-wraper a{
+.pdf-wraper a {
     text-align: center;
 }
 
-.clinic-table-wraper{
+.clinic-table-wraper {
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     margin-top: 30px;
     margin-bottom: 30px;
 }
-.clinic-table-wraper td:nth-child(6){
+
+.clinic-table-wraper td:nth-child(6) {
     font-size: 20px;
 }
 
-.clinic-table-wraper form{
+.clinic-table-wraper form {
     display: flex;
 }
 
-.clinic-table-wraper .alert{
+.clinic-table-wraper .alert {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -974,33 +986,35 @@ td:nth-child(6) a:hover {
     border-bottom-right-radius: 0px;
 }
 
-.clinic-table-wraper .alert i{
+.clinic-table-wraper .alert i {
     margin-right: 0.5rem;
 }
 
-.clinic-history-form{
+.clinic-history-form {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
     padding-left: 0px;
 }
 
-.clinic-history-form .wraper{
+.clinic-history-form .wraper {
     display: flex;
     align-items: center;
 }
-.clinic-history-form .wraper button{
+
+.clinic-history-form .wraper button {
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
     height: 100%;
 }
-.clinic-history-form .wraper :nth-child(1){
+
+.clinic-history-form .wraper :nth-child(1) {
     border-top-left-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
 }
 
 .clinic-history-form button,
-.consult-history-searchbar #show-all{
+.consult-history-searchbar #show-all {
     font-size: 18px;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -1013,82 +1027,118 @@ td:nth-child(6) a:hover {
     border-width: medium;
 }
 
-.clinic-history-form .inner-wraper{
+.clinic-history-form .inner-wraper {
     background-color: #2E3A59;
     color: white;
     display: flex;
     align-items: center;
 }
 
-.clinic-history-form label{
+.clinic-history-form label {
     height: 100%;
     text-align: center;
     padding: 0px 1rem 0px 1rem;
 }
 
-.consult-history-searchbar{
+.consult-history-searchbar {
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
-.consult-history-searchbar #show-all{
+
+.consult-history-searchbar #show-all {
     margin-left: 1rem;
 }
 
-.outer-wraper .form-control{
-    margin:0;
+.outer-wraper .form-control {
+    margin: 0;
     width: 97%;
     height: 100%;
     border: 1px solid #ced4da;
     border-radius: 0.3rem;
 }
 
-.modal.bill-modal .modal-header .buttons-container{
+.modal.bill-modal .modal-header .buttons-container {
     left: 1rem;
 }
-.modal.bill-modal .modal-content{
+
+.modal.bill-modal .modal-content {
     width: fit-content;
 }
-.modal.bill-modal .modal-content .price{
+
+.modal.bill-modal .modal-content .price {
     margin: 0px;
 }
-.modal.bill-modal .modal-content .field-list{
+
+.modal.bill-modal .modal-content .field-list {
     margin-top: 0px;
 }
-.modal.bill-modal .modal-footer{
+
+.modal.bill-modal .modal-footer {
     display: none;
 }
 
 .patient-form {
-    padding: 2rem;
     display: flex;
     flex-direction: column;
     margin-top: 30px;
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
     margin-left: 2rem;
+    height: fit-content;
 }
 
-.patient-form .inner-wraper{
+.patient-form .inner-wraper {
     width: 50%;
     display: flex;
     flex-direction: column;
 }
-.patient-form .outer-wraper{
+
+.patient-form .outer-wraper {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
+    margin: 0rem 2rem 0.5rem 2rem;
+}
+
+.patient-form button {
+    margin: 1rem 2rem 1rem 1rem;
 }
 
 .patient-form .cancel {
-    border: none;
-    height: 39px;
+    margin: 0.3rem;
+}
+
+.page-navigation {
+    display: flex;
+    justify-content: center;
+}
+
+.page-navigation .pagination {
+    width: 30%;
+}
+
+.page-navigation .pagination a {
+    color: #ced4da;
+}
+
+.page-navigation .pagination a:hover{
+    color: #57b0f1;
+}
+
+.page-navigation .pagination .active a {
+    padding: 0.3rem 0.7rem 0.3rem 0.7rem;
+    background-color: #57b0f1;
     border-radius: 0.3rem;
+    color: white;
 }
 
-.patient-form .cancel:hover{
-    transition: 0.6s;
+.page-navigation .pagination .last-page{
+    margin-left: -1rem;
 }
 
-.patient-form button{
-    margin-top: 1rem;
+.page-navigation .pagination .fa-angle-right{
+    margin-left: 1rem;
+}
+
+.page-navigation .pagination .first-page{
+    margin-left: 1rem;
 }

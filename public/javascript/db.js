@@ -28,19 +28,7 @@ export let db = {
             return fetch(`/ecabcardio/public/patients/${patientId}`)
             .then(res => res.json())
             .then(res => res.patient)
-        },
-        updatePatient : (patientId, updatedPatient) => {
-            return fetch(`/ecabcardio/public/patients/${patientId}`,{
-                headers : {
-                    'Content-Type' : 'application/json'
-                },
-                method:'POST',
-                body: JSON.stringify(updatedPatient)
-            })
-            .then(res => res.json())
-            .then(res => res.message)
         }
-
     },
 
     cities : {

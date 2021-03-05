@@ -150,12 +150,14 @@
     padding: 0.3rem 0.7rem 0.3rem 0.7rem;
 }
 
-.exam-form-text .fas {
+.exam-form-text .fas,
+.patient-form .fas{
     padding: 0.6rem 1rem;
     background-color: #57b0f16b;
     border-radius: 100%;
     color: white;
     height: fit-content;
+    margin-right: 1rem;
 }
 
 #table-button:hover {

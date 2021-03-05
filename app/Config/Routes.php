@@ -49,6 +49,9 @@ $routes->post('/patients/(:any)/consult', 'Consults::Index/$1');
 // GET PATIENT HISTORY 
 $routes->get('/patients/history/(:any)', 'Patients::history/$1'); 
 
+// GET SEARCHED PATIENT 
+$routes->get('/patients/search', 'Patients::search'); 
+
 // GET SINGLE PATIENT 
 $routes->get('/patients/(:any)', 'Patients::getPatient/$1'); 
 

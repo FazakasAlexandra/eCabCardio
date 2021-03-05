@@ -6,6 +6,8 @@ use CodeIgniter\Model;
 
 class HistoryModel extends Model
 {
+    protected $table = 'history';
+
     function getPatientHistory($patientId)
     {
         $db = \Config\Database::connect();
@@ -24,17 +26,11 @@ class HistoryModel extends Model
 
     function getClinicHistory()
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('history');
-
-        return $builder->orderBy('date', 'DESC')->get()->getResultArray();
+        return $this->table('history')->orderBy('date', 'DESC')->paginate(8);
     }
 
     function getClinicHistoryInterval($from_date, $to_date)
     {
-        $db = \Config\Database::connect();
-        $builder = $db->table('history');
-
-        return $builder->where('date >=', $from_date)->where('date <=', $to_date)->get()->getResultArray();
+        return $this->table('history')->where('date >=', $from_date)->where('date <=', $to_date)->paginate(8);
     }
 }

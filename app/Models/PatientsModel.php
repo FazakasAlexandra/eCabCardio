@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 use App\Models\CountysModel;
-use App\Models\CitysModes;
+use App\Models\CitysModel;
 
 class PatientsModel extends Model
 {
@@ -46,7 +46,6 @@ class PatientsModel extends Model
     public function getSingle($patientId)
     {
         $patient = $this->builder->where('id', $patientId)->get()->getRowObject();
-
         $patientCity = $this->citysModel->getSingle($patient->city_id);
         $patientCounty = $this->countysModel->getSingle($patientCity->county_id);
 

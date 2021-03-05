@@ -1,5 +1,6 @@
 <form class="patient-form edit-form hidden" action="/ecabcardio/public/patients" method="POST">
-
+<div class="header-form"><button class="button-close cancel" type="button">X</button></div>
+<div class="alert alert-primary"><i class="fas fa-info"></i>All fields are required </div>
     <div class="outer-wraper">
         <div class="inner-wraper">
             <span class="patient-field-text">Name </span>
@@ -80,7 +81,6 @@
     </div>
 
     <button class="button-blue save-changes" type="submit">Save Changes</button>
-    <button class="btn-secondary cancel-edit cancel" type="button">Cancel</button>
 </form>
 
 <script type="module" src="/ecabcardio/public/javascript/patients_edit.js"></script>

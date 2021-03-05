@@ -17,7 +17,7 @@ class Patients extends BaseController
 		$this->historyModel = new HistoryModel();
 	}
 
-	public function index($offset = 0, $order = 'asc', $msg = null, $patient_id = null)
+	public function index($offset = 0, $order = 'asc', $error = 0, $msg = null, $patient_id = null)
 	{
 		echo view('templates/header.php');
 
@@ -25,9 +25,11 @@ class Patients extends BaseController
 		$data['offset'] = $offset;
 		$data['order'] = $order;
 
-		if ($msg) {
+		if ($msg && !$error) {
 			$data['msg'] = $msg;
 			$data['patient_id'] = $patient_id;
+		} else if ($msg && $error) {
+			$data['error'] = $msg;
 		}
 
 		echo view('pages/patients.php', $data);
@@ -63,27 +65,63 @@ class Patients extends BaseController
 
 	public function history($id)
 	{
-		echo view('templates/header.php');
 		$patientHistory = $this->historyModel->getPatientHistory($id);
 
-		echo view('pages/patients_history.php', [
-			'patientHistory' => [
-				'data' => $patientHistory,
-				'name' => $patientHistory[0]['patient_name']
-			]
+		if(count($patientHistory) > 0){
+			echo view('templates/header.php');
+			return view('pages/patients_history.php', [
+				'patientHistory' => [
+					'data' => $patientHistory,
+					'name' => $patientHistory[0]['patient_name']
+				]
+			]);
+		}
+
+		return $this->index(0, 'asc', false, "Patient has no consults history. Do you want to start the first consult ?", $id);
+	}
+
+	public function validatePatient($data)
+	{
+		$validation =  \Config\Services::validation();
+
+		$validation->setRules([
+			'email' => ['rules' => 'required'],
+			'name' => ['rules' => 'required'],
+			'surname' => ['rules' => 'required'],
+			'phone' => ['rules' => 'required'],
+			'city_id' => ['rules' => 'required'],
+			'address' => ['rules' => 'required'],
+			'work_place' => ['rules' => 'required'],
+			'occupation' => ['rules' => 'required'],
+			'married' => ['rules' => 'required'],
+			'birth_date' => ['rules' => 'required'],
+			'cnp' => ['rules' => 'required'],
 		]);
+
+		if (!$validation->run($data)) {
+			return false;
+		}
+		
+		return true;
 	}
 
 	public function update($patientId)
 	{
-		$this->patientsModel->updatePatient($this->request->getPost(), $patientId);
-		$this->index(0, 'asc', "Patient's data successfully updated !", $patientId);
+		if ($this->validatePatient($this->request->getPost())) {
+			$this->patientsModel->updatePatient($this->request->getPost(), $patientId);
+			$this->index(0, 'asc', false, "Patients data successfully updated !", $patientId);
+		} else {
+			$this->index(0, 'asc', true, "All fields are required !");
+		}
 	}
 
 	public function post()
 	{
-		$patientId = $this->patientsModel->postPatient($this->request->getPost());
-		$this->index(0, 'asc', "Patient successfully added !", $patientId);
+		if ($this->validatePatient($this->request->getPost())) {
+			$patientId = $this->patientsModel->postPatient($this->request->getPost());
+			$this->index(0, 'asc', false, "Patient added !", $patientId);
+		} else {
+			$this->index(0, 'asc', true, "All fields are required !");
+		}
 	}
-
 }
