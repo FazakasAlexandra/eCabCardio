@@ -1,21 +1,34 @@
-<?php 
-/* namespace App\Controllers;
+<?php
+
+namespace App\Controllers;
 use CodeIgniter\Controller;
+use Dompdf\Dompdf;
+use App\Models\MedicalLetterModel;
+use App\Models\ConsultsExaminationsModel;
+use App\Models\ConsultsAnalysisModel;
 
 class PdfController extends Controller
 {
-
-    public function index() 
-	{
+    public function index()
+    {
         return view('pdf_view');
     }
 
-    function htmlToPDF(){
-        $dompdf = new \Dompdf\Dompdf(); 
-        $dompdf->loadHtml(view('pdf_view'));
-        $dompdf->setPaper('A4', 'landscape');
+    function htmlToPDF($consultId)
+    {
+        $medicalLetterModel = new MedicalLetterModel();
+		$consultsAnalysisModel = new ConsultsAnalysisModel();
+        $consultsExaminationsModel = new ConsultsExaminationsModel();
+
+        $medicalLetter = $medicalLetterModel->getMedicalLetter($consultId);
+        $medicalLetter->examinations = $consultsExaminationsModel->getExaminations($consultId);
+        $medicalLetter->analysis = $consultsAnalysisModel->getAnalysis($consultId);
+
+        $dompdf = new Dompdf();
+        $dompdf->getOptions()->setChroot('/wamp64/www/ecabcardio/public');
+        $dompdf->loadHtml(view('templates/medical_letter_pdf.php', ['medical_letter' => $medicalLetter]));
+        $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
         $dompdf->stream();
     }
-
-} */
+}

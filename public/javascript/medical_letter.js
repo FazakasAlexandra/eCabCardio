@@ -47,6 +47,7 @@ function consultListItems(key, consult) {
 function fileClickEvent() {
     document.querySelectorAll('.fa-file-alt').forEach(file => {
         file.addEventListener('click', (e) => {
+            document.querySelector('#pdf-button').href += e.target.id
             db.consults.fetchMedicalLetter(e.target.id).then(letterContent => {
                 console.log(letterContent)
                 toggleModal("block")

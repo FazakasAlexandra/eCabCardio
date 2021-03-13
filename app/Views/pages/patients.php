@@ -5,7 +5,7 @@
         <?php echo view('/patients_templates/searchbar_regular.php'); ?>
         <?php echo view('/patients_templates/searchbar_advanced.php'); ?>
         <?php echo view('/patients_templates/table.php'); ?>
-        <?php echo view('/patients_templates/pagination.php'); ?>
+        <?php if ($records >= 5) echo view('/patients_templates/pagination.php'); ?>
     </div>
     <?php echo view('/patients_templates/form_add.php'); ?>
     <?php echo view('/patients_templates/form_edit.php'); ?>

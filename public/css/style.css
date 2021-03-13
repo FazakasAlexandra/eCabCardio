@@ -398,15 +398,10 @@ td:nth-child(6) a:hover {
     cursor: pointer;
 }
 
-.fa-receipt {
-    color: #57B0F1;
-    cursor: pointer;
-    font-size: 2rem;
-}
 
-.fa-file-alt {
-    padding-right: 0px;
-}
+/* .fa-file-alt {
+     padding-right: 0px;
+ } */
 
 .pacients-table-wraper.history .fa-chevron-left:hover,
 .pacients-table-wraper.history .fa-chevron-right:hover,
@@ -1141,4 +1136,8 @@ td:nth-child(6) a:hover {
 
 .page-navigation .pagination .first-page{
     margin-left: 1rem;
+}
+
+.history-table .button-blue{
+    font-size: 17px;
 }
