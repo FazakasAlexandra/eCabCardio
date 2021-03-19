@@ -20,8 +20,15 @@
             <a class="button-blue" href="<?php echo "/ecabcardio/public/consults/history/" . (string)$clinicHistory['consult_id'] ?>">View consult</a>
         </td>
 
-        <!-- VIEW BILL BUTTON -->
-        <td><button class="button-blue bill" id=<?php echo $clinicHistory['consult_id']?>>View receipt</button></td>
+        <!-- VIEW RECEIPT BUTTON -->
+        <?php if ($clinicHistory['receipt']) : ?>
+            <td><a href="/ecabcardio/public/receipts/view/<?php echo $clinicHistory['consult_id']?>" class="button-blue" id=<?php echo $clinicHistory['consult_id'] ?>>View receipt</a></td>
+        <?php endif; ?>
+
+        <!-- CREATE RECEIPT BUTTON -->
+        <?php if (!$clinicHistory['receipt']) : ?>
+            <td><a href="/ecabcardio/public/receipts/create/<?php echo $clinicHistory['consult_id']?>/<?php echo $clinicHistory['patient_id']?>" class="button-blue nofill" id=<?php echo $clinicHistory['consult_id'] ?>>Add receipt</a></td>
+        <?php endif; ?>
     </tr>
 
 <?php endforeach; ?>

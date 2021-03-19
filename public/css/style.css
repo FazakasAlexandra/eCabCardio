@@ -22,7 +22,7 @@ a {
 
 .navbar {
     background-color: #57b0f1;
-    height: 70px;
+    height: 80px;
     padding: 0rem;
 }
 
@@ -70,7 +70,7 @@ a {
 }
 
 .navbar img {
-    height: 50px;
+    height: 60px;
     margin-left: 0.5rem;
 }
 
@@ -196,6 +196,15 @@ a {
     cursor: pointer;
 }
 
+.button-blue.nofill{
+    background-color: white;
+    border-style: solid;
+    border-color: #57B0F1;
+    color: #57B0F1;
+    border-width: thin;
+    width: 130px;
+}
+
 .edit-patient-button:hover {
     color: white;
 }
@@ -240,6 +249,7 @@ a {
 }
 
 .button-blue {
+    cursor: pointer;
     border: none;
     background-color: #57B0F1;
     color: white;
@@ -287,13 +297,13 @@ td:nth-child(6) {
     font-size: 2rem;
 }
 
-td:nth-child(6) a {
+.pacients-table-wraper td:nth-child(6) a {
     color: #57B0F1;
 }
 
-td:nth-child(6) a:hover {
+.pacients-table-wraper td:nth-child(6) a:hover {
     color: #7ec2f3;
-}
+} 
 
 .order-by-th .order {
     border-radius: 100%;
@@ -346,7 +356,7 @@ td:nth-child(6) a:hover {
     margin-right: 0.5rem;
 }
 
-.pagination-direction .fa-angle-right{
+.pagination-direction .fa-angle-right {
     font-size: 2rem;
     margin-left: 0.5rem;
 }
@@ -547,8 +557,8 @@ td:nth-child(6) a:hover {
 .modal-header h2 {
     width: 100%;
     text-align: center;
-
     margin: 0px;
+    margin-right: 9rem;
     font-size: 1.5rem;
 }
 
@@ -614,7 +624,7 @@ td:nth-child(6) a:hover {
 }
 
 .medical-letter-logo {
-    height: 2rem;
+    height: 3rem;
 }
 
 .fa-print {
@@ -972,7 +982,7 @@ td:nth-child(6) a:hover {
     display: flex;
 }
 
-.clinic-table-wraper .alert {
+.clinic-table-wraper .alert.alert-success {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -1115,7 +1125,7 @@ td:nth-child(6) a:hover {
     color: #ced4da;
 }
 
-.page-navigation .pagination a:hover{
+.page-navigation .pagination a:hover {
     color: #57b0f1;
 }
 
@@ -1126,18 +1136,18 @@ td:nth-child(6) a:hover {
     color: white;
 }
 
-.page-navigation .pagination .last-page{
+.page-navigation .pagination .last-page {
     margin-left: -1rem;
 }
 
-.page-navigation .pagination .fa-angle-right{
+.page-navigation .pagination .fa-angle-right {
     margin-left: 1rem;
 }
 
-.page-navigation .pagination .first-page{
+.page-navigation .pagination .first-page {
     margin-left: 1rem;
 }
 
-.history-table .button-blue{
+.history-table .button-blue {
     font-size: 17px;
 }

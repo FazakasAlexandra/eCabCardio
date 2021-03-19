@@ -1,6 +1,5 @@
 <div id="consult-page">
-    <form action="/ecabcardio/public/patients/<?php echo $data['patient']->id ?>/consult" method="POST" class="consult-form" enctype="multipart/form-data">
-
+    <form action="/ecabcardio/public/patients/<?php echo $data['patient']->id ?>/consult" method="POST" class="consult-form" enctype="multipart/form-data">        
         <?php echo view('/consult_templates/header.php'); ?>
         <?php echo view('/consult_templates/alerts.php'); ?>
 

@@ -31,6 +31,7 @@ class HistoryModel extends Model
 
     function getClinicHistoryInterval($from_date, $to_date)
     {
-        return $this->table('history')->where('date >=', $from_date)->where('date <=', $to_date)->paginate(8);
+        return $this->table('history')->orderBy('date', 'ASC')->where('date >=', $from_date)->where('date <=', $to_date)->get()->getResultArray();
+        //return $this->table('history')->orderBy('date', 'ASC')->where('date >=', $from_date)->where('date <=', $to_date)->paginate(8);
     }
 }

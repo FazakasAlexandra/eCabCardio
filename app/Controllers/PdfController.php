@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 use CodeIgniter\Controller;
-use Dompdf\Dompdf;
 use App\Models\MedicalLetterModel;
 use App\Models\ConsultsExaminationsModel;
 use App\Models\ConsultsAnalysisModel;
+use Dompdf\Dompdf;
 
 class PdfController extends Controller
 {
@@ -19,7 +19,7 @@ class PdfController extends Controller
         $medicalLetterModel = new MedicalLetterModel();
 		$consultsAnalysisModel = new ConsultsAnalysisModel();
         $consultsExaminationsModel = new ConsultsExaminationsModel();
-
+        
         $medicalLetter = $medicalLetterModel->getMedicalLetter($consultId);
         $medicalLetter->examinations = $consultsExaminationsModel->getExaminations($consultId);
         $medicalLetter->analysis = $consultsAnalysisModel->getAnalysis($consultId);
@@ -30,5 +30,9 @@ class PdfController extends Controller
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
         $dompdf->stream();
+    }
+
+    function receipHTMLtoPDF(){
+
     }
 }

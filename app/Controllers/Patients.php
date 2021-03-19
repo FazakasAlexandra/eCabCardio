@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\PatientsModel;
 use App\Models\HistoryModel;
+use App\Models\ReceiptsModel;
 use CodeIgniter\API\ResponseTrait;
 
 class Patients extends BaseController
@@ -66,8 +67,13 @@ class Patients extends BaseController
 	public function history($id)
 	{
 		$patientHistory = $this->historyModel->getPatientHistory($id);
+		$receiptsModel = new ReceiptsModel();
 
 		if(count($patientHistory) > 0){
+			foreach ($patientHistory as &$history) {
+				$history['receipt'] = $receiptsModel->getConsultReceipt($history['consult_id']);
+			}
+		
 			echo view('templates/header.php');
 			return view('pages/patients_history.php', [
 				'patientHistory' => [

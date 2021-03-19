@@ -20,7 +20,14 @@
         <td><?php echo $history['total'] ?> lei</td>
 
         <!-- VIEW RECEIPT BUTTON -->
-        <td><button class="button-blue" id=<?php echo $history['consult_id'] ?>>View receipt</button></td>
+        <?php if ($history['receipt']) : ?>
+            <td><a href="/ecabcardio/public/receipts/view/<?php echo $history['consult_id']?>" class="button-blue" id=<?php echo $history['consult_id'] ?>>View receipt</a></td>
+        <?php endif; ?>
+
+        <!-- CREATE RECEIPT BUTTON -->
+        <?php if (!$history['receipt']) : ?>
+            <td><a href="/ecabcardio/public/receipts/create/<?php echo $history['consult_id']?>/<?php echo $history['patient_id']?>" class="button-blue nofill" id=<?php echo $history['consult_id'] ?>>Add receipt</a></td>
+        <?php endif; ?>
 
         <!-- VIEW MEDICAL LETTER BUTTON -->
         <td><i class="far fa-file-alt" id=<?php echo $history['consult_id'] ?>></i></td>

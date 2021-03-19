@@ -12,6 +12,7 @@ use App\Models\AnalysisModel;
 use App\Models\PatientsModel;
 use App\Models\ConsultFilesModel;
 use App\Models\HistoryModel;
+use App\Models\ReceiptsModel;
 
 class Consults extends BaseController
 {
@@ -73,7 +74,9 @@ class Consults extends BaseController
 		if ($this->request->getFiles()) {
 
 			foreach ($this->request->getFiles()['files'] as $file) {
-				// file type check
+				// mime type check
+				if(!$file->getName()) return;
+				
 				$fileName = $file->getRandomName();
 				$file->move('assets', $fileName);
 				$this->consultFilesModel->insertConsultFiles(['consult_id' => $consultId, 'file_name' => $fileName]);
@@ -143,8 +146,11 @@ class Consults extends BaseController
 	public function history($consultId)
 	{
 		echo view('templates/header.php');
-
+		
+		$receiptsModel = new ReceiptsModel();
 		$consulthistory = $this->historyModel->getConsultHistory($consultId);
+
+		$consulthistory[0]['receipt'] = $receiptsModel->getConsultReceipt($consulthistory[0]['consult_id']); 
 
 		echo view('pages/patients_history.php', [
 			'patientHistory' => [

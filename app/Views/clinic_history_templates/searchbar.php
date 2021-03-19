@@ -3,11 +3,11 @@
     <div class="wraper">
       <div class="inner-wraper">
         <label for="date">From</label>
-        <input class="form-control" type="date" name="date_from">
+        <input class="form-control" type="date" name="date_from" value=<?php echo $dateFrom?>>
       </div>
       <div class="inner-wraper">
         <label for="date">to</label>
-        <input class="form-control" type="date" name="date_to">
+        <input class="form-control" type="date" name="date_to" value=<?php echo $dateTo?>>
       </div>
 
       <button class="button-blue-dark">Search</button>
