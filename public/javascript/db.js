@@ -45,6 +45,24 @@ export let db = {
             .then(res => res.json())
             .then(res => res.county)
         }
+    },
+    
+    companies : {
+        fetchCompanies : (companyId) => {
+            return fetch(`/ecabcardio/public/companies/${companyId}`)
+            .then(res => res.json())
+            .then(res => res.company)
+        },
+
+        postCompany : () => {
+            return
+        }
+    },
+
+    receipts : {
+        postReceipt : () => {
+            return
+        }
     }
 
 }

@@ -151,7 +151,8 @@
 }
 
 .exam-form-text .fas,
-.patient-form .fas{
+.patient-form .fas,
+.provider .fas{
     padding: 0.6rem 1rem;
     background-color: #57b0f16b;
     border-radius: 100%;
@@ -186,12 +187,12 @@
     margin: auto;
 }
 
-.form-control {
+/* .form-control {
     width: 80%;
     margin: auto;
     border: 2px solid black;
     border-radius: 2px;
-}
+} */
 
 .form-label {
     margin-top: 20px;

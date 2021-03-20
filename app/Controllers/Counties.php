@@ -18,4 +18,5 @@ class Counties extends BaseController
             'county' => $countiesModel->getSingle($countyId)
         ]);
 	}
+
 }

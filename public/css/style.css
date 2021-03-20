@@ -196,7 +196,7 @@ a {
     cursor: pointer;
 }
 
-.button-blue.nofill{
+.button-blue.nofill {
     background-color: white;
     border-style: solid;
     border-color: #57B0F1;
@@ -293,7 +293,7 @@ td:nth-child(6) {
     text-align: center;
 }
 
-td:nth-child(6) {
+.patients-table td:nth-child(6){
     font-size: 2rem;
 }
 
@@ -303,7 +303,7 @@ td:nth-child(6) {
 
 .pacients-table-wraper td:nth-child(6) a:hover {
     color: #7ec2f3;
-} 
+}
 
 .order-by-th .order {
     border-radius: 100%;
