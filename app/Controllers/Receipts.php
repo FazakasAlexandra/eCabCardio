@@ -118,7 +118,6 @@ class Receipts extends BaseController
 			$line['measurement'] = 'unit';
 			array_push($receiptLine, $line);
 		}
-
 		return $receiptLine;
 	}
 }

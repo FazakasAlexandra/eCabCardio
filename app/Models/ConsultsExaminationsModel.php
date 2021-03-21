@@ -19,13 +19,11 @@ class ConsultsExaminationsModel extends Model
     {
         $db = \Config\Database::connect();
         $builder = $db->table('consults_examinations');
-        $examinationsModel = new ExaminationsModel();
 
         foreach ($examinationsIds as $examId) {
             $builder->insert([
                 'consult_id' => $consultId,
                 'examination_id' => $examId,
-                'price' => $examinationsModel->getExaminationPrice($examId)
             ]);
         }
     }
