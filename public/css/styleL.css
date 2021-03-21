@@ -268,7 +268,7 @@
     position: absolute;
     right:0;
     background: #57B0F1;
-    top: 70px;
+    top: 80px;
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
 }
@@ -343,7 +343,7 @@
 }
 .clinic-form-col img{
    margin-right: auto;
-   margin-left: auto;
+   margin-top: 1rem;   
    border:solid rgba(0, 0, 0, 0.25);
    padding: 3px;
    border-radius: 5px;
@@ -372,7 +372,7 @@
 
 .logo-clinic{
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 

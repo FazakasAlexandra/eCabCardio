@@ -98,7 +98,7 @@ class Receipts extends BaseController
 		$this->calculateTotalPrice($data);
 
 		echo view('templates/header.php', $this->logo);
-		echo view('pages/receipt_form.php');
+		echo view('pages/receipt_form.php', ['receipt' => $data]);
 		echo view('templates/footer.php');
 	}
 
