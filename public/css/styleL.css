@@ -308,7 +308,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    
 }
 
 .user-table-row{
@@ -326,3 +325,57 @@
     border-color: #2E3A59;
 }
 
+/************ ADMIN MODIFY CLINIC DATA ***************/
+.clinic-form {
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+    height: fit-content;
+    width: fit-content;
+    /* margin-top: 2rem; */
+    border-radius: 0.3rem;
+    padding: 20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.clinic-form-col{
+    display: flex;
+    flex-direction: column;
+}
+.clinic-form-col img{
+   margin-right: auto;
+   margin-left: auto;
+   border:solid rgba(0, 0, 0, 0.25);
+   padding: 3px;
+   border-radius: 5px;
+   height:80px
+}
+
+.clinic-form-row{
+    padding: 10px;
+}
+
+.input-clinic{
+    border: 1px solid #ced4da;
+    width:600px;
+}
+
+.input-clinic-bank{
+    border: 1px solid #ced4da;
+    width:400px;
+}
+
+.col-bank{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.logo-clinic{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.clinic-form-row label{
+    font-weight: bold;
+}

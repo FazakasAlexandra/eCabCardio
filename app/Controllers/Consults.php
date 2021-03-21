@@ -20,6 +20,7 @@ class Consults extends BaseController
 
 	public function __construct()
 	{
+		parent::__construct();
 		$this->consultsModel = new ConsultsModel();
 		$this->consultFilesModel = new ConsultFilesModel();
 		$this->consultsAnalysisModel = new ConsultsAnalysisModel();
@@ -34,7 +35,7 @@ class Consults extends BaseController
 	// RENDERS CONSULT PAGE & HANDLES POST CONSULT REQUEST
 	public function index($patientId)
 	{
-		echo view('templates/header.php');
+		echo view('templates/header.php', $this->logo);
 
 		helper(['form', 'url']);
 		
@@ -145,7 +146,7 @@ class Consults extends BaseController
 
 	public function history($consultId)
 	{
-		echo view('templates/header.php');
+		echo view('templates/header.php', $this->logo);
 		
 		$receiptsModel = new ReceiptsModel();
 		$consulthistory = $this->historyModel->getConsultHistory($consultId);

@@ -97,8 +97,8 @@ class Receipts extends BaseController
 		$data->receipt_line = $this->generateReceiptLine($consult_id, $clinic->vat);
 		$this->calculateTotalPrice($data);
 
-		echo view('templates/header.php');
-		echo view('pages/receipt_form.php', ['receipt' => $data]);
+		echo view('templates/header.php', $this->logo);
+		echo view('pages/receipt_form.php');
 		echo view('templates/footer.php');
 	}
 

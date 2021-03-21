@@ -15,13 +15,16 @@ class Patients extends BaseController
 
 	public function __construct()
 	{
+		parent::__construct();
 		$this->patientsModel = new PatientsModel();
 		$this->historyModel = new HistoryModel();
 	}
+	
 
 	public function index($offset = 0, $order = 'asc', $error = 0, $msg = null, $patient_id = null)
 	{
-		echo view('templates/header.php');
+		
+		echo view('templates/header.php', $this->logo);
 
 		$data = $this->patientsModel->getPatients((int) $offset, $order);
 		$data['offset'] = $offset;
@@ -39,7 +42,7 @@ class Patients extends BaseController
 
 	public function search()
 	{
-		echo view('templates/header.php');
+		echo view('templates/header.php', $this->logo);
 
 		if ($this->request->getGet('search-criteria')) {
 			$data['patients'] = $this->patientsModel->search([
@@ -73,9 +76,8 @@ class Patients extends BaseController
 		if (count($patientHistory) > 0) {
 			foreach ($patientHistory as &$history) {
 				$history['receipt'] = $receiptsModel->getConsultReceipt($history['consult_id']);
-			}
-
-			echo view('templates/header.php');
+			}	
+			echo view('templates/header.php', $this->logo);
 			return view('pages/patients_history.php', [
 				'patientHistory' => [
 					'data' => $patientHistory,

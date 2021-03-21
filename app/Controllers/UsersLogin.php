@@ -7,7 +7,7 @@ class UsersLogin extends BaseController
 	  $data =[];
 	  helper(['form']);
 
-
+	//echo view('templates/header.php', $this->logo);
 	  echo view('templates/header', $data);
 	  echo view('login', $data);
 	  echo view('templates/footer_login', $data);
@@ -19,7 +19,7 @@ class UsersLogin extends BaseController
 		$data =[];
 		helper(['form']);
   
-  
+		// echo view('templates/header.php', $this->logo);
 		echo view('templates/header', $data);
 		echo view('register', $data);
 		echo view('templates/footer_login', $data);
