@@ -3,11 +3,11 @@
     <div class="inner-wrapper">
         <div class="inner-wrapper">
             <p>Series</p>
-            <input style="width:90px" class="form-control" disabled value="<?php echo $receipt->receipt_series ?>">
+            <input id="receipt_series" style="width:90px" class="form-control" disabled value="<?php echo $receipt->receipt_series ?>">
         </div>
         <div class="inner-wrapper">
             <p>Number</p>
-            <input style="width:60px" class="form-control" disabled value="<?php echo $receipt->receipt_number ?>">
+            <input id="receipt_number" style="width:60px" class="form-control" disabled value="<?php echo $receipt->receipt_number ?>">
         </div>
         <div class="inner-wrapper">
             <p>VAT</p>

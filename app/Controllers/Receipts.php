@@ -11,9 +11,12 @@ use App\Models\CitysModel;
 use App\Models\CountysModel;
 use App\Models\ConsultsExaminationsModel;
 use Dompdf\Dompdf;
+use CodeIgniter\API\ResponseTrait;
 
 class Receipts extends BaseController
 {
+	use ResponseTrait;
+
 	public function view($consult_id)
 	{
 		$receipts = new ReceiptsModel();
@@ -31,7 +34,7 @@ class Receipts extends BaseController
 		$receipt->total_before_vat = 0;
 		$receipt->total_vat = 0;
 		$receipt->total_after_vat = 0;
-		
+
 		foreach ($receipt->receipt_line as $receiptLine) {
 			$receipt->total_before_vat += $receiptLine['price_before_vat'];
 			$receipt->total_vat += $receiptLine['vat'];
@@ -61,9 +64,19 @@ class Receipts extends BaseController
 		$dompdf->stream();
 	}
 
-	public function create($consult_id, $patient_id)
+	public function create($consult_id = 1, $patient_id = 1)
 	{
 		$receiptsModel = new ReceiptsModel();
+
+		if ($this->request->getJSON()) {
+			$receiptsModel->insertReceipt($this->request->getJSON('true'));
+			return $this->respond([
+				'status' => 201,
+				'error' => null,
+				'message' => 'Receipt was successfully created !'
+			]);
+		}
+
 		$clinicModel = new ClinicModel();
 		$companiesModel = new CompaniesModel();
 		$patientsModel = new PatientsModel();
@@ -79,6 +92,7 @@ class Receipts extends BaseController
 			'clinic' => $clinic,
 			'receipt_number' => $receiptNumber,
 			'receipt_series' => $clinic->receipt_series . $receiptNumber,
+			'consult_id' => $consult_id
 		];
 		$data->receipt_line = $this->generateReceiptLine($consult_id, $clinic->vat);
 		$this->calculateTotalPrice($data);
@@ -88,7 +102,8 @@ class Receipts extends BaseController
 		echo view('templates/footer.php');
 	}
 
-	public function generateReceiptLine($consult_id, $vat){
+	public function generateReceiptLine($consult_id, $vat)
+	{
 		$receiptLine = array();
 		$conultExamsModel = new ConsultsExaminationsModel();
 		$examinations = $conultExamsModel->getExaminations($consult_id);

@@ -37,6 +37,18 @@ $routes->match(['get','post'],'/register', 'UsersLogin::register');
 // GET SINGLE COMPANY
 $routes->get('/companies/(:any)', 'Companies::getSingle/$1');
 
+// POST COMPANY
+$routes->post('/companies', 'Companies::insertCompany');
+
+// POST RECEIPT
+$routes->post('/receipts', 'Receipts::create');
+
+// GET COMPANY BUYER ID
+$routes->get('/buyers/companies/(:any)', 'Buyers::getCompanyBuyerId/$1');
+
+// GET PATIENT BUYER ID
+$routes->get('/buyers/persons/(:any)', 'Buyers::getPatientBuyerId/$1');
+
 // GET PATIENTS ROUTE
 $routes->get('/patients/offset/(:any)', 'Patients::index/$1');
 

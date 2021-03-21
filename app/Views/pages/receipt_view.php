@@ -21,7 +21,7 @@
             border-width: thin;
         }
 
-        img{
+        img {
             margin-bottom: 0px;
         }
 
@@ -35,17 +35,17 @@
             align-items: center;
         }
 
-        .wrapper.receipt-line{
+        .wrapper.receipt-line {
             margin-top: -100px;
         }
 
-        .wrapper.receipt-line b {
+        .receipt-line-info span {
             margin-right: 20px;
             background-color: #f2f2f2;
             padding: 0.5rem
         }
 
-        .receipt_field.buyer{
+        .receipt_field.buyer {
             margin-left: 53%;
         }
 
@@ -59,6 +59,9 @@
         }
 
         table {
+            border-style: solid;
+            border-width: thin;
+            border-color: #ced4da;
             border-collapse: collapse;
             width: 100%;
             margin: 1rem 0rem 1rem 0rem;

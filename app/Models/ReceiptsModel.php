@@ -22,4 +22,12 @@ class ReceiptsModel extends Model
 
         return $builder->where('consult_id', $consultId)->get()->getRowObject();
     }
+
+    function insertReceipt($receipt){
+        $db = \Config\Database::connect();
+        $builder = $db->table('receipts');
+
+        $builder->insert($receipt);
+        return $db->insertID();
+    }
 }

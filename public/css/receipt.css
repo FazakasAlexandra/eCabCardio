@@ -1,6 +1,6 @@
 .provider-buyer-wrapper {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .wrapper.receipt-line {
@@ -15,10 +15,22 @@
 .receipt-form {
     width: 1000px;
     margin: 0 auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 1rem;
 
     box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+}
+
+.receipt-form .alert-success{
+    margin-top: -1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.receipt-form .alert-success i{
+    margin-right: 1rem;
 }
 
 .receipt-form p {
@@ -28,7 +40,7 @@
 .receipt-details {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 0.5rem;
+    padding: 0.5rem;
 }
 
 .receipt-details input,
@@ -37,6 +49,9 @@
     margin: 0rem 1.5rem 0rem 0.2rem;
 }
 
+.receipt-form p{
+    text-transform: capitalize;
+}
 .receipt-details .inner-wrapper {
     display: flex;
     align-items: center;
@@ -47,11 +62,19 @@
     width: fit-content;
 }
 
+#person-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .provider-buyer-wrapper {
     margin-bottom: 2rem;
 }
 
 .provider-buyer-wrapper .receipt-field {
+    min-width: 450px;
     border-style: solid;
     border-color: #ced4da;
     border-width: thin;
@@ -120,7 +143,7 @@ span {
     font-size: 1.1rem;
 }
 
-.receipt-form .form-control {
+.receipt-form .input {
     border-width: thin;
     border-color: #6c757d;
 }
@@ -147,8 +170,8 @@ span {
     height: fit-content;
 }
 
-.receipt-form .create {
-    margin-top: 3rem;
+.receipt-form .create-receipt {
+    margin-top: 2rem;
     width: 20%;
     margin-left: 40%;
 }
@@ -159,14 +182,12 @@ span {
 
 #company-field {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 1rem;
-    padding-top: 0;
+    padding: 0rem 1rem 0.5rem;
 }
 
 #company-field select {
-    width: fit-content;
+    width: 50%;
     margin-right: 0.5rem;
     margin-left: 0px;
 }
@@ -174,6 +195,8 @@ span {
 
 #company-field button {
     font-size: 1.1rem;
+    width: 50%;
+    height: 38px;
 }
 
 .selected-company-container {
@@ -186,6 +209,11 @@ span {
 
 .selected-company-container .inner-wrapper {
     margin-right: 0.5rem;
+}
+
+.selected-company-container p{
+    margin-top: 0.5rem;
+    text-transform: capitalize;
 }
 
 .selected-company-container .inner-wrapper:last-child {
@@ -201,11 +229,11 @@ span {
 .provider .inner-wrapper.bank {
     width: 20%;
 }
-
-.provider .inner-wrapper.bank_account{
-    width: 80%;
+.provider .inner-wrapper.bank_account {
+    width: 73%;
 }
 
-.provider .alert{
+
+.provider .alert {
     font-size: 16px;
 }

@@ -46,7 +46,6 @@ export let db = {
             .then(res => res.county)
         }
     },
-    
     companies : {
         fetchCompanies : (companyId) => {
             return fetch(`/ecabcardio/public/companies/${companyId}`)
@@ -54,15 +53,43 @@ export let db = {
             .then(res => res.company)
         },
 
-        postCompany : () => {
-            return
+        postCompany : (company) => {
+            return fetch(`/ecabcardio/public/companies`, {
+                method : "POST",
+                headers : {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(company)
+            })
+            .then(res => res.json())
+            .then(res => res.buyer_id)
         }
     },
-
     receipts : {
-        postReceipt : () => {
-            return
+        postReceipt : (receipt) => {
+            return fetch(`/ecabcardio/public/receipts`, {
+                method : "POST",
+                headers : {
+                    'content-type' : 'application/json'
+                },
+                body: JSON.stringify(receipt)
+            })
+            .then(res => res.json())
+            .then(res => res.receipt_id)
         }
+    },
+    buyers : {
+        getCompanyBuyerId : (companyId) => {
+            return fetch(`/ecabcardio/public/buyers/companies/${companyId}`)
+            .then(res => res.json())
+            .then(res => res.buyer_id)
+        },
+
+        getPatientBuyerId : (patientId) => {
+            return fetch(`/ecabcardio/public/buyers/persons/${patientId}`)
+            .then(res => res.json())
+            .then(res => res.buyer_id)
+        },
     }
 
 }

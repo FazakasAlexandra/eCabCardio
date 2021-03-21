@@ -28,4 +28,11 @@ class CompaniesModel extends Model
 
         return $company;
     }
+
+    function insertCompany($company){
+        $db = \Config\Database::connect();
+        $builder = $db->table('companies');
+        $builder->insert($company);
+        return $db->insertID();
+    }
 }

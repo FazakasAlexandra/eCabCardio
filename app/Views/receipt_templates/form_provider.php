@@ -1,6 +1,6 @@
 <div class="receipt-field provider">
     <h1>Provider</h1>
-    <div class="alert alert-primary"><i class="fas fa-info"></i>If changes are neccessary, conntact your administrator  </div>
+    <div class="alert alert-primary"><i class="fas fa-info"></i>If changes are neccessary, contact your administrator  </div>
     <div class="outer-wrapper">
         <div class="inner-wrapper">
             <p>Clinic name</p>
