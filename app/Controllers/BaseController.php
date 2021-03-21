@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+use App\Models\ClinicModel;
 
 /**
  * Class BaseController
@@ -27,10 +28,20 @@ class BaseController extends Controller
 	 * @var array
 	 */
 	protected $helpers = [];
+	public $logo = array();
 
-	/**
-	 * Constructor.
-	 */
+	public function __construct()
+	{
+		function setLogo(){
+			$clinicmodel = new ClinicModel();
+			$data = $clinicmodel->getLogo();
+			$logo = $data[0];
+			return $logo;
+		};
+
+		$this->logo = setLogo();
+	}
+
 	public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
 	{
 		// Do Not Edit This Line
@@ -43,4 +54,5 @@ class BaseController extends Controller
 		// $this->session = \Config\Services::session();
 	}
 
+	
 }

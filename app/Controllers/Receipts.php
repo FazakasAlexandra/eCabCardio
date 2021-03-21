@@ -77,7 +77,7 @@ class Receipts extends BaseController
 			'receipt_series' => $clinic->receipt_series . $receiptNumber
 		];
 
-		echo view('templates/header.php');
+		echo view('templates/header.php', $this->logo);
 		echo view('pages/receipt_form.php');
 		echo view('templates/footer.php');
 	}

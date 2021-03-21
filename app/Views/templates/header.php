@@ -16,7 +16,7 @@
 
 <header>
 	<nav class="navbar">
-		<a href="/ecabcardio/public/home"><img src="/ecabcardio/public/assets/logo.png" alt="logo" class="navbar logo" /></a>
+		<a href="/ecabcardio/public/home"><img src="/ecabcardio/public/assets/<?= $logo;?>" alt="logo" class="navbar logo" /></a>
 		<ul class="navbar menu">
 			<li class="patients-tab"><a href="/ecabcardio/public/patients">Patients</a> </li>
 			<li class="history-tab"><a href="/ecabcardio/public/history">History</a></li>
@@ -26,6 +26,7 @@
 			<li><a href="http://localhost/ecabcardio/public/admin/users">Edit Users</a></li>
 			<li><a href="http://localhost/ecabcardio/public/admin/examinations">Edit Examinations</a></li>
 			<li><a href="/ecabcardio/public/">Edit Analysis</a></li>
+			<li><a href="http://localhost/ecabcardio/public/admin/clinic">Office Data</a></li>
 		</ul>
 	</nav>
 </header>

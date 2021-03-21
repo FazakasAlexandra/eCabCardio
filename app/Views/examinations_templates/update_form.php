@@ -13,7 +13,7 @@
             <button class="btn-empty-cells button-blue-dark" type="button" onclick="clearCells()">CLEAR</button>
          </div>
       </div>
-      <form id="form" method="post"  action="http://localhost/ecabcardio/public/admin/updexam">
+      <form id="form" method="post" action="http://localhost/ecabcardio/public/admin/updexam">
          <div class="hidden">
             <label class="form-label" value="">Nr_crt</label>
             <input name="idReceived" type="text" class="form-control" id="id">

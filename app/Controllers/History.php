@@ -9,12 +9,13 @@ class History extends BaseController
 {
 	public function __construct()
 	{
+		parent::__construct();
 		$this->historyModel = new \App\Models\HistoryModel();
 	}
 
 	public function index($error = null)
 	{
-		echo view('templates/header.php');
+		echo view('templates/header.php', $this->logo);
 
 		$receiptsModel = new ReceiptsModel();
 
@@ -57,7 +58,7 @@ class History extends BaseController
 			if($history['receipt']) $total += (int)$history['total'];
 		}
 
-		echo view('templates/header.php');
+		echo view('templates/header.php', $this->logo);
 
 		echo view('pages/clinic_history.php', [
 			'data' => $clinicHistory,
