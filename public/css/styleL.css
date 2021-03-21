@@ -343,7 +343,11 @@
 }
 .clinic-form-col img{
    margin-right: auto;
+<<<<<<< HEAD
    margin-top: 1rem;   
+=======
+   margin-left: auto;
+>>>>>>> b1ea1d933d6afc1210a2416bee979d021f05c0ae
    border:solid rgba(0, 0, 0, 0.25);
    padding: 3px;
    border-radius: 5px;
@@ -372,7 +376,11 @@
 
 .logo-clinic{
     display:flex;
+<<<<<<< HEAD
     flex-direction: column;
+=======
+    flex-direction: row;
+>>>>>>> b1ea1d933d6afc1210a2416bee979d021f05c0ae
     justify-content: space-between;
 }
 
