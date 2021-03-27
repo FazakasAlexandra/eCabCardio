@@ -51,7 +51,7 @@ class Consults extends BaseController
 		if ($request) {
 			if ($this->validateConsult($data)) {
 				$request['patient_id'] = $patientId;
-				$request['doctor_id'] = 5;
+				$request['doctor_id'] = 5; // HARDCODED USER_ID !!
 				$request['date'] = date("Y-m-d");
 
 				$consultId = $this->consultsModel->insertConsult($request);

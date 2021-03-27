@@ -13,4 +13,11 @@ class CountysModel extends Model
 
         return $builder->where('id', $countyId)->get()->getRowObject();
     }
+
+    function getCounties(){
+        $db = \Config\Database::connect();
+        $builder = $db->table('countys');
+
+        return $builder->get()->getResultArray();
+    }
 }

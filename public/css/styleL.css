@@ -151,7 +151,8 @@
 }
 
 .exam-form-text .fas,
-.patient-form .fas{
+.patient-form .fas,
+.provider .fas{
     padding: 0.6rem 1rem;
     background-color: #57b0f16b;
     border-radius: 100%;
@@ -186,12 +187,12 @@
     margin: auto;
 }
 
-.form-control {
+/* .form-control {
     width: 80%;
     margin: auto;
     border: 2px solid black;
     border-radius: 2px;
-}
+} */
 
 .form-label {
     margin-top: 20px;
@@ -267,7 +268,7 @@
     position: absolute;
     right:0;
     background: #57B0F1;
-    top: 70px;
+    top: 80px;
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
 }
@@ -342,7 +343,11 @@
 }
 .clinic-form-col img{
    margin-right: auto;
+<<<<<<< HEAD
+   margin-top: 1rem;   
+=======
    margin-left: auto;
+>>>>>>> b1ea1d933d6afc1210a2416bee979d021f05c0ae
    border:solid rgba(0, 0, 0, 0.25);
    padding: 3px;
    border-radius: 5px;
@@ -371,7 +376,11 @@
 
 .logo-clinic{
     display:flex;
+<<<<<<< HEAD
+    flex-direction: column;
+=======
     flex-direction: row;
+>>>>>>> b1ea1d933d6afc1210a2416bee979d021f05c0ae
     justify-content: space-between;
 }
 

@@ -6,6 +6,7 @@ use App\Models\PatientsModel;
 use App\Models\HistoryModel;
 use App\Models\ReceiptsModel;
 use CodeIgniter\API\ResponseTrait;
+use App\Models\BuyersModel;
 
 class Patients extends BaseController
 {
@@ -72,11 +73,10 @@ class Patients extends BaseController
 		$patientHistory = $this->historyModel->getPatientHistory($id);
 		$receiptsModel = new ReceiptsModel();
 
-		if(count($patientHistory) > 0){
+		if (count($patientHistory) > 0) {
 			foreach ($patientHistory as &$history) {
 				$history['receipt'] = $receiptsModel->getConsultReceipt($history['consult_id']);
-			}
-		
+			}	
 			echo view('templates/header.php', $this->logo);
 			return view('pages/patients_history.php', [
 				'patientHistory' => [
@@ -110,7 +110,7 @@ class Patients extends BaseController
 		if (!$validation->run($data)) {
 			return false;
 		}
-		
+
 		return true;
 	}
 
@@ -126,8 +126,11 @@ class Patients extends BaseController
 
 	public function post()
 	{
+		$buyersModel = new BuyersModel();
+
 		if ($this->validatePatient($this->request->getPost())) {
 			$patientId = $this->patientsModel->postPatient($this->request->getPost());
+			$buyersModel->insertBuyer(['patient_id' => $patientId]);
 			$this->index(0, 'asc', false, "Patient added !", $patientId);
 		} else {
 			$this->index(0, 'asc', true, "All fields are required !");

@@ -1,9 +1,9 @@
 <!-- RECEIPT LINE TABLE  -->
 <div class="wrapper receipt-line">
-    <div>
-        <span>Receipt series </span><b><?php echo $receipt->receipt_line[0]['receipt_series'] ?></b>
-        <span>Receipt number </span><b><?php echo $receipt->receipt_line[0]['receipt_number'] ?></b>
-        <span>VAT percentage </span><b><?php echo $receipt->receipt_line[0]['vat_percentage'] ?> % </b>
+    <div class="receipt-line-info">
+        <b>Receipt series </b><span><?php echo $receipt->receipt_line[0]['receipt_series'] ?></span>
+        <b>Receipt number </b><span><?php echo $receipt->receipt_line[0]['receipt_number'] ?></span>
+        <b>VAT percentage </b><span><?php echo $receipt->receipt_line[0]['vat_percentage'] ?> % </span>
     </div>
     <table class="history-table">
         <tr>
@@ -27,9 +27,9 @@
 
         <?php endforeach; ?>
     </table>
-    <div>
-        <span>Total before VAT </span><b><?php echo $receipt->total_before_vat ?> lei</b>
-        <span>Total VAT </span><b><?php echo $receipt->total_vat ?> lei</b>
-        <span>Total after VAT </span><b><?php echo $receipt->total_after_vat ?> lei</b>
+    <div class="receipt-line-info">
+        <b>Total before VAT </b><span><?php echo $receipt->total_before_vat ?> lei</span>
+        <b>Total VAT </b><span><?php echo $receipt->total_vat ?> lei</span>
+        <b>Total after VAT </b><span><?php echo $receipt->total_after_vat ?> lei</span>
     </div>
 </div>

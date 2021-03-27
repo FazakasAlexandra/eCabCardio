@@ -1,0 +1,240 @@
+.provider-buyer-wrapper {
+    display: flex;
+    justify-content: space-around;
+}
+
+.wrapper.receipt-line {
+    display: flex;
+    flex-direction: column;
+}
+
+.provider-buyer-wrapper .outer-wrapper {
+    display: flex;
+}
+
+.receipt-form {
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    padding: 1rem;
+
+    box-shadow: 0px 0px 3px 1px rgb(0 0 0 / 15%);
+}
+
+.receipt-form .alert-success{
+    margin-top: -1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receipt-form .alert-success i{
+    margin-right: 1rem;
+}
+
+.receipt-form p {
+    margin: 0px;
+}
+
+.receipt-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.receipt-details input,
+.receipt-line-total input {
+    height: 30px;
+    margin: 0rem 1.5rem 0rem 0.2rem;
+}
+
+.receipt-form p{
+    text-transform: capitalize;
+}
+.receipt-details .inner-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.receipt-details .inner-wrapper.date input {
+    margin: 0rem 0rem 0rem 0.5rem;
+    width: fit-content;
+}
+
+#person-field{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.provider-buyer-wrapper {
+    margin-bottom: 2rem;
+}
+
+.provider-buyer-wrapper .receipt-field {
+    min-width: 450px;
+    border-style: solid;
+    border-color: #ced4da;
+    border-width: thin;
+}
+
+.provider-buyer-wrapper .outer-wrapper {
+    padding: 0.5rem 1rem 0rem 1rem;
+}
+
+.provider-buyer-wrapper .receipt-field .outer-wrapper:last-child {
+    margin-bottom: 1rem;
+}
+
+.provider-buyer-wrapper h1 {
+    background-color: #2E3A59;
+    color: white;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.5rem 0rem;
+    margin: 0px;
+}
+
+.receipt-line-total {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.receipt-line-total input:last-child {
+    margin-right: 0px;
+}
+
+.receipt-form p,
+span {
+    font-size: 1rem;
+}
+
+.receipt-form input {
+    font-size: 1rem;
+}
+
+.receipt-form table {
+    border-style: solid;
+    border-width: thin;
+    border-color: #ced4da;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1rem 0rem 1rem 0rem;
+}
+
+.receipt-form th,
+.receipt-form td {
+    text-align: center;
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.receipt-form tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.receipt-form th {
+    background-color: #2E3A59;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.receipt-form .input {
+    border-width: thin;
+    border-color: #6c757d;
+}
+
+.receipt-field.buyer-type .type-wrapper p {
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+
+.receipt-field.buyer-type .radio-buttons-wrapper {
+    margin-left: 2rem;
+}
+
+.receipt-field.buyer-type .radio-buttons-wrapper input {
+    margin-right: 0.5rem;
+}
+
+.receipt-field.buyer-type hr {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.receipt-field {
+    height: fit-content;
+}
+
+.receipt-form .create-receipt {
+    margin-top: 2rem;
+    width: 20%;
+    margin-left: 40%;
+}
+
+.receipt-field .inner-wrapper:nth-child(1) {
+    margin-right: 0.5rem;
+}
+
+#company-field {
+    display: flex;
+    align-items: center;
+    padding: 0rem 1rem 0.5rem;
+}
+
+#company-field select {
+    width: 50%;
+    margin-right: 0.5rem;
+    margin-left: 0px;
+}
+
+
+#company-field button {
+    font-size: 1.1rem;
+    width: 50%;
+    height: 38px;
+}
+
+.selected-company-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 460px;
+    align-items: center;
+    justify-content: center;
+}
+
+.selected-company-container .inner-wrapper {
+    margin-right: 0.5rem;
+}
+
+.selected-company-container p{
+    margin-top: 0.5rem;
+    text-transform: capitalize;
+}
+
+.selected-company-container .inner-wrapper:last-child {
+    width: 92%;
+    margin-bottom: 1rem;
+}
+
+.selected-company-container .inner-wrapper.bank_account {
+    width: 70%;
+}
+
+.selected-company-container .inner-wrapper.bank,
+.provider .inner-wrapper.bank {
+    width: 20%;
+}
+.provider .inner-wrapper.bank_account {
+    width: 73%;
+}
+
+
+.provider .alert {
+    font-size: 16px;
+}

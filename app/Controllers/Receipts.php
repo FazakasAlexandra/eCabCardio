@@ -8,10 +8,15 @@ use App\Models\CompaniesModel;
 use App\Models\PatientsModel;
 use App\Models\ReceiptsLineModel;
 use App\Models\CitysModel;
+use App\Models\CountysModel;
+use App\Models\ConsultsExaminationsModel;
 use Dompdf\Dompdf;
+use CodeIgniter\API\ResponseTrait;
 
 class Receipts extends BaseController
 {
+	use ResponseTrait;
+
 	public function view($consult_id)
 	{
 		$receipts = new ReceiptsModel();
@@ -59,34 +64,60 @@ class Receipts extends BaseController
 		$dompdf->stream();
 	}
 
-	public function create($consult_id, $patient_id)
+	public function create($consult_id = 1, $patient_id = 1)
 	{
 		$receiptsModel = new ReceiptsModel();
+
+		if ($this->request->getJSON()) {
+			$receiptsModel->insertReceipt($this->request->getJSON('true'));
+			return $this->respond([
+				'status' => 201,
+				'error' => null,
+				'message' => 'Receipt was successfully created !'
+			]);
+		}
+
 		$clinicModel = new ClinicModel();
 		$companiesModel = new CompaniesModel();
 		$patientsModel = new PatientsModel();
-
+		$countiesModel = new CountysModel();
 		$clinic = $clinicModel->getClinicData();
+
 		$receiptNumber = count($receiptsModel->getReceipts()) + 1;
 
-		$data = [
+		$data = (object)[
+			'counties' => $countiesModel->getCounties(),
 			'companies' => $companiesModel->getCompanies(),
 			'patient' => $patientsModel->getSingle($patient_id),
 			'clinic' => $clinic,
 			'receipt_number' => $receiptNumber,
-			'receipt_series' => $clinic->receipt_series . $receiptNumber
+			'receipt_series' => $clinic->receipt_series . $receiptNumber,
+			'consult_id' => $consult_id
 		];
+		$data->receipt_line = $this->generateReceiptLine($consult_id, $clinic->vat);
+		$this->calculateTotalPrice($data);
 
 		echo view('templates/header.php', $this->logo);
-		echo view('pages/receipt_form.php');
+		echo view('pages/receipt_form.php', ['receipt' => $data]);
 		echo view('templates/footer.php');
 	}
 
-
-	public function removeBuyerFields($object, $fields)
+	public function generateReceiptLine($consult_id, $vat)
 	{
-		foreach ($fields as &$field) {
-			unset($object[$field]);
+		$receiptLine = array();
+		$conultExamsModel = new ConsultsExaminationsModel();
+		$examinations = $conultExamsModel->getExaminations($consult_id);
+
+		foreach ($examinations as $exam) {
+			$line = array();
+			$line['examination_name'] = $exam['name'];
+			$line['price_before_vat'] = $exam['price'];
+			$line['vat'] = (($exam['price'] * $vat) / 100);
+			$line['price_with_vat'] = $exam['price'] * (1 + ($vat / 100));
+			$line['quantity'] = 1;
+			$line['measurement'] = 'unit';
+			array_push($receiptLine, $line);
 		}
+		return $receiptLine;
 	}
 }
