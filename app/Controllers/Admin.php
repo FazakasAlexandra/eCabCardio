@@ -196,8 +196,14 @@ class Admin extends BaseController
 
 		$model = new ClinicModel();
 		if($this->request->getMethod()=='post'){
+			$rules = [
+				'logo' => [
+					'rules' => 'ext_in[logo,png]',
+					'label' => 'logo'
+				]
+		   ];
 
-			if($_POST['logo'] == ''){
+		   if($_POST['logo'] == ''){
 				$newdata = [
 					'logo' => $this->logo,
 					'clinic_name' => $_POST['name'],
@@ -212,60 +218,36 @@ class Admin extends BaseController
 					'receipt_series' => $_POST['receipt-series'],
 					'address' => $_POST['address']
 				];
-			}else{
 
-
-				//$rules = [
-				// 	'logo' => [
-				//		 'rules' => 'uploaded[theFile]',
-				//		 'label' => 'The Logo'
-				//	 ]
-				//];	
+				$model->save($newdata);
 				
-				//$validation->setRules([
-				// 	'logo' => 'is_image[logo]',
-				// ]);
-				// $validation =  \Config\Services::validation();
-				// $result = $validation->check($_POST['logo'], 'ext_in[logo, png]');
-				// var_dump($result);
-				// die();
-				//if($this->validate($rules)){
-				//$file = $this->request->getFile('logo');
-				$newdata = [
-					'logo' => $_POST['logo'],
-					'clinic_name' => $_POST['name'],
-					'id' => 1,
-					'fiscal_number' => $_POST['fiscal-no'],
-					'orc_number' => $_POST['orc-no'],
-					'phone' => $_POST['tel-no'],
-					'fax' => $_POST['fax-no'],
-					'bank_account' => $_POST['bank-account'],
-					'bank' => $_POST['bank'],
-					'vat' => $_POST['vat-no'],
-					'receipt_series' => $_POST['receipt-series'],
-					'address' => $_POST['address']
-				];	
-					// var_dump($newdata);
-					// die();
-				//}else{
+			}else{
+				if($this->validate($rules)){
+					$newdata = [
+						'logo' => $_POST['logo'],
+						'clinic_name' => $_POST['name'],
+						'id' => 1,
+						'fiscal_number' => $_POST['fiscal-no'],
+						'orc_number' => $_POST['orc-no'],
+						'phone' => $_POST['tel-no'],
+						'fax' => $_POST['fax-no'],
+						'bank_account' => $_POST['bank-account'],
+						'bank' => $_POST['bank'],
+						'vat' => $_POST['vat-no'],
+						'receipt_series' => $_POST['receipt-series'],
+						'address' => $_POST['address']
+					];	
 
-				// 	var_dump($this->validator);
-				// 	die();
-				// 	$data = $model->getClinicData();
-				// 	$info = [
-				// 		'data' => $data,
-				// 		'message' => 'error',
-				// 		'logo' => $this->logo
-				// 	];
-
-				// 	echo view('templates/header.php', $this->logo);
-				// 	return view('pages/clinic.php', $info);
-				// 	die();
-				// }
+					$file = $this->request->getFiles();
+					if($file->isValid() && !$file->hasMoved()){
+						$file->move('assets', $file);
+					};
+					$model->save($newdata);
+				}else{
+					var_dump($this->validator);
+				}
+			
 			}
-
-			$model->save($newdata);}
-
 			$data = $model->getClinicData();
 
 		$info = [
@@ -273,7 +255,9 @@ class Admin extends BaseController
 			'message' => 'The data has been successfully updated',
 		    'logo' => $this->logo
 		];
+
 		echo view('templates/header.php', $this->logo);
 		return view('pages/clinic.php', $info);
+		}
 	}
 }
