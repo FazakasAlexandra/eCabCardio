@@ -6,7 +6,8 @@
         <?php if($message): ?>
                   <div class="alert alert-primary" role="alert"><?= $message ?></div>
         <?php endif; ?>
-<form class="clinic-form" method="post" action="http://localhost/ecabcardio/public/admin/updclinic">
+<!-- enctype="multipart/form-data" necessary for a form with files. If not present, $this->request->getFiles() is empty -->
+<form class="clinic-form" method="post" action="http://localhost/ecabcardio/public/admin/updclinic" enctype="multipart/form-data">
     <div class="row clinic-form-row">
         <div class="col form-group clinic-form-col">
             <label for="name">Name</label>

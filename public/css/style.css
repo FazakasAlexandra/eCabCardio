@@ -753,10 +753,7 @@ td:nth-child(6) {
 }
 
 @keyframes grow {
-    from {
-        padding: 0.8rem;
-        padding: 0.8rem
-    }
+
 
     to {
         padding: 1rem;
