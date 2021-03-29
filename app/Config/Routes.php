@@ -91,8 +91,20 @@ $routes->post('/consults/(:any)/files', 'Consults::storeConsultFiles/$1');
 // GET SINGLE CONSULT 
 $routes->get('/consults/(:any)', 'Consults::getSingleConsult/$1');
 
-// ADMIN ROUTES FOR UPDATING FILES
+// ADMIN ROUTES FOR UPDATING EXAMINATIONS
+$routes->get('/admin/examinations', 'Admin::examinations');
+$routes->get('/admin/updexam', 'Admin::updexam');
+$routes->get('/admin/addexam', 'Admin::addexam');
 $routes->get('/admin/examinations/dltexam/(:any)', 'Admin::dltexam/$1');
+
+// ADMIN ROUTES FOR UPDATING USERS
+$routes->get('/admin/users', 'Admin::users');
+$routes->get('/admin/users/updaterole/(:any)', 'Admin::updaterole/$1');
+$routes->get('/admin/users/dltuser/(:any)', 'Admin::dltuser/$1');
+
+// ADMIN ROUTES FOR UPDATING USERS
+$routes->get('/admin/clinic', 'Admin::clinic');
+$routes->get('/admin/updclinic', 'Admin::updclinic');
 
 /**
  * --------------------------------------------------------------------

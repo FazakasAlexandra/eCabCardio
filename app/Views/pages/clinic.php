@@ -1,11 +1,14 @@
-
 <div class="container">
 <div class="exam-form-text">
     <p><i class="fas fa-info"></i>Please make sure data is correct when you make the necessary changes and then click the <b>Save Changes</b> button!</p>
 </div>
-        <?php if($message): ?>
-                  <div class="alert alert-primary" role="alert"><?= $message ?></div>
-        <?php endif; ?>
+
+    <?php if($message): ?>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert"><?= $message ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endif; ?>
+
 <!-- enctype="multipart/form-data" necessary for a form with files. If not present, $this->request->getFiles() is empty -->
 <form class="clinic-form" method="post" action="http://localhost/ecabcardio/public/admin/updclinic" enctype="multipart/form-data">
     <div class="row clinic-form-row">
@@ -75,6 +78,5 @@
     </div>
 </form>
 <div>
-
 
 <?php echo view('templates/footer.php'); ?>
